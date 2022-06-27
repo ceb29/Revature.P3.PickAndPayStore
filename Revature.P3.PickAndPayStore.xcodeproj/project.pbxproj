@@ -17,6 +17,11 @@
 		84705D09286A2EB10005B525 /* Revature_P3_PickAndPayStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705D08286A2EB10005B525 /* Revature_P3_PickAndPayStoreTests.swift */; };
 		84705D13286A2EB10005B525 /* Revature_P3_PickAndPayStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705D12286A2EB10005B525 /* Revature_P3_PickAndPayStoreUITests.swift */; };
 		84705D15286A2EB10005B525 /* Revature_P3_PickAndPayStoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705D14286A2EB10005B525 /* Revature_P3_PickAndPayStoreUITestsLaunchTests.swift */; };
+		84A6C973286A3EC60032529A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6C972286A3EC60032529A /* HomeViewController.swift */; };
+		84A6C97C286A4F360032529A /* HomeProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6C97B286A4F360032529A /* HomeProductCollectionViewCell.swift */; };
+		84A6C97E286A4F4F0032529A /* HomePromoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6C97D286A4F4F0032529A /* HomePromoCollectionViewCell.swift */; };
+		84A6C980286A4F710032529A /* HomeRecommendedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6C97F286A4F710032529A /* HomeRecommendedCollectionViewCell.swift */; };
+		84A6C982286A4FCA0032529A /* HomePageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A6C981286A4FCA0032529A /* HomePageStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		84705D0E286A2EB10005B525 /* Revature.P3.PickAndPayStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Revature.P3.PickAndPayStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84705D12286A2EB10005B525 /* Revature_P3_PickAndPayStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revature_P3_PickAndPayStoreUITests.swift; sourceTree = "<group>"; };
 		84705D14286A2EB10005B525 /* Revature_P3_PickAndPayStoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revature_P3_PickAndPayStoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		84A6C972286A3EC60032529A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		84A6C97B286A4F360032529A /* HomeProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		84A6C97D286A4F4F0032529A /* HomePromoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePromoCollectionViewCell.swift; sourceTree = "<group>"; };
+		84A6C97F286A4F710032529A /* HomeRecommendedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendedCollectionViewCell.swift; sourceTree = "<group>"; };
+		84A6C981286A4FCA0032529A /* HomePageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomePageStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,7 @@
 		84705CED286A2EAF0005B525 /* Revature.P3.PickAndPayStore */ = {
 			isa = PBXGroup;
 			children = (
+				84A6C971286A3E960032529A /* HomePage */,
 				84705CEE286A2EAF0005B525 /* AppDelegate.swift */,
 				84705CF0286A2EAF0005B525 /* SceneDelegate.swift */,
 				84705CF2286A2EAF0005B525 /* ViewController.swift */,
@@ -128,6 +139,26 @@
 				84705D14286A2EB10005B525 /* Revature_P3_PickAndPayStoreUITestsLaunchTests.swift */,
 			);
 			path = Revature.P3.PickAndPayStoreUITests;
+			sourceTree = "<group>";
+		};
+		84A6C971286A3E960032529A /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				84A6C976286A4EA50032529A /* HomeCollectionCells */,
+				84A6C972286A3EC60032529A /* HomeViewController.swift */,
+				84A6C981286A4FCA0032529A /* HomePageStoryboard.storyboard */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		84A6C976286A4EA50032529A /* HomeCollectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				84A6C97B286A4F360032529A /* HomeProductCollectionViewCell.swift */,
+				84A6C97D286A4F4F0032529A /* HomePromoCollectionViewCell.swift */,
+				84A6C97F286A4F710032529A /* HomeRecommendedCollectionViewCell.swift */,
+			);
+			path = HomeCollectionCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +268,7 @@
 				84705CFE286A2EB00005B525 /* LaunchScreen.storyboard in Resources */,
 				84705CFB286A2EB00005B525 /* Assets.xcassets in Resources */,
 				84705CF6286A2EAF0005B525 /* Main.storyboard in Resources */,
+				84A6C982286A4FCA0032529A /* HomePageStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,8 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A6C97E286A4F4F0032529A /* HomePromoCollectionViewCell.swift in Sources */,
+				84A6C973286A3EC60032529A /* HomeViewController.swift in Sources */,
+				84A6C97C286A4F360032529A /* HomeProductCollectionViewCell.swift in Sources */,
 				84705CF9286A2EAF0005B525 /* Revature_P3_PickAndPayStore.xcdatamodeld in Sources */,
 				84705CF3286A2EAF0005B525 /* ViewController.swift in Sources */,
+				84A6C980286A4F710032529A /* HomeRecommendedCollectionViewCell.swift in Sources */,
 				84705CEF286A2EAF0005B525 /* AppDelegate.swift in Sources */,
 				84705CF1286A2EAF0005B525 /* SceneDelegate.swift in Sources */,
 			);
