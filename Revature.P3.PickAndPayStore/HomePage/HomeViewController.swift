@@ -27,11 +27,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let currentCell : UICollectionViewCell
         switch collectionView.restorationIdentifier{
         case "homeProducts":
-            currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: <#T##IndexPath#>)
+            currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeProductCell", for: indexPath)
         case "homePromos":
-            currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: <#T##IndexPath#>)
+            currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "homePromoCell", for: indexPath)
         default:
-            currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: <#T##IndexPath#>)
+            currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeRecommendedCell", for: indexPath)
         }
         return currentCell
 
