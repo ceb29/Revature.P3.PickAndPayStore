@@ -10,4 +10,9 @@ import UIKit
 class HomeRecommendedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var recommendedImage: UIImageView!
     @IBOutlet weak var recommendedLabel: UILabel!
+    
+    func configure(homeRecommened : HomeRecommended){
+        recommendedImage.image = UIImage(named : homeRecommened.image)
+        recommendedLabel.text = homeRecommened.name
+    }
 }
