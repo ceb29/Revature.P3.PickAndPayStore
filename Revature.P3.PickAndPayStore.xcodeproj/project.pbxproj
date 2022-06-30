@@ -125,20 +125,7 @@
 		84705CE2286A2EAF0005B525 = {
 			isa = PBXGroup;
 			children = (
-				84FCC18D286E3DC800C86836 /* User+CoreDataClass.swift */,
-				84FCC18E286E3DC800C86836 /* User+CoreDataProperties.swift */,
-				84FCC18F286E3DC800C86836 /* WishlistItem+CoreDataClass.swift */,
-				84FCC190286E3DC800C86836 /* WishlistItem+CoreDataProperties.swift */,
-				84FCC191286E3DC800C86836 /* CartItem+CoreDataClass.swift */,
-				84FCC192286E3DC800C86836 /* CartItem+CoreDataProperties.swift */,
-				84FCC193286E3DC800C86836 /* ItemHistory+CoreDataClass.swift */,
-				84FCC194286E3DC800C86836 /* ItemHistory+CoreDataProperties.swift */,
-				84FCC195286E3DC800C86836 /* Promo+CoreDataClass.swift */,
-				84FCC196286E3DC800C86836 /* Promo+CoreDataProperties.swift */,
-				84FCC197286E3DC800C86836 /* ProductCategory+CoreDataClass.swift */,
-				84FCC198286E3DC800C86836 /* ProductCategory+CoreDataProperties.swift */,
-				84FCC199286E3DC800C86836 /* Product+CoreDataClass.swift */,
-				84FCC19A286E3DC800C86836 /* Product+CoreDataProperties.swift */,
+				84FCC1C9286E494C00C86836 /* Models */,
 				84705CED286A2EAF0005B525 /* Revature.P3.PickAndPayStore */,
 				84705D07286A2EB10005B525 /* Revature.P3.PickAndPayStoreTests */,
 				84705D11286A2EB10005B525 /* Revature.P3.PickAndPayStoreUITests */,
@@ -202,6 +189,35 @@
 				84FCC189286E369C00C86836 /* PastOrderViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		84FCC1C9286E494C00C86836 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84FCC1CA286E495600C86836 /* CoreData */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		84FCC1CA286E495600C86836 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				84FCC18D286E3DC800C86836 /* User+CoreDataClass.swift */,
+				84FCC18E286E3DC800C86836 /* User+CoreDataProperties.swift */,
+				84FCC18F286E3DC800C86836 /* WishlistItem+CoreDataClass.swift */,
+				84FCC190286E3DC800C86836 /* WishlistItem+CoreDataProperties.swift */,
+				84FCC191286E3DC800C86836 /* CartItem+CoreDataClass.swift */,
+				84FCC192286E3DC800C86836 /* CartItem+CoreDataProperties.swift */,
+				84FCC193286E3DC800C86836 /* ItemHistory+CoreDataClass.swift */,
+				84FCC194286E3DC800C86836 /* ItemHistory+CoreDataProperties.swift */,
+				84FCC195286E3DC800C86836 /* Promo+CoreDataClass.swift */,
+				84FCC196286E3DC800C86836 /* Promo+CoreDataProperties.swift */,
+				84FCC197286E3DC800C86836 /* ProductCategory+CoreDataClass.swift */,
+				84FCC198286E3DC800C86836 /* ProductCategory+CoreDataProperties.swift */,
+				84FCC199286E3DC800C86836 /* Product+CoreDataClass.swift */,
+				84FCC19A286E3DC800C86836 /* Product+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
