@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController{
     @IBOutlet weak var bottomPromoImage: UIImageView!
     @IBOutlet weak var welcomeView: UIView!
-    
+    @IBOutlet weak var promoPageControl: UIPageControl!
     var homeCollectionHelper = HomeCollectionHelper()
     
     override func viewDidLoad() {
@@ -23,13 +23,12 @@ class HomeViewController: UIViewController{
 
 extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(1)
         switch collectionView.restorationIdentifier{
         case "homeProducts":
-            print(homeCollectionHelper.productData.count)
             return homeCollectionHelper.productData.count
         case "homePromos":
-            return homeCollectionHelper.productData.count //need to change to promodata
+            promoPageControl.numberOfPages = homeCollectionHelper.promoData.count
+            return homeCollectionHelper.promoData.count //need to change to promodata
         default:
             return homeCollectionHelper.productData.count //need to change to recommended data
         }
@@ -48,6 +47,11 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             return homeCollectionHelper.setupHomeRecommendedCollectionCell(currentCell, indexPath)
         }
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        promoPageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
+    
 }
 
 extension HomeViewController : UISearchBarDelegate{

@@ -10,6 +10,7 @@ import UIKit
 
 class HomeCollectionHelper{
     var productData = HomeProductService.homeProductServiceInstance.getData()
+    var promoData = HomePromoService.homePromoServiceInstance.getData()
     //should recommended even be collection view
 
     func setupHomeProductCollectionCell(_ homeProductCell : HomeProductCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
@@ -19,7 +20,7 @@ class HomeCollectionHelper{
     }
 
     func setupHomePromoCollectionCell(_ homePromoCell : HomePromoCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
-        //homePromoCell.configure(homePromo: productData[indexPath.row])
+        homePromoCell.configure(homePromo: promoData[indexPath.row])
         return setupRoundedCellCorners(homePromoCell)
     }
     
