@@ -15,9 +15,13 @@ class HomeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+    }
+    
+    func setupViews(){
         welcomeView.layer.cornerRadius = 10
         welcomeView.layer.masksToBounds = true
-        bottomPromoImage.image = UIImage(named: "appleAdvertisement") //needs to be in a view model
+        bottomPromoImage.image = UIImage(named: "appleAdvertisement")
     }
 }
 
