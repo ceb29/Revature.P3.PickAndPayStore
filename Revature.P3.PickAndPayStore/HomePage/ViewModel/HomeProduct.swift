@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//product category
 struct HomeProduct{
     var name : String
     var image : String = ""

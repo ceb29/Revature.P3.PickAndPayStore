@@ -8,24 +8,30 @@
 import UIKit
 
 class HomeViewController: UIViewController{
-    var homeCollectionHelper = HomeCollectionHelper()
     @IBOutlet weak var bottomPromoImage: UIImageView!
+    @IBOutlet weak var welcomeView: UIView!
+    
+    var homeCollectionHelper = HomeCollectionHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        welcomeView.layer.cornerRadius = 10
+        welcomeView.layer.masksToBounds = true
         bottomPromoImage.image = UIImage(named: "img1") //needs to be in a view model
     }
 }
 
 extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(1)
         switch collectionView.restorationIdentifier{
         case "homeProducts":
+            print(homeCollectionHelper.productData.count)
             return homeCollectionHelper.productData.count
         case "homePromos":
-            return homeCollectionHelper.promoData.count
+            return homeCollectionHelper.productData.count //need to change to promodata
         default:
-            return homeCollectionHelper.recommendedData.count
+            return homeCollectionHelper.productData.count //need to change to recommended data
         }
     }
     
