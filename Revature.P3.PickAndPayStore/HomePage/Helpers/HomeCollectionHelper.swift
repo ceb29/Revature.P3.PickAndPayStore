@@ -11,7 +11,7 @@ import UIKit
 class HomeCollectionHelper{
     var productData = HomeProductService.homeProductServiceInstance.getData()
     var promoData = HomePromoService.homePromoServiceInstance.getData()
-    //should recommended even be collection view
+    var recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getData()
 
     func setupHomeProductCollectionCell(_ homeProductCell : HomeProductCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
         homeProductCell.configure(homeProduct: productData[indexPath.row])
@@ -25,8 +25,7 @@ class HomeCollectionHelper{
     }
     
     func setupHomeRecommendedCollectionCell(_ homeRecommendedCell : HomeRecommendedCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
-        //homeRecommendedCell.configure(homeRecommended: productData[indexPath.row])
-        //homeRecommendedCell.recommendedImage.image = UIImage(named: recommendedData[indexPath.item])
+        homeRecommendedCell.configure(homeRecommended: recommendedData[indexPath.row])
         return setupRoundedCellCorners(homeRecommendedCell)
     }
 

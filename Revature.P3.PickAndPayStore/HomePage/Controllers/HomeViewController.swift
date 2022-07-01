@@ -30,7 +30,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             promoPageControl.numberOfPages = homeCollectionHelper.promoData.count
             return homeCollectionHelper.promoData.count //need to change to promodata
         default:
-            return homeCollectionHelper.productData.count //need to change to recommended data
+            return homeCollectionHelper.recommendedData.count //need to change to recommended data
         }
     }
     
