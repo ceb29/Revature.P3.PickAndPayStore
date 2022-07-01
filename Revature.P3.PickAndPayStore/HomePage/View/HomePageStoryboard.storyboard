@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundTest1" translatesAutoresizingMaskIntoConstraints="NO" id="RVT-15-niU">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundTest2" translatesAutoresizingMaskIntoConstraints="NO" id="RVT-15-niU">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HYu-rL-bRD">
@@ -127,7 +127,7 @@
                                                 <rect key="frame" x="-1" y="524" width="414" height="221"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7pi-zL-LDj">
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7pi-zL-LDj">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="38"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
@@ -196,47 +196,47 @@
                                                     <outlet property="delegate" destination="ahj-ne-8MP" id="5nq-MF-ba1"/>
                                                 </connections>
                                             </collectionView>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="SpP-73-PHC">
+                                                <rect key="frame" x="48" y="298" width="317" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </pageControl>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="homePromos" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gLc-sd-upw">
-                                                <rect key="frame" x="48" y="149" width="317" height="155"/>
+                                                <rect key="frame" x="64" y="149" width="317" height="155"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="fYV-7t-qVs">
-                                                    <size key="itemSize" width="316" height="156"/>
-                                                    <size key="estimatedItemSize" width="316" height="155"/>
+                                                    <size key="itemSize" width="294" height="149"/>
+                                                    <size key="estimatedItemSize" width="294" height="149"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="homePromoCell" id="X9Y-66-4o3" customClass="HomePromoCollectionViewCell" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="-0.5" width="316" height="156"/>
+                                                        <rect key="frame" x="0.0" y="3" width="294" height="149"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dA2-lb-dmj">
-                                                            <rect key="frame" x="0.0" y="0.0" width="316" height="156"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="294" height="149"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5vi-gP-VWN">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="316" height="156"/>
+                                                                    <rect key="frame" x="10" y="4" width="275" height="141"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="156" id="C9q-pv-YJz"/>
-                                                                        <constraint firstAttribute="width" constant="316" id="LVh-8u-D7i"/>
-                                                                        <constraint firstAttribute="height" constant="156" id="lme-FY-lYa"/>
-                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="316" id="oYu-hY-hC1"/>
+                                                                        <constraint firstAttribute="height" constant="148" id="QOU-FV-T9I"/>
+                                                                        <constraint firstAttribute="width" constant="297" id="ktE-DO-izr"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="5vi-gP-VWN" firstAttribute="top" secondItem="dA2-lb-dmj" secondAttribute="top" id="GSt-p7-eYA"/>
-                                                                <constraint firstItem="5vi-gP-VWN" firstAttribute="leading" secondItem="dA2-lb-dmj" secondAttribute="leading" id="HUT-vl-WoI"/>
-                                                                <constraint firstAttribute="bottom" secondItem="5vi-gP-VWN" secondAttribute="bottom" id="TuM-0r-F5h"/>
-                                                                <constraint firstAttribute="trailing" secondItem="5vi-gP-VWN" secondAttribute="trailing" id="Ywr-U8-Ahe"/>
-                                                                <constraint firstItem="5vi-gP-VWN" firstAttribute="top" secondItem="dA2-lb-dmj" secondAttribute="top" id="e9F-et-wpC"/>
-                                                                <constraint firstItem="5vi-gP-VWN" firstAttribute="leading" secondItem="dA2-lb-dmj" secondAttribute="leading" id="fMH-0h-lxs"/>
-                                                                <constraint firstAttribute="bottom" secondItem="5vi-gP-VWN" secondAttribute="bottom" id="izM-bc-nTL"/>
-                                                                <constraint firstAttribute="trailing" secondItem="5vi-gP-VWN" secondAttribute="trailing" id="tz6-RC-oFH"/>
+                                                                <constraint firstItem="5vi-gP-VWN" firstAttribute="leading" secondItem="dA2-lb-dmj" secondAttribute="leading" constant="10" id="IDd-ze-UZ0"/>
+                                                                <constraint firstAttribute="trailing" secondItem="5vi-gP-VWN" secondAttribute="trailing" constant="9" id="Iam-9e-vwO"/>
+                                                                <constraint firstItem="5vi-gP-VWN" firstAttribute="top" secondItem="dA2-lb-dmj" secondAttribute="top" constant="4" id="TTn-4z-tCM"/>
+                                                                <constraint firstAttribute="bottom" secondItem="5vi-gP-VWN" secondAttribute="bottom" constant="4" id="e8K-6G-Toc"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
-                                                        <size key="customSize" width="316" height="156"/>
+                                                        <size key="customSize" width="294" height="149"/>
                                                         <connections>
                                                             <outlet property="promoImage" destination="5vi-gP-VWN" id="dTu-ZA-9Wu"/>
                                                         </connections>
@@ -247,12 +247,6 @@
                                                     <outlet property="delegate" destination="ahj-ne-8MP" id="fux-zY-a8N"/>
                                                 </connections>
                                             </collectionView>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="SpP-73-PHC">
-                                                <rect key="frame" x="48" y="298" width="317" height="26"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </pageControl>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -313,7 +307,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backgroundTest1" width="1000" height="1000"/>
+        <image name="backgroundTest2" width="1000" height="2000"/>
         <image name="location" catalog="system" width="128" height="118"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

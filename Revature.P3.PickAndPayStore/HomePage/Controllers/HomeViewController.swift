@@ -49,7 +49,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        promoPageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        promoPageControl.currentPage = Int(round(scrollView.contentOffset.x / scrollView.frame.width))
     }
     
 }
