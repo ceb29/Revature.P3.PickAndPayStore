@@ -10,7 +10,7 @@ import Foundation
 class HomeProductService{
     static var homeProductServiceInstance = HomeProductService()
     func getData() -> [HomeProduct]{
-        let productModelData = [ProductModel(name : "Fashion", image: "img1"), ProductModel(name : "Electronics", image: "img1"), ProductModel(name : "Books", image: "img1"), ProductModel(name : "Groceries", image: "img1"), ProductModel(name : "Pets", image: "img1"), ProductModel(name : "Toys", image: "img1"), ProductModel(name : "Automotive", image: "img1") ]
+        let productModelData = [ProductModel(name : "Fashion", image: "fashion"), ProductModel(name : "Electronics", image: "electronics"), ProductModel(name : "Books", image: "books"), ProductModel(name : "Groceries", image: "groceries"), ProductModel(name : "Pets", image: "pets"), ProductModel(name : "Toys", image: "toys"), ProductModel(name : "Automotive", image: "automotive") ]
         var productViewModelData : [HomeProduct] = []
         
         for product in productModelData{

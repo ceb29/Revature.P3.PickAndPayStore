@@ -17,7 +17,7 @@ class HomeViewController: UIViewController{
         super.viewDidLoad()
         welcomeView.layer.cornerRadius = 10
         welcomeView.layer.masksToBounds = true
-        bottomPromoImage.image = UIImage(named: "img1") //needs to be in a view model
+        bottomPromoImage.image = UIImage(named: "appleAdvertisement") //needs to be in a view model
     }
 }
 
