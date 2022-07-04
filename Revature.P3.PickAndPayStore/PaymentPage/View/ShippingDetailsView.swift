@@ -69,6 +69,6 @@ struct ShippingDetailsView : View{
             }
                 .padding(.trailing, 5)
         }
-        .padding(.bottom, 10)
+        .padding()
     }
 }

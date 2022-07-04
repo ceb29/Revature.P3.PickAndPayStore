@@ -49,6 +49,6 @@ struct PaymentDetailsView : View{
             }
                 .padding(.trailing, 5)
         }
-        //.padding(.bottom, 20)
+        .padding()
     }
 }
