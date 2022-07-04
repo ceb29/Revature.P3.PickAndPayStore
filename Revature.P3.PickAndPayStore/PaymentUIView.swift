@@ -13,15 +13,10 @@ struct PaymentUIView: View {
             ShippingDetails()
             PaymentDetails()
             OrderDetails()
-            Button("Place Order"){
-                print("order placed")
-            }
-                .frame(width: 100, height: 40, alignment: .center)
-                .foregroundColor(.white)
-                .background(.blue)
+            PlaceOrderButton()
             Spacer()
         }
-        .background(Image("backgroundTest1"))
+            .background(Image("backgroundTest1"))
         
     }
 }
@@ -176,6 +171,18 @@ struct OrderDetails : View{
             cost += item.price
         }
         return String(cost)
+    }
+}
+
+struct PlaceOrderButton : View{
+    var body: some View{
+        Button("Place Order"){
+            print("order placed")
+        }
+            .frame(width: 100, height: 40, alignment: .center)
+            .foregroundColor(.white)
+            .background(.blue)
+            .cornerRadius(10)
     }
 }
 
