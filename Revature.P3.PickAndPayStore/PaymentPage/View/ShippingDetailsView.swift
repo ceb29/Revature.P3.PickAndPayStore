@@ -27,7 +27,17 @@ struct ShippingDetailsView : View{
                     .multilineTextAlignment(.center)
                     //.frame(width: 300, height: 10)
             }
-            .padding(.trailing, 5)
+                .padding(.trailing, 5)
+            
+            HStack{
+                Text("Address")
+                    .frame(width: 80)
+                TextField("", text: $address)
+                    .textFieldStyle(.roundedBorder)
+                    .multilineTextAlignment(.center)
+                    //.frame(width: 300, height: 10)
+            }
+                .padding(.trailing, 5)
             
             HStack{
                 Text("City")
@@ -37,10 +47,10 @@ struct ShippingDetailsView : View{
                     .multilineTextAlignment(.center)
                     //.frame(width: 300, height: 10)
             }
-            .padding(.trailing, 5)
+                .padding(.trailing, 5)
 
             HStack{
-                Text("Address")
+                Text("State")
                     .frame(width: 80)
                 TextField("", text: $address)
                     .textFieldStyle(.roundedBorder)
