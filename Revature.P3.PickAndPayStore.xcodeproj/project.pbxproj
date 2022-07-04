@@ -189,10 +189,10 @@
 				845655472873640600AFF23A /* ShippingDetailsView.swift */,
 				845655492873645700AFF23A /* PaymentDetailsView.swift */,
 				8456554B2873649800AFF23A /* OrderDetailsView.swift */,
+				84417CD228738A4500207D67 /* ShippingOptionsView.swift */,
 				8456554D287364D700AFF23A /* PlaceOrderButtonView.swift */,
 				8456554F287371C200AFF23A /* ApplePayButtonView.swift */,
 				845655532873732200AFF23A /* PayWithCardButtonView.swift */,
-				84417CD228738A4500207D67 /* ShippingOptionsView.swift */,
 				84417CD62873942A00207D67 /* GoToOrderDetailsButtonView.swift */,
 			);
 			path = View;
