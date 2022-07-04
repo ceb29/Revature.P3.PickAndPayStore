@@ -14,8 +14,6 @@ struct PaymentDetailsView : View{
     @State private var securityCode : String = ""
 
     var body: some View{
-        Text("Payment Details")
-            .font(.system(size: 30))
         VStack{
             HStack{
                 Text("Card Number")
@@ -23,9 +21,9 @@ struct PaymentDetailsView : View{
                 TextField("0000-1111-2222-3333", text: $cardNumber)
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.center)
-                    .frame(width: 250, height: 10)
+                    //.frame(width: 250, height: 10)
             }
-                .padding(5)
+                .padding(.trailing, 5)
             
             HStack{
                 Text("Expiration Date")
@@ -37,9 +35,9 @@ struct PaymentDetailsView : View{
                 TextField("YY", text: $expirationYear)
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.center)
-                    .frame(width: 120, height: 10)
+                    //.frame(width: 120, height: 10)
             }
-                .padding(5)
+                .padding(.trailing, 5)
 
             HStack{
                 Text("Security Code")
@@ -47,10 +45,10 @@ struct PaymentDetailsView : View{
                 TextField("012", text: $securityCode)
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.center)
-                    .frame(width: 250, height: 10)
+                    //.frame(width: 250, height: 10)
             }
-                .padding(5)
+                .padding(.trailing, 5)
         }
-        .padding(.bottom, 20)
+        //.padding(.bottom, 20)
     }
 }

@@ -14,18 +14,20 @@ struct ShippingDetailsView : View{
     @State private var country : String = ""
     
     var body: some View{
+        
         VStack{
-            Text("Shipping Details")
-                .font(.system(size: 30))
+            //Text("Shipping Details")
+            //   .font(.system(size: 30))
+            //    .bold()
             HStack{
                 Text("Zip Code")
                     .frame(width: 80)
                 TextField("", text: $postcode)
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.center)
-                    .frame(width: 300, height: 10)
+                    //.frame(width: 300, height: 10)
             }
-                .padding(5)
+            .padding(.trailing, 5)
             
             HStack{
                 Text("City")
@@ -33,9 +35,9 @@ struct ShippingDetailsView : View{
                 TextField("", text: $city)
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.center)
-                    .frame(width: 300, height: 10)
+                    //.frame(width: 300, height: 10)
             }
-                .padding(5)
+            .padding(.trailing, 5)
 
             HStack{
                 Text("Address")
@@ -43,9 +45,9 @@ struct ShippingDetailsView : View{
                 TextField("", text: $address)
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.center)
-                    .frame(width: 300, height: 10)
+                    //.frame(width: 300, height: 10)
             }
-                .padding(5)
+                .padding(.trailing, 5)
             
             HStack{
                 Text("Country")
@@ -53,10 +55,10 @@ struct ShippingDetailsView : View{
                 TextField("", text: $address)
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.center)
-                    .frame(width: 300, height: 10)
+                    //.frame(width: 300, height: 10)
             }
-                .padding(5)
+                .padding(.trailing, 5)
         }
-        .padding(.bottom, 20)
+        .padding(.bottom, 10)
     }
 }
