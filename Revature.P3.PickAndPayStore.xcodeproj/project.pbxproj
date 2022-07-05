@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BCFBE552874695D0092DF27 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCFBE542874695D0092DF27 /* HistoryView.swift */; };
+		3BCFBE57287469F10092DF27 /* HistoryDetailsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCFBE56287469F10092DF27 /* HistoryDetailsSwiftUIView.swift */; };
 		84705CEF286A2EAF0005B525 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705CEE286A2EAF0005B525 /* AppDelegate.swift */; };
 		84705CF1286A2EAF0005B525 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705CF0286A2EAF0005B525 /* SceneDelegate.swift */; };
 		84705CF3286A2EAF0005B525 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705CF2286A2EAF0005B525 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3BCFBE542874695D0092DF27 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		3BCFBE56287469F10092DF27 /* HistoryDetailsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailsSwiftUIView.swift; sourceTree = "<group>"; };
 		84705CEB286A2EAF0005B525 /* Revature.P3.PickAndPayStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revature.P3.PickAndPayStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84705CEE286A2EAF0005B525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84705CF0286A2EAF0005B525 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BCFBE52287468BF0092DF27 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				3BCFBE53287468CD0092DF27 /* View */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		3BCFBE53287468CD0092DF27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3BCFBE542874695D0092DF27 /* HistoryView.swift */,
+				3BCFBE56287469F10092DF27 /* HistoryDetailsSwiftUIView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		84705CE2286A2EAF0005B525 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +122,7 @@
 		84705CED286A2EAF0005B525 /* Revature.P3.PickAndPayStore */ = {
 			isa = PBXGroup;
 			children = (
+				3BCFBE52287468BF0092DF27 /* History */,
 				84705CEE286A2EAF0005B525 /* AppDelegate.swift */,
 				84705CF0286A2EAF0005B525 /* SceneDelegate.swift */,
 				84705CF2286A2EAF0005B525 /* ViewController.swift */,
@@ -263,7 +285,9 @@
 			files = (
 				84705CF9286A2EAF0005B525 /* Revature_P3_PickAndPayStore.xcdatamodeld in Sources */,
 				84705CF3286A2EAF0005B525 /* ViewController.swift in Sources */,
+				3BCFBE552874695D0092DF27 /* HistoryView.swift in Sources */,
 				84705CEF286A2EAF0005B525 /* AppDelegate.swift in Sources */,
+				3BCFBE57287469F10092DF27 /* HistoryDetailsSwiftUIView.swift in Sources */,
 				84705CF1286A2EAF0005B525 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
