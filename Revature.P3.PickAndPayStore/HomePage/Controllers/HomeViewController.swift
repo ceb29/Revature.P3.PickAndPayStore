@@ -53,9 +53,10 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        promoPageControl.currentPage = Int(round(scrollView.contentOffset.x / scrollView.frame.width))
+        if(scrollView.restorationIdentifier == "homePromos"){
+            promoPageControl.currentPage = Int(round(scrollView.contentOffset.x / scrollView.frame.width))
+        }
     }
-    
 }
 
 extension HomeViewController : UISearchBarDelegate{
