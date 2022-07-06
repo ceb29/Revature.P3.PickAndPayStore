@@ -12,7 +12,7 @@ struct CheckoutPageUIView: View {
         VStack{
             OrderDetailsView()
             ApplePayButtonView()
-            PayWithCardButtonView()
+            PaymentPagesButtonView(label: "Pay With Card", action: {print("pay with card selected")})
             Spacer()
         }
             .background(Image("backgroundTest1"))

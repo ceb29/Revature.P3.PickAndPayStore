@@ -27,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAV-d8-IY4">
-                                                <rect key="frame" x="174" y="1257" width="67" height="31"/>
+                                                <rect key="frame" x="158" y="1257" width="97" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                             </button>
@@ -261,10 +261,10 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="rAV-d8-IY4" firstAttribute="leading" secondItem="dvG-XF-Qih" secondAttribute="leading" constant="174" id="7k9-Gs-CrP"/>
+                                            <constraint firstItem="rAV-d8-IY4" firstAttribute="leading" secondItem="dvG-XF-Qih" secondAttribute="leading" constant="158" id="7k9-Gs-CrP"/>
                                             <constraint firstItem="rAV-d8-IY4" firstAttribute="top" secondItem="dvG-XF-Qih" secondAttribute="top" constant="1257" id="8XB-dw-Zdg"/>
                                             <constraint firstAttribute="bottom" secondItem="rAV-d8-IY4" secondAttribute="bottom" constant="212" id="pZh-3Q-jAF"/>
-                                            <constraint firstAttribute="trailing" secondItem="rAV-d8-IY4" secondAttribute="trailing" constant="173" id="tnZ-Ao-O2O"/>
+                                            <constraint firstAttribute="trailing" secondItem="rAV-d8-IY4" secondAttribute="trailing" constant="159" id="tnZ-Ao-O2O"/>
                                         </constraints>
                                     </view>
                                 </subviews>

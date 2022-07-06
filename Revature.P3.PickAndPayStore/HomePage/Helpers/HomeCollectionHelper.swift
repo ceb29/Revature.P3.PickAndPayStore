@@ -15,7 +15,6 @@ class HomeCollectionHelper{
 
     func setupHomeProductCollectionCell(_ homeProductCell : HomeProductCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
         homeProductCell.configure(homeProduct: productData[indexPath.row])
-        //homeProductCell.productImage.image = UIImage(named: productData[indexPath.item])
         return setupRoundedCellCorners(homeProductCell)
     }
 

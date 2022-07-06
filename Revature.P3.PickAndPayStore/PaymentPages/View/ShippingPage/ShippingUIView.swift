@@ -8,21 +8,28 @@
 import SwiftUI
 
 struct ShippingDetailsUIView: View {
+    @State private var zipCode : String = ""
+    @State private var city : String = ""
+    @State private var address : String = ""
+    @State private var state : String = ""
+    @State private var country : String = ""
+    @State private var shippingSelection: ShippingOption = .standard
+    
     var body: some View {
         VStack{
             Text("Shipping Details")
                .font(.system(size: 30))
                .bold()
             VStack{
-                ShippingDetailsView()
+                ShippingDetailsView(zipCode: $zipCode, city: $city, address: $address, state: $state, country: $country)
             }
                 .background(.white)
                 .cornerRadius(15)
                 .padding()
-            
-            ShippingOptionsView()
+            //ShippingOptionsView()
+            ShippingOptionsPickerView(shippingSelection: $shippingSelection)
             Spacer()
-            GoToOrderDetailsButtonView()
+            PaymentPagesButtonView(label: "Continue", action: {print("continue selected")})
             Spacer()
         }
             .background(Image("backgroundTest1"))
