@@ -17,6 +17,10 @@ struct CardPaymentUIView: View {
     @State private var expirationMonth : String = ""
     @State private var expirationYear : String = ""
     @State private var securityCode : String = ""
+    @State private var cardNumberFlag : Bool = false
+    @State private var securityCodeFlag : Bool = false
+    @State private var zipCodeFlag : Bool = false
+    @State private var placeOrderFlag : Bool = false
     
     var body: some View {
         VStack{
@@ -31,7 +35,8 @@ struct CardPaymentUIView: View {
                 .cornerRadius(15)
                 .padding()
             Spacer()
-            PaymentPagesButtonView(label: "Place Order", action: {print("order placed")})
+            PaymentAlertView(placeOrderFlag: placeOrderFlag, cardNumberFlag: cardNumberFlag, securityCodeFlag: securityCodeFlag, zipCodeFlag: zipCodeFlag)
+            PaymentPagesButtonView(label: "Place Order", action: setAlertText)
             Spacer()
         }
             .background(Image("backgroundTest1"))
@@ -43,3 +48,14 @@ struct CardPaymentUIView_Previews: PreviewProvider {
         CardPaymentUIView()
     }
 }
+
+extension CardPaymentUIView{
+    func setAlertText(){
+        let cardPaymentAlertHelper = CardPaymentAlertHelper()
+        placeOrderFlag = true
+        cardNumberFlag = cardPaymentAlertHelper.isValidCardNumber(cardNumber: cardNumber)
+        securityCodeFlag = cardPaymentAlertHelper.isValidSecurityCode(securityCode: securityCode)
+        zipCodeFlag = cardPaymentAlertHelper.isValidZipCode(zipCode: zipCode)
+    }
+}
+

@@ -15,7 +15,6 @@ struct ShippingDetailsView : View{
     @Binding var country : String
     
     var body: some View{
-        
         VStack{
             PaymentTextFieldView(label: "Zip Code", labelWidth: 80, placeholder: "", content: $zipCode)
             PaymentTextFieldView(label: "Address", labelWidth: 80, placeholder: "", content: $city)

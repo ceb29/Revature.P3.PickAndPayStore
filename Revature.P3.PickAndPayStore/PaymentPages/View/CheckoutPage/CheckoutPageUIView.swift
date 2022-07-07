@@ -11,7 +11,6 @@ struct CheckoutPageUIView: View {
     var body: some View {
         VStack{
             OrderDetailsView()
-            ApplePayButtonView()
             PaymentPagesButtonView(label: "Pay With Card", action: {print("pay with card selected")})
             Spacer()
         }

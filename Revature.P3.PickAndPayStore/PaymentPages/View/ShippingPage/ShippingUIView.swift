@@ -14,6 +14,8 @@ struct ShippingDetailsUIView: View {
     @State private var state : String = ""
     @State private var country : String = ""
     @State private var shippingSelection: ShippingOption = .standard
+    @State private var zipCodeFlag : Bool = false
+    @State private var continueFlag : Bool = false
     
     var body: some View {
         VStack{
@@ -29,7 +31,8 @@ struct ShippingDetailsUIView: View {
             //ShippingOptionsView()
             ShippingOptionsPickerView(shippingSelection: $shippingSelection)
             Spacer()
-            PaymentPagesButtonView(label: "Continue", action: {print("continue selected")})
+            ShippingDetailsAlertView(continueFlag: continueFlag, zipCodeFlag: zipCodeFlag)
+            PaymentPagesButtonView(label: "Continue", action: setAlertText)
             Spacer()
         }
             .background(Image("backgroundTest1"))
@@ -41,3 +44,12 @@ struct ShippingDetailsUIView_Previews: PreviewProvider {
         ShippingDetailsUIView()
     }
 }
+
+extension ShippingDetailsUIView{
+    func setAlertText(){
+        let shippingDetailsAlertHelper = ShippingDetailsAlertHelper()
+        continueFlag = true
+        zipCodeFlag = shippingDetailsAlertHelper.isValidZipCode(zipCode: zipCode)
+    }
+}
+

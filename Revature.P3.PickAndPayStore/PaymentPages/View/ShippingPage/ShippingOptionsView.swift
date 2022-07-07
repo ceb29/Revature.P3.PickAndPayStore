@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShippingOptionsView : View{
-    var deliveryItems = ["Standard Shipping 5-10 days: $4.99", "Priority Shipping 3-5 days: $9.99" , "Express Shipping 1-2 days: 14.99"]
+    var deliveryItems = ["Standard Shipping (5-10 days): $4.99", "Priority Shipping (3-5 days): $9.99" , "Express Shipping (1-2 days): 14.99"]
     
     init(){
         UITableView.appearance().contentInset.top = -35 //need to figure out a better way of removing top space from list

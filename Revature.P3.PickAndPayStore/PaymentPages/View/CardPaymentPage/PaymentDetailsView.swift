@@ -15,7 +15,7 @@ struct PaymentDetailsView : View{
 
     var body: some View{
         VStack{
-            PaymentTextFieldView(label: "CardNumber", labelWidth: 130, placeholder: "0000-1111-2222-3333", content: $cardNumber)
+            PaymentTextFieldView(label: "CardNumber", labelWidth: 130, placeholder: "0000111122223333", content: $cardNumber)
             HStack{
                 Text("Expiration Date")
                     .frame(width: 130)
