@@ -12,6 +12,8 @@ struct CardPaymentUIView: View {
     @State private var paymentDetails = PaymentDetails()
     @State private var paymentFlags = PaymentFlags()
     @State private var shippingFlags = ShippingFlags()
+    @State private var monthSelection: MonthOption = .Jan
+    @State private var yearSelection: YearOption = .option1
     
     var body: some View {
         VStack{
@@ -19,7 +21,7 @@ struct CardPaymentUIView: View {
                 .font(.system(size: 30))
                 .bold()
             VStack{
-                PaymentDetailsView(paymentDetails: $paymentDetails)
+                PaymentDetailsView(paymentDetails: $paymentDetails, monthSelection: $monthSelection, yearSelection: $yearSelection)
                 ShippingDetailsView(shippingDetails: $shippingDetails)
             }
                 .background(.white)
