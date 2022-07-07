@@ -20,12 +20,13 @@ struct ShippingDetailsUIView: View {
                .bold()
             VStack{
                 ShippingDetailsView(shippingDetails: $shippingDetails)
+                ShippingOptionsPickerView(shippingSelection: $shippingSelection)
             }
                 .background(.white)
                 .cornerRadius(15)
                 .padding()
             //ShippingOptionsView()
-            ShippingOptionsPickerView(shippingSelection: $shippingSelection)
+            
             Spacer()
             ShippingDetailsAlertView(continueFlag: continueFlag, zipCodeFlag: zipCodeFlag)
             PaymentPagesButtonView(label: "Continue", action: continueToNextPage)

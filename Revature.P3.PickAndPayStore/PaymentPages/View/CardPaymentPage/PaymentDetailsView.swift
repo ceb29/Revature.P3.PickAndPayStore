@@ -19,13 +19,6 @@ struct PaymentDetailsView : View{
             HStack{
                 Text("Expiration Date")
                     .frame(width: 130)
-                /*TextField("MM", text: $paymentDetails.expirationMonth)
-                    .textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 120, height: 10)
-                TextField("YY", text: $paymentDetails.expirationYear)
-                    .textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.center)*/
                 Spacer()
                 Picker("Month", selection: $monthSelection){
                     ForEach(MonthOption.allCases){month in
@@ -34,13 +27,15 @@ struct PaymentDetailsView : View{
                 }
                     .padding(5)
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(.gray, lineWidth: 1))
+                    .pickerStyle(MenuPickerStyle())
                 Picker("Year", selection: $yearSelection){
                     ForEach(YearOption.allCases){year in
                         Text(year.rawValue)
                     }
                 }
-                .padding(5)
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(.gray, lineWidth: 1))
+                    .padding(5)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(.gray, lineWidth: 1))
+                    .pickerStyle(MenuPickerStyle())
                 Spacer()
             }
                 .padding(.trailing, 5)

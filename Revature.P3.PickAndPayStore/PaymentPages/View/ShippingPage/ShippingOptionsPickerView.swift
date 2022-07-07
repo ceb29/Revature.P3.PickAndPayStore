@@ -14,20 +14,17 @@ struct ShippingOptionsPickerView: View {
     var body: some View {
         VStack{
             Text("Delivery Options")
-                .font(.system(size: 30))
-                .bold()
-            VStack{
-                Picker("Shipping Options", selection: $shippingSelection) {
-                    Text("Standard Shipping (5-10 days): $4.99").tag(ShippingOption.standard)
-                    Text("Priority Shipping (3-5 days): $9.99").tag(ShippingOption.priority)
-                    Text("Express Shipping (1-3 days): $14.99").tag(ShippingOption.express)
-                }
-                    .padding()
-                        .pickerStyle(MenuPickerStyle())
+                //font(.system(size: 30))
+                //.bold()
+            Picker("Shipping Options", selection: $shippingSelection) {
+                Text("Standard Shipping (5-10 days): $4.99").tag(ShippingOption.standard)
+                Text("Priority Shipping (3-5 days): $9.99").tag(ShippingOption.priority)
+                Text("Express Shipping (1-3 days): $14.99").tag(ShippingOption.express)
             }
-            .background(.white)
-            .cornerRadius(15)
-            .padding()
+                .padding()
+                .overlay(RoundedRectangle(cornerRadius: 10).stroke(.gray, lineWidth: 1))
+                .pickerStyle(MenuPickerStyle())
         }
+        .padding()
     }
 }
