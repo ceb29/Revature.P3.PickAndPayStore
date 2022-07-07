@@ -10,7 +10,7 @@ import UIKit
 class HomePromoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var promoImage: UIImageView!
     
-    func configure(homePromo : HomePromo){
+    func configure(homePromo : PromoViewModel){
         promoImage.image = UIImage(named : homePromo.image)
     }
 }

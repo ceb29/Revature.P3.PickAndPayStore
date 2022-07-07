@@ -9,11 +9,11 @@ import Foundation
 
 class HomePromoService{
     static var homePromoServiceInstance = HomePromoService()
-    func getData() -> [HomePromo]{
+    func getData() -> [PromoViewModel]{
         let promoModelData = [PromoModel(image: "xbox1"), PromoModel(image: "xbox1"), PromoModel(image: "xbox1"), PromoModel(image: "xbox1"), PromoModel(image: "xbox1")]
-        var promoViewModelData : [HomePromo] = []
+        var promoViewModelData : [PromoViewModel] = []
         for product in promoModelData{
-            promoViewModelData.append(HomePromo(image: product.image))
+            promoViewModelData.append(PromoViewModel(image: product.image))
         }
         return promoViewModelData
     }
