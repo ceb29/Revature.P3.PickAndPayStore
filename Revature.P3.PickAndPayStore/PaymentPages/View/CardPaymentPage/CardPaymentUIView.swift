@@ -8,19 +8,10 @@
 import SwiftUI
 
 struct CardPaymentUIView: View {
-    @State private var zipCode : String = ""
-    @State private var city : String = ""
-    @State private var address : String = ""
-    @State private var state : String = ""
-    @State private var country : String = ""
-    @State private var cardNumber : String = ""
-    @State private var expirationMonth : String = ""
-    @State private var expirationYear : String = ""
-    @State private var securityCode : String = ""
-    @State private var cardNumberFlag : Bool = false
-    @State private var securityCodeFlag : Bool = false
-    @State private var zipCodeFlag : Bool = false
-    @State private var placeOrderFlag : Bool = false
+    @State private var shippingDetails = ShippingDetails()
+    @State private var paymentDetails = PaymentDetails()
+    @State private var paymentFlags = PaymentFlags()
+    @State private var shippingFlags = ShippingFlags()
     
     var body: some View {
         VStack{
@@ -28,15 +19,15 @@ struct CardPaymentUIView: View {
                 .font(.system(size: 30))
                 .bold()
             VStack{
-                PaymentDetailsView(cardNumber: $cardNumber, expirationMonth: $expirationMonth, expirationYear: $expirationYear, securityCode: $securityCode)
-                ShippingDetailsView(zipCode: $zipCode, city: $city, address: $address, state: $state, country: $country)
+                PaymentDetailsView(paymentDetails: $paymentDetails)
+                ShippingDetailsView(shippingDetails: $shippingDetails)
             }
                 .background(.white)
                 .cornerRadius(15)
                 .padding()
             Spacer()
-            PaymentAlertView(placeOrderFlag: placeOrderFlag, cardNumberFlag: cardNumberFlag, securityCodeFlag: securityCodeFlag, zipCodeFlag: zipCodeFlag)
-            PaymentPagesButtonView(label: "Place Order", action: setAlertText)
+            PaymentAlertView(paymentFlags: paymentFlags, shippingFlags : shippingFlags)
+            PaymentPagesButtonView(label: "Place Order", action: placeOrder)
             Spacer()
         }
             .background(Image("backgroundTest1"))
@@ -50,12 +41,18 @@ struct CardPaymentUIView_Previews: PreviewProvider {
 }
 
 extension CardPaymentUIView{
+    func placeOrder(){
+        setAlertText()
+        if paymentFlags.cardNumberFlag && paymentFlags.securityCodeFlag && shippingFlags.zipCodeFlag{
+            print("successfully placed order")
+        }
+    }
     func setAlertText(){
         let cardPaymentAlertHelper = CardPaymentAlertHelper()
-        placeOrderFlag = true
-        cardNumberFlag = cardPaymentAlertHelper.isValidCardNumber(cardNumber: cardNumber)
-        securityCodeFlag = cardPaymentAlertHelper.isValidSecurityCode(securityCode: securityCode)
-        zipCodeFlag = cardPaymentAlertHelper.isValidZipCode(zipCode: zipCode)
+        paymentFlags.placeOrderFlag = true
+        paymentFlags.cardNumberFlag = cardPaymentAlertHelper.isValidCardNumber(cardNumber: paymentDetails.cardNumber)
+        paymentFlags.securityCodeFlag = cardPaymentAlertHelper.isValidSecurityCode(securityCode: paymentDetails.securityCode)
+        shippingFlags.zipCodeFlag = cardPaymentAlertHelper.isValidZipCode(zipCode: shippingDetails.zipCode)
     }
 }
 

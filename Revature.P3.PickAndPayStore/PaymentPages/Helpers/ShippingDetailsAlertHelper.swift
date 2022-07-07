@@ -5,7 +5,7 @@
 //  Created by admin on 7/7/22.
 //
 
-import SwiftUI
+import Foundation
 
 struct ShippingDetailsAlertHelper{
     func isValidZipCode(zipCode: String) -> Bool{

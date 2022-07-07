@@ -5,10 +5,10 @@
 //  Created by admin on 7/6/22.
 //
 
-import SwiftUI
+import Foundation
 
 class OrderDetailsService{
-    static var OrderDetailsServiceInstance = OrderDetailsService()
+    static var orderDetailsServiceInstance = OrderDetailsService()
     func getData() -> [CheckoutItem]{
         //need get data from model first
         //then use view model

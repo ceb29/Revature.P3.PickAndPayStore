@@ -5,7 +5,7 @@
 //  Created by admin on 7/7/22.
 //
 
-import SwiftUI
+import Foundation
 
 struct CardPaymentAlertHelper{
     func isValidCardNumber(cardNumber: String) -> Bool{

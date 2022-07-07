@@ -5,7 +5,7 @@
 //  Created by admin on 7/6/22.
 //
 
-import SwiftUI
+import Foundation
 
 enum ShippingOption: String, CaseIterable, Identifiable {
     case standard, priority, express

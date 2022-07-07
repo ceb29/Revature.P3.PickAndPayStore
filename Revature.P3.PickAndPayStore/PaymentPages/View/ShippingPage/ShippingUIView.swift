@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct ShippingDetailsUIView: View {
-    @State private var zipCode : String = ""
-    @State private var city : String = ""
-    @State private var address : String = ""
-    @State private var state : String = ""
-    @State private var country : String = ""
-    @State private var shippingSelection: ShippingOption = .standard
+    @State private var shippingDetails = ShippingDetails()
+    @State private var shippingSelection : ShippingOption = .standard
     @State private var zipCodeFlag : Bool = false
     @State private var continueFlag : Bool = false
     
@@ -23,7 +19,7 @@ struct ShippingDetailsUIView: View {
                .font(.system(size: 30))
                .bold()
             VStack{
-                ShippingDetailsView(zipCode: $zipCode, city: $city, address: $address, state: $state, country: $country)
+                ShippingDetailsView(shippingDetails: $shippingDetails)
             }
                 .background(.white)
                 .cornerRadius(15)
@@ -32,7 +28,7 @@ struct ShippingDetailsUIView: View {
             ShippingOptionsPickerView(shippingSelection: $shippingSelection)
             Spacer()
             ShippingDetailsAlertView(continueFlag: continueFlag, zipCodeFlag: zipCodeFlag)
-            PaymentPagesButtonView(label: "Continue", action: setAlertText)
+            PaymentPagesButtonView(label: "Continue", action: continueToNextPage)
             Spacer()
         }
             .background(Image("backgroundTest1"))
@@ -46,10 +42,17 @@ struct ShippingDetailsUIView_Previews: PreviewProvider {
 }
 
 extension ShippingDetailsUIView{
+    func continueToNextPage(){
+        setAlertText()
+        if zipCodeFlag{
+            print("continue to next page")
+        }
+    }
+    
     func setAlertText(){
         let shippingDetailsAlertHelper = ShippingDetailsAlertHelper()
         continueFlag = true
-        zipCodeFlag = shippingDetailsAlertHelper.isValidZipCode(zipCode: zipCode)
+        zipCodeFlag = shippingDetailsAlertHelper.isValidZipCode(zipCode: shippingDetails.zipCode)
     }
 }
 

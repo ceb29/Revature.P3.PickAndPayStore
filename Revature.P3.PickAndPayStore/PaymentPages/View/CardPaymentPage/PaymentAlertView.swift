@@ -8,20 +8,18 @@
 import SwiftUI
 
 struct PaymentAlertView : View{
-    var placeOrderFlag : Bool
-    var cardNumberFlag : Bool
-    var securityCodeFlag : Bool
-    var zipCodeFlag : Bool
+    var paymentFlags : PaymentFlags
+    var shippingFlags : ShippingFlags
     
     var body: some View{
-        if placeOrderFlag{
-            if !cardNumberFlag{
+        if paymentFlags.placeOrderFlag{
+            if !paymentFlags.cardNumberFlag{
                 Text("Card Number must be 16 digits")
             }
-            else if !securityCodeFlag{
+            else if !paymentFlags.securityCodeFlag{
                 Text("Security Code must be 3 digits")
             }
-            else if !zipCodeFlag{
+            else if !shippingFlags.zipCodeFlag{
                 Text("Zip Code must be 5 digits")
             }
         }

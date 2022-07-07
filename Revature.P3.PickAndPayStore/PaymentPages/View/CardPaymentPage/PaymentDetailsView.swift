@@ -8,27 +8,24 @@
 import SwiftUI
 
 struct PaymentDetailsView : View{
-    @Binding var cardNumber : String
-    @Binding var expirationMonth : String
-    @Binding var expirationYear : String
-    @Binding var securityCode : String
+    @Binding var paymentDetails : PaymentDetails
 
     var body: some View{
         VStack{
-            PaymentTextFieldView(label: "CardNumber", labelWidth: 130, placeholder: "0000111122223333", content: $cardNumber)
+            PaymentTextFieldView(label: "CardNumber", labelWidth: 130, placeholder: "0000111122223333", content: $paymentDetails.cardNumber)
             HStack{
                 Text("Expiration Date")
                     .frame(width: 130)
-                TextField("MM", text: $expirationMonth)
+                TextField("MM", text: $paymentDetails.expirationMonth)
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.center)
                     .frame(width: 120, height: 10)
-                TextField("YY", text: $expirationYear)
+                TextField("YY", text: $paymentDetails.expirationYear)
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.center)
             }
                 .padding(.trailing, 5)
-            PaymentTextFieldView(label: "Security Code", labelWidth: 130, placeholder: "012", content: $securityCode)
+            PaymentTextFieldView(label: "Security Code", labelWidth: 130, placeholder: "012", content: $paymentDetails.securityCode)
         }
         .padding()
     }
