@@ -11,5 +11,5 @@ import CoreData
 
 @objc(ItemHistory)
 public class ItemHistory: NSManagedObject {
-
+//
 }
