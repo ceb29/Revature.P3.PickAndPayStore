@@ -23,10 +23,10 @@ struct PaymentAlertView : View{
                 Text("Zip Code must be 5 digits")
             }
             else if !shippingDetailsFlags.addressFlag{
-                Text("Address test is invalid")
+                Text("Address text is invalid")
             }
             else if !shippingDetailsFlags.cityFlag{
-                Text("City test is invalid")
+                Text("City text is invalid")
             }
         }
     }
