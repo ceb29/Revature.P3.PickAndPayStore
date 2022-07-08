@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Revature.P3.PickAndPayStore
 //
-//  Created by admin on 6/30/22.
+//  Created by Maximilian Stump on 7/8/22.
 //
 //
 
@@ -16,10 +16,11 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var username: String?
-    @NSManaged public var password: String?
     @NSManaged public var email: String?
-    @NSManaged public var phoneNumber: Int32
+    @NSManaged public var password: String?
+    @NSManaged public var phoneNumber: String?
+    @NSManaged public var username: String?
+    @NSManaged public var repassword: String?
     @NSManaged public var cartItems: NSSet?
     @NSManaged public var itemHistory: NSSet?
     @NSManaged public var wishListItem: NSSet?

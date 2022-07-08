@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sign Up View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="oFx-db-dHy">
             <objects>
-                <viewController id="hRk-r8-tE8" customClass="SignUpViewController" customModule="TakeItEasyProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUp" id="hRk-r8-tE8" customClass="SignInViewController" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qgi-sg-wsa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,7 +73,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Get OTP"/>
                                 <connections>
-                                    <action selector="getOTP:" destination="hRk-r8-tE8" eventType="touchUpInside" id="SdG-Uo-43n"/>
+                                    <action selector="getOTP:" destination="hRk-r8-tE8" eventType="touchUpInside" id="U1d-e2-8bh"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kR-PA-9be">
@@ -104,14 +104,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="QaS-Ac-jNj"/>
                     <connections>
-                        <outlet property="ReEnterPasswordTextField" destination="l3S-PY-Mr2" id="i8O-Ve-dp0"/>
-                        <outlet property="SignIn" destination="2kR-PA-9be" id="G30-GU-Gib"/>
-                        <outlet property="enterEmailTextField" destination="XHg-U2-oCE" id="pFe-8M-xvA"/>
-                        <outlet property="enterNameTextField" destination="W93-a9-R6Q" id="IEJ-Oc-eVS"/>
-                        <outlet property="enterPasswordTextField" destination="2eL-0o-wA0" id="Os8-0D-CYX"/>
-                        <outlet property="errorMessage" destination="1v8-ZL-luc" id="T4e-gk-LI1"/>
-                        <outlet property="mobileNumberTextField" destination="jFZ-bA-z1a" id="bc0-cU-HJa"/>
-                        <outlet property="remSwitch" destination="BYh-2d-d0C" id="yh7-fr-07k"/>
+                        <outlet property="ReEnterPasswordTextField" destination="l3S-PY-Mr2" id="OWS-Ps-p6Z"/>
+                        <outlet property="SignIn" destination="2kR-PA-9be" id="CNn-TA-o0O"/>
+                        <outlet property="enterEmailTextField" destination="XHg-U2-oCE" id="ibk-Bz-UHg"/>
+                        <outlet property="enterNameTextField" destination="W93-a9-R6Q" id="2Vp-Sf-OfI"/>
+                        <outlet property="enterPasswordTextField" destination="2eL-0o-wA0" id="CC9-1d-o3Z"/>
+                        <outlet property="errorMessage" destination="1v8-ZL-luc" id="NwL-T8-fDF"/>
+                        <outlet property="mobileNumberTextField" destination="jFZ-bA-z1a" id="VOS-1b-C1M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZf-IX-Uqf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
