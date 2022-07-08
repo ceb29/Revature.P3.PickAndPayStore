@@ -255,7 +255,7 @@
 		84705CE2286A2EAF0005B525 = {
 			isa = PBXGroup;
 			children = (
-				847255E728779A910012DBE1 /* Model */,
+				847255E728779A910012DBE1 /* Models */,
 				84705CED286A2EAF0005B525 /* Revature.P3.PickAndPayStore */,
 				84705D07286A2EB10005B525 /* Revature.P3.PickAndPayStoreTests */,
 				84705D11286A2EB10005B525 /* Revature.P3.PickAndPayStoreUITests */,
@@ -308,12 +308,12 @@
 			path = Revature.P3.PickAndPayStoreUITests;
 			sourceTree = "<group>";
 		};
-		847255E728779A910012DBE1 /* Model */ = {
+		847255E728779A910012DBE1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				847255E828779A9B0012DBE1 /* CoreData */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		847255E828779A9B0012DBE1 /* CoreData */ = {
