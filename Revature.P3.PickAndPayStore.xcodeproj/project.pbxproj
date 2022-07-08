@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56ED8B332874811500E57460 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56ED8B322874811500E57460 /* Cart.storyboard */; };
+		56ED8B35287484F300E57460 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ED8B34287484F300E57460 /* CartViewController.swift */; };
+		56ED8B37287875D800E57460 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ED8B36287875D800E57460 /* CartCell.swift */; };
 		84705CEF286A2EAF0005B525 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705CEE286A2EAF0005B525 /* AppDelegate.swift */; };
 		84705CF1286A2EAF0005B525 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705CF0286A2EAF0005B525 /* SceneDelegate.swift */; };
 		84705CF3286A2EAF0005B525 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705CF2286A2EAF0005B525 /* ViewController.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		56ED8B322874811500E57460 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
+		56ED8B34287484F300E57460 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		56ED8B36287875D800E57460 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		84705CEB286A2EAF0005B525 /* Revature.P3.PickAndPayStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revature.P3.PickAndPayStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84705CEE286A2EAF0005B525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84705CF0286A2EAF0005B525 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +84,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56ED8B31287480C500E57460 /* Cart Page */ = {
+			isa = PBXGroup;
+			children = (
+				56ED8B322874811500E57460 /* Cart.storyboard */,
+				56ED8B34287484F300E57460 /* CartViewController.swift */,
+				56ED8B36287875D800E57460 /* CartCell.swift */,
+			);
+			path = "Cart Page";
+			sourceTree = "<group>";
+		};
 		84705CE2286A2EAF0005B525 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +123,7 @@
 				84705CF4286A2EAF0005B525 /* Main.storyboard */,
 				84705CFA286A2EB00005B525 /* Assets.xcassets */,
 				84705CFC286A2EB00005B525 /* LaunchScreen.storyboard */,
+				56ED8B31287480C500E57460 /* Cart Page */,
 				84705CFF286A2EB00005B525 /* Info.plist */,
 				84705CF7286A2EAF0005B525 /* Revature_P3_PickAndPayStore.xcdatamodeld */,
 			);
@@ -234,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56ED8B332874811500E57460 /* Cart.storyboard in Resources */,
 				84705CFE286A2EB00005B525 /* LaunchScreen.storyboard in Resources */,
 				84705CFB286A2EB00005B525 /* Assets.xcassets in Resources */,
 				84705CF6286A2EAF0005B525 /* Main.storyboard in Resources */,
@@ -262,7 +280,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84705CF9286A2EAF0005B525 /* Revature_P3_PickAndPayStore.xcdatamodeld in Sources */,
+				56ED8B37287875D800E57460 /* CartCell.swift in Sources */,
 				84705CF3286A2EAF0005B525 /* ViewController.swift in Sources */,
+				56ED8B35287484F300E57460 /* CartViewController.swift in Sources */,
 				84705CEF286A2EAF0005B525 /* AppDelegate.swift in Sources */,
 				84705CF1286A2EAF0005B525 /* SceneDelegate.swift in Sources */,
 			);
