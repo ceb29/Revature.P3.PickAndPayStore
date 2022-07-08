@@ -9,6 +9,11 @@ import UIKit
 
 class CartCell: UITableViewCell {
 
+    @IBOutlet weak var itemNameLabel: UILabel!
+    @IBOutlet weak var itemPriceLable: UILabel!
+    @IBAction func trashTap(_ sender: Any) {
+        
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
