@@ -11,7 +11,7 @@ struct CardPaymentUIView: View {
     @State private var shippingDetails = ShippingDetails()
     @State private var paymentDetails = PaymentDetails()
     @State private var paymentFlags = PaymentFlags()
-    @State private var shippingFlags = ShippingFlags()
+    @State private var shippingDetailsFlags = ShippingDetailsFlags()
     @State private var monthSelection: MonthOption = .Jan
     @State private var yearSelection: YearOption = .option1
     
@@ -28,7 +28,7 @@ struct CardPaymentUIView: View {
                 .cornerRadius(15)
                 .padding()
             Spacer()
-            PaymentAlertView(paymentFlags: paymentFlags, shippingFlags : shippingFlags)
+            PaymentAlertView(paymentFlags: paymentFlags, shippingDetailsFlags : shippingDetailsFlags)
             PaymentPagesButtonView(label: "Place Order", action: placeOrder)
             Spacer()
         }
@@ -45,16 +45,19 @@ struct CardPaymentUIView_Previews: PreviewProvider {
 extension CardPaymentUIView{
     func placeOrder(){
         setAlertText()
-        if paymentFlags.cardNumberFlag && paymentFlags.securityCodeFlag && shippingFlags.zipCodeFlag{
+        if paymentFlags.cardNumberFlag && paymentFlags.securityCodeFlag && shippingDetailsFlags.zipCodeFlag && shippingDetailsFlags.addressFlag && shippingDetailsFlags.cityFlag{
             print("successfully placed order")
         }
     }
     func setAlertText(){
         let cardPaymentAlertHelper = CardPaymentAlertHelper()
+        let shippingDetailsAlertHelper = ShippingDetailsAlertHelper()
         paymentFlags.placeOrderFlag = true
         paymentFlags.cardNumberFlag = cardPaymentAlertHelper.isValidCardNumber(cardNumber: paymentDetails.cardNumber)
         paymentFlags.securityCodeFlag = cardPaymentAlertHelper.isValidSecurityCode(securityCode: paymentDetails.securityCode)
-        shippingFlags.zipCodeFlag = cardPaymentAlertHelper.isValidZipCode(zipCode: shippingDetails.zipCode)
+        shippingDetailsFlags.zipCodeFlag = shippingDetailsAlertHelper.isValidZipCode(zipCode: shippingDetails.zipCode)
+        shippingDetailsFlags.addressFlag = shippingDetailsAlertHelper.isValidAddress(address: shippingDetails.address)
+        shippingDetailsFlags.cityFlag = shippingDetailsAlertHelper.isValidCity(city: shippingDetails.city)
     }
 }
 

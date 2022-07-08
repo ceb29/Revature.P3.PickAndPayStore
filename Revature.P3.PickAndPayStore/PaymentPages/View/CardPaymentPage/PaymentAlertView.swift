@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PaymentAlertView : View{
     var paymentFlags : PaymentFlags
-    var shippingFlags : ShippingFlags
+    var shippingDetailsFlags : ShippingDetailsFlags
     
     var body: some View{
         if paymentFlags.placeOrderFlag{
@@ -19,8 +19,14 @@ struct PaymentAlertView : View{
             else if !paymentFlags.securityCodeFlag{
                 Text("Security Code must be 3 digits")
             }
-            else if !shippingFlags.zipCodeFlag{
+            else if !shippingDetailsFlags.zipCodeFlag{
                 Text("Zip Code must be 5 digits")
+            }
+            else if !shippingDetailsFlags.addressFlag{
+                Text("Address test is invalid")
+            }
+            else if !shippingDetailsFlags.cityFlag{
+                Text("City test is invalid")
             }
         }
     }

@@ -7,6 +7,8 @@
 
 import Foundation
 
-struct ShippingFlags{
+struct ShippingDetailsFlags{
     var zipCodeFlag : Bool = false
+    var addressFlag : Bool = false
+    var cityFlag : Bool = false
 }

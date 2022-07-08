@@ -13,8 +13,8 @@ struct ShippingDetailsView : View{
     var body: some View{
         VStack{
             PaymentTextFieldView(label: "Zip Code", labelWidth: 80, placeholder: "", content: $shippingDetails.zipCode)
-            PaymentTextFieldView(label: "Address", labelWidth: 80, placeholder: "", content: $shippingDetails.city)
-            PaymentTextFieldView(label: "City", labelWidth: 80, placeholder: "", content: $shippingDetails.address)
+            PaymentTextFieldView(label: "Address", labelWidth: 80, placeholder: "", content: $shippingDetails.address)
+            PaymentTextFieldView(label: "City", labelWidth: 80, placeholder: "", content: $shippingDetails.city)
             PaymentTextFieldView(label: "State", labelWidth: 80, placeholder: "", content: $shippingDetails.state)
             PaymentTextFieldView(label: "Country", labelWidth: 80, placeholder: "", content: $shippingDetails.country)
             /*Picker("Month", selection: $monthSelection){

@@ -9,11 +9,19 @@ import SwiftUI
 
 struct ShippingDetailsAlertView : View{
     var continueFlag : Bool
-    var zipCodeFlag : Bool
+    var shippingDetailsFlags : ShippingDetailsFlags
 
     var body: some View{
-        if continueFlag && !zipCodeFlag{
-            Text("Zipcode must be 5 digits")
+        if continueFlag{
+            if !shippingDetailsFlags.zipCodeFlag{
+                Text("Zipcode must be 5 digits")
+            }
+            else if !shippingDetailsFlags.addressFlag{
+                Text("Address text is invalid")
+            }
+            else if !shippingDetailsFlags.cityFlag{
+                Text("City text is invalid")
+            }
         }
     }
 }

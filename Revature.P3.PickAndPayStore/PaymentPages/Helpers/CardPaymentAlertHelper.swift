@@ -19,10 +19,4 @@ struct CardPaymentAlertHelper{
         let securityCodePred = NSPredicate(format: "SELF MATCHES %@", securityCodeRegEx)
         return securityCodePred.evaluate(with: securityCode)
     }
-    
-    func isValidZipCode(zipCode: String) -> Bool{
-        let zipCodeRegEx = "^[0-9]{5}$"
-        let zipCodePred = NSPredicate(format: "SELF MATCHES %@", zipCodeRegEx)
-        return zipCodePred.evaluate(with: zipCode)
-    }
 }

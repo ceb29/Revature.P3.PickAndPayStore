@@ -15,16 +15,17 @@ struct ShippingDetailsAlertHelper{
     }
     
     func isValidAddress(address: String) -> Bool{
-        let addressRegEx = "^[0-9A-Za-z .'#@%&/-]*$"
+        let addressRegEx = "^[0-9A-Za-z .'#@%&/-]{1,}$"
         let addressPred = NSPredicate(format: "SELF MATCHES %@", addressRegEx)
         return addressPred.evaluate(with: address)
     }
     
     func isValidCity(city: String) -> Bool{
-        let cityRegEx = "^[A-Za-z .'-]*$"
+        let cityRegEx = "^[A-Za-z .'-]{1,}$"
         let cityPred = NSPredicate(format: "SELF MATCHES %@", cityRegEx)
         return cityPred.evaluate(with: city)
     }
+    
     /*
     func isValidState(state: String) -> Bool{
         let stateRegEx = "^[A-Za-z ]$"

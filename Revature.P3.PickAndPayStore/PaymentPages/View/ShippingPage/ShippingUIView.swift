@@ -10,7 +10,7 @@ import SwiftUI
 struct ShippingDetailsUIView: View {
     @State private var shippingDetails = ShippingDetails()
     @State private var shippingSelection : ShippingOption = .standard
-    @State private var zipCodeFlag : Bool = false
+    @State private var shippingDetailsFlags = ShippingDetailsFlags()
     @State private var continueFlag : Bool = false
     
     var body: some View {
@@ -25,10 +25,8 @@ struct ShippingDetailsUIView: View {
                 .background(.white)
                 .cornerRadius(15)
                 .padding()
-            //ShippingOptionsView()
-            
             Spacer()
-            ShippingDetailsAlertView(continueFlag: continueFlag, zipCodeFlag: zipCodeFlag)
+            ShippingDetailsAlertView(continueFlag: continueFlag, shippingDetailsFlags: shippingDetailsFlags)
             PaymentPagesButtonView(label: "Continue", action: continueToNextPage)
             Spacer()
         }
@@ -45,7 +43,7 @@ struct ShippingDetailsUIView_Previews: PreviewProvider {
 extension ShippingDetailsUIView{
     func continueToNextPage(){
         setAlertText()
-        if zipCodeFlag{
+        if shippingDetailsFlags.zipCodeFlag && shippingDetailsFlags.addressFlag && shippingDetailsFlags.cityFlag{
             print("continue to next page")
         }
     }
@@ -53,7 +51,9 @@ extension ShippingDetailsUIView{
     func setAlertText(){
         let shippingDetailsAlertHelper = ShippingDetailsAlertHelper()
         continueFlag = true
-        zipCodeFlag = shippingDetailsAlertHelper.isValidZipCode(zipCode: shippingDetails.zipCode)
+        shippingDetailsFlags.zipCodeFlag = shippingDetailsAlertHelper.isValidZipCode(zipCode: shippingDetails.zipCode)
+        shippingDetailsFlags.addressFlag = shippingDetailsAlertHelper.isValidAddress(address: shippingDetails.address)
+        shippingDetailsFlags.cityFlag = shippingDetailsAlertHelper.isValidCity(city: shippingDetails.city)
     }
 }
 
