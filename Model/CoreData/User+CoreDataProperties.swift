@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Revature.P3.PickAndPayStore
 //
-//  Created by admin on 7/7/22.
+//  Created by admin on 7/8/22.
 //
 //
 
@@ -18,7 +18,7 @@ extension User {
 
     @NSManaged public var email: String?
     @NSManaged public var password: String?
-    @NSManaged public var phoneNumber: Int32
+    @NSManaged public var phoneNumber: String?
     @NSManaged public var username: String?
     @NSManaged public var cartItems: NSSet?
     @NSManaged public var itemHistory: NSSet?

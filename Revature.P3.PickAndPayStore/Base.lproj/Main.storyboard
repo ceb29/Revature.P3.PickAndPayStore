@@ -33,6 +33,16 @@
             </objects>
             <point key="canvasLocation" x="3852.1739130434785" y="-81.696428571428569"/>
         </scene>
+        <!--CartVC-->
+        <scene sceneID="WVf-c3-68s">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Cart" referencedIdentifier="CartVC" id="FzR-ad-WkX" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Rbh-ws-S05"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0kC-2V-ieU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4844.927536231884" y="481.47321428571428"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MCr-S8-Bkw">
             <objects>
@@ -45,6 +55,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="cuc-2P-ksm" kind="relationship" relationship="viewControllers" id="bBV-Kp-GKE"/>
+                        <segue destination="XuQ-1L-I9H" kind="relationship" relationship="viewControllers" id="Hie-3f-RKk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4j-GE-TYL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -55,7 +66,7 @@
         <scene sceneID="ixd-9x-Y01">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cuc-2P-ksm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="3Za-IF-RNS"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="3Za-IF-RNS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Fw-Nq-VZi">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -68,10 +79,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6nC-cB-wFJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2938" y="82"/>
+            <point key="canvasLocation" x="2970" y="-275"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="ThZ-88-FmI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XuQ-1L-I9H" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="X4j-vN-kdO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bUc-Z8-8Pb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FzR-ad-WkX" kind="relationship" relationship="rootViewController" id="POC-xz-cRj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OXa-Ec-og5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3934.7826086956525" y="481.47321428571428"/>
         </scene>
     </scenes>
     <resources>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
