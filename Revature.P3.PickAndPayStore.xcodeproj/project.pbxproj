@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8441B937286A410700000888 /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8441B936286A410700000888 /* Products.storyboard */; };
+		8441B93E286C951600000888 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B93C286C951600000888 /* CategoryCollectionViewCell.swift */; };
+		8441B93F286C951600000888 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8441B93D286C951600000888 /* CategoryCollectionViewCell.xib */; };
+		8441B9462875CFC900000888 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 8441B9452875CFC900000888 /* SwiftyJSON */; };
+		8441B9482875D1C600000888 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B9472875D1C600000888 /* ProductsModel.swift */; };
+		8441B94A287766F500000888 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B949287766F500000888 /* ProductService.swift */; };
+		8441B94E28776A5E00000888 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B94D28776A5E00000888 /* ProductViewController.swift */; };
+		8441B95728782A0A00000888 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B95528782A0A00000888 /* ProductCollectionViewCell.swift */; };
+		8441B95828782A0A00000888 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8441B95628782A0A00000888 /* ProductCollectionViewCell.xib */; };
+		8441B95A2878794800000888 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B9592878794800000888 /* ProductViewModel.swift */; };
 		84705CEF286A2EAF0005B525 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705CEE286A2EAF0005B525 /* AppDelegate.swift */; };
 		84705CF1286A2EAF0005B525 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705CF0286A2EAF0005B525 /* SceneDelegate.swift */; };
 		84705CF3286A2EAF0005B525 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705CF2286A2EAF0005B525 /* ViewController.swift */; };
@@ -37,6 +47,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8441B936286A410700000888 /* Products.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
+		8441B93C286C951600000888 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		8441B93D286C951600000888 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		8441B9472875D1C600000888 /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
+		8441B949287766F500000888 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		8441B94D28776A5E00000888 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		8441B95528782A0A00000888 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		8441B95628782A0A00000888 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		8441B9592878794800000888 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		84705CEB286A2EAF0005B525 /* Revature.P3.PickAndPayStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revature.P3.PickAndPayStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84705CEE286A2EAF0005B525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84705CF0286A2EAF0005B525 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8441B9462875CFC900000888 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +98,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8441B935286A379300000888 /* Products-Page */ = {
+			isa = PBXGroup;
+			children = (
+				8441B94C28776A1E00000888 /* Services */,
+				8441B94B28776A0200000888 /* Controllers */,
+				8441B93A286BCD6200000888 /* View */,
+				8441B939286BCD5100000888 /* ViewModel */,
+				8441B938286BCD3E00000888 /* Model */,
+			);
+			path = "Products-Page";
+			sourceTree = "<group>";
+		};
+		8441B938286BCD3E00000888 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8441B9472875D1C600000888 /* ProductsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8441B939286BCD5100000888 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8441B9592878794800000888 /* ProductViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8441B93A286BCD6200000888 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8441B936286A410700000888 /* Products.storyboard */,
+				8441B95528782A0A00000888 /* ProductCollectionViewCell.swift */,
+				8441B95628782A0A00000888 /* ProductCollectionViewCell.xib */,
+				8441B93C286C951600000888 /* CategoryCollectionViewCell.swift */,
+				8441B93D286C951600000888 /* CategoryCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8441B94B28776A0200000888 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8441B94D28776A5E00000888 /* ProductViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8441B94C28776A1E00000888 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8441B949287766F500000888 /* ProductService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		84705CE2286A2EAF0005B525 = {
 			isa = PBXGroup;
 			children = (
@@ -101,12 +177,7 @@
 		84705CED286A2EAF0005B525 /* Revature.P3.PickAndPayStore */ = {
 			isa = PBXGroup;
 			children = (
-				84705D21286A31950005B525 /* HomePage */,
-				84705D23286A31D90005B525 /* CartPage */,
-				84705D2A286A32DD0005B525 /* SignUpPage */,
-				84705D29286A32D30005B525 /* LoginPage */,
-				84705D25286A327D0005B525 /* ProfilePage */,
-				84705D28286A32BD0005B525 /* ProductsPage */,
+				8441B935286A379300000888 /* Products-Page */,
 				84705CEE286A2EAF0005B525 /* AppDelegate.swift */,
 				84705CF0286A2EAF0005B525 /* SceneDelegate.swift */,
 				84705CF2286A2EAF0005B525 /* ViewController.swift */,
@@ -136,48 +207,6 @@
 			path = Revature.P3.PickAndPayStoreUITests;
 			sourceTree = "<group>";
 		};
-		84705D21286A31950005B525 /* HomePage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HomePage;
-			sourceTree = "<group>";
-		};
-		84705D23286A31D90005B525 /* CartPage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CartPage;
-			sourceTree = "<group>";
-		};
-		84705D25286A327D0005B525 /* ProfilePage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ProfilePage;
-			sourceTree = "<group>";
-		};
-		84705D28286A32BD0005B525 /* ProductsPage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ProductsPage;
-			sourceTree = "<group>";
-		};
-		84705D29286A32D30005B525 /* LoginPage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LoginPage;
-			sourceTree = "<group>";
-		};
-		84705D2A286A32DD0005B525 /* SignUpPage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SignUpPage;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,6 +223,9 @@
 			dependencies = (
 			);
 			name = Revature.P3.PickAndPayStore;
+			packageProductDependencies = (
+				8441B9452875CFC900000888 /* SwiftyJSON */,
+			);
 			productName = Revature.P3.PickAndPayStore;
 			productReference = 84705CEB286A2EAF0005B525 /* Revature.P3.PickAndPayStore.app */;
 			productType = "com.apple.product-type.application";
@@ -266,6 +298,9 @@
 				Base,
 			);
 			mainGroup = 84705CE2286A2EAF0005B525;
+			packageReferences = (
+				8441B9442875CFC900000888 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 84705CEC286A2EAF0005B525 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -283,7 +318,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84705CFE286A2EB00005B525 /* LaunchScreen.storyboard in Resources */,
+				8441B93F286C951600000888 /* CategoryCollectionViewCell.xib in Resources */,
+				8441B95828782A0A00000888 /* ProductCollectionViewCell.xib in Resources */,
 				84705CFB286A2EB00005B525 /* Assets.xcassets in Resources */,
+				8441B937286A410700000888 /* Products.storyboard in Resources */,
 				84705CF6286A2EAF0005B525 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,8 +348,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				84705CF9286A2EAF0005B525 /* Revature_P3_PickAndPayStore.xcdatamodeld in Sources */,
+				8441B95728782A0A00000888 /* ProductCollectionViewCell.swift in Sources */,
+				8441B9482875D1C600000888 /* ProductsModel.swift in Sources */,
+				8441B93E286C951600000888 /* CategoryCollectionViewCell.swift in Sources */,
 				84705CF3286A2EAF0005B525 /* ViewController.swift in Sources */,
+				8441B95A2878794800000888 /* ProductViewModel.swift in Sources */,
 				84705CEF286A2EAF0005B525 /* AppDelegate.swift in Sources */,
+				8441B94A287766F500000888 /* ProductService.swift in Sources */,
+				8441B94E28776A5E00000888 /* ProductViewController.swift in Sources */,
 				84705CF1286A2EAF0005B525 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,7 +539,7 @@
 				INFOPLIST_FILE = Revature.P3.PickAndPayStore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Products;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -522,7 +566,7 @@
 				INFOPLIST_FILE = Revature.P3.PickAndPayStore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Products;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -670,6 +714,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8441B9442875CFC900000888 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8441B9452875CFC900000888 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8441B9442875CFC900000888 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		84705CF7286A2EAF0005B525 /* Revature_P3_PickAndPayStore.xcdatamodeld */ = {
