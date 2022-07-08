@@ -23,6 +23,13 @@ class HomeViewController: UIViewController{
         welcomeView.layer.masksToBounds = true
         bottomPromoImage.image = UIImage(named: "appleAdvertisement")
     }
+    
+    
+    @IBAction func goToLoginPage(_ sender: Any) {
+        let storyObject = UIStoryboard(name: "LoginStoryboard", bundle: nil)
+        let loginVC = storyObject.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
+        self.navigationController?.pushViewController(loginVC, animated: true)
+    }
 }
 
 extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSource{

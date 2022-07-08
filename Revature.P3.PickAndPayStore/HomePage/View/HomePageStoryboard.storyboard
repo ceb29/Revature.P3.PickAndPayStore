@@ -46,13 +46,10 @@
                                                         <rect key="frame" x="74" y="89" width="237" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSN-u1-Sg7">
-                                                        <rect key="frame" x="79" y="128" width="227" height="31"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Create an account"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Sign In/Sign Up"/>
+                                                        <connections>
+                                                            <action selector="goToLoginPage:" destination="ahj-ne-8MP" eventType="touchUpInside" id="KIl-kK-g0Z"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign in or create an account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxo-dq-m8a">
                                                         <rect key="frame" x="8" y="37" width="213" height="34"/>
