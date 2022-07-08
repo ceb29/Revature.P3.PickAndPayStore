@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HistoryDetailsSwiftUIView: View {
-    @State var historyItems : [historyItem] = [historyItem(image: "basketball", name: "basketball", date : "01-01-2022"), historyItem(image: "games", name: "games", date : "01-01-2022")]
+    @State var historyItems : [historyItem] = [historyItem(image: "basketball", name: "basketball", date : "01-01-2022"), historyItem(image: "games", name: "games", date : "01-01-2022"), historyItem(image: "doritos", name: "Doritos", date : "01-01-2022"), historyItem(image: "ipad4", name: "Ipad 4", date : "01-01-2022"),]
     var body: some View {
         Text("Order History")
             .font(.system(size: 30))
