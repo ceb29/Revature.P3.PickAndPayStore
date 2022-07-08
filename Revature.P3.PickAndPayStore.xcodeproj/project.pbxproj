@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		84152E57286CE56B005A101C /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84152E56286CE56B005A101C /* ProductModel.swift */; };
 		84417CCF287387F300207D67 /* ShippingUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84417CCE287387F300207D67 /* ShippingUIView.swift */; };
+		8441B9B52878B64000000888 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B9B42878B64000000888 /* ProductViewController.swift */; };
+		8441B9B72878B65000000888 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B9B62878B65000000888 /* ProductsModel.swift */; };
+		8441B9B92878B65F00000888 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B9B82878B65F00000888 /* ProductService.swift */; };
+		8441B9BF2878B67F00000888 /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8441B9BA2878B67E00000888 /* Products.storyboard */; };
+		8441B9C02878B67F00000888 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8441B9BB2878B67E00000888 /* CategoryCollectionViewCell.xib */; };
+		8441B9C12878B67F00000888 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B9BC2878B67E00000888 /* CategoryCollectionViewCell.swift */; };
+		8441B9C22878B67F00000888 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B9BD2878B67E00000888 /* ProductCollectionViewCell.swift */; };
+		8441B9C32878B67F00000888 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8441B9BE2878B67F00000888 /* ProductCollectionViewCell.xib */; };
+		8441B9C52878B74500000888 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B9C42878B74500000888 /* ProductViewModel.swift */; };
+		8441B9C82878B78F00000888 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 8441B9C72878B78F00000888 /* SwiftyJSON */; };
 		8446CE35286F78980029D539 /* HomePromoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446CE34286F78980029D539 /* HomePromoService.swift */; };
 		8446CE37286F78EA0029D539 /* PromoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446CE36286F78EA0029D539 /* PromoModel.swift */; };
 		8446CE39286F890C0029D539 /* HomeRecommendedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446CE38286F890C0029D539 /* HomeRecommendedService.swift */; };
@@ -53,7 +63,6 @@
 		847255F628779B220012DBE1 /* PromoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847255EE28779B220012DBE1 /* PromoViewModel.swift */; };
 		847255F728779B220012DBE1 /* CartItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847255EF28779B220012DBE1 /* CartItemViewModel.swift */; };
 		847255F828779B220012DBE1 /* ProductCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847255F028779B220012DBE1 /* ProductCategoryViewModel.swift */; };
-		847255F928779B220012DBE1 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847255F128779B220012DBE1 /* ProductViewModel.swift */; };
 		848C9D3B2877A68B00F45B7D /* HomeRecommendedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848C9D3A2877A68B00F45B7D /* HomeRecommendedViewModel.swift */; };
 		849AF96E287235F800D0DFC1 /* CardPaymentUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AF96D287235F800D0DFC1 /* CardPaymentUIView.swift */; };
 		84A6C973286A3EC60032529A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6C972286A3EC60032529A /* HomeViewController.swift */; };
@@ -105,6 +114,15 @@
 /* Begin PBXFileReference section */
 		84152E56286CE56B005A101C /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		84417CCE287387F300207D67 /* ShippingUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingUIView.swift; sourceTree = "<group>"; };
+		8441B9B42878B64000000888 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductViewController.swift; path = Controllers/ProductViewController.swift; sourceTree = SOURCE_ROOT; };
+		8441B9B62878B65000000888 /* ProductsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductsModel.swift; path = Model/ProductsModel.swift; sourceTree = SOURCE_ROOT; };
+		8441B9B82878B65F00000888 /* ProductService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductService.swift; path = Services/ProductService.swift; sourceTree = SOURCE_ROOT; };
+		8441B9BA2878B67E00000888 /* Products.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Products.storyboard; path = View/Products.storyboard; sourceTree = SOURCE_ROOT; };
+		8441B9BB2878B67E00000888 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryCollectionViewCell.xib; path = View/CategoryCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		8441B9BC2878B67E00000888 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryCollectionViewCell.swift; path = View/CategoryCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		8441B9BD2878B67E00000888 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCollectionViewCell.swift; path = View/ProductCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		8441B9BE2878B67F00000888 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductCollectionViewCell.xib; path = View/ProductCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		8441B9C42878B74500000888 /* ProductViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductViewModel.swift; path = ViewModel/ProductViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8446CE34286F78980029D539 /* HomePromoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePromoService.swift; sourceTree = "<group>"; };
 		8446CE36286F78EA0029D539 /* PromoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoModel.swift; sourceTree = "<group>"; };
 		8446CE38286F890C0029D539 /* HomeRecommendedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendedService.swift; sourceTree = "<group>"; };
@@ -153,7 +171,6 @@
 		847255EE28779B220012DBE1 /* PromoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoViewModel.swift; sourceTree = "<group>"; };
 		847255EF28779B220012DBE1 /* CartItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemViewModel.swift; sourceTree = "<group>"; };
 		847255F028779B220012DBE1 /* ProductCategoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCategoryViewModel.swift; sourceTree = "<group>"; };
-		847255F128779B220012DBE1 /* ProductViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		848C9D3A2877A68B00F45B7D /* HomeRecommendedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendedViewModel.swift; sourceTree = "<group>"; };
 		849AF96D287235F800D0DFC1 /* CardPaymentUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentUIView.swift; sourceTree = "<group>"; };
 		84A6C972286A3EC60032529A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8441B9C82878B78F00000888 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +397,6 @@
 				847255EF28779B220012DBE1 /* CartItemViewModel.swift */,
 				84FCC6A628762E1C003D8F0B /* CheckoutItem.swift */,
 				847255F028779B220012DBE1 /* ProductCategoryViewModel.swift */,
-				847255F128779B220012DBE1 /* ProductViewModel.swift */,
 				848C9D3A2877A68B00F45B7D /* HomeRecommendedViewModel.swift */,
 			);
 			path = ViewModels;
@@ -484,6 +501,7 @@
 		84BF337A2878AD5400E9C29A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8441B9C42878B74500000888 /* ProductViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -491,6 +509,7 @@
 		84BF337C2878AD5400E9C29A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8441B9B62878B65000000888 /* ProductsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -498,6 +517,11 @@
 		84BF337E2878AD5400E9C29A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8441B9BC2878B67E00000888 /* CategoryCollectionViewCell.swift */,
+				8441B9BB2878B67E00000888 /* CategoryCollectionViewCell.xib */,
+				8441B9BD2878B67E00000888 /* ProductCollectionViewCell.swift */,
+				8441B9BE2878B67F00000888 /* ProductCollectionViewCell.xib */,
+				8441B9BA2878B67E00000888 /* Products.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -505,6 +529,7 @@
 		84BF33842878AD5400E9C29A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8441B9B42878B64000000888 /* ProductViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -512,6 +537,7 @@
 		84BF33862878AD5400E9C29A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8441B9B82878B65F00000888 /* ProductService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -600,6 +626,9 @@
 			dependencies = (
 			);
 			name = Revature.P3.PickAndPayStore;
+			packageProductDependencies = (
+				8441B9C72878B78F00000888 /* SwiftyJSON */,
+			);
 			productName = Revature.P3.PickAndPayStore;
 			productReference = 84705CEB286A2EAF0005B525 /* Revature.P3.PickAndPayStore.app */;
 			productType = "com.apple.product-type.application";
@@ -672,6 +701,9 @@
 				Base,
 			);
 			mainGroup = 84705CE2286A2EAF0005B525;
+			packageReferences = (
+				8441B9C62878B78F00000888 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 84705CEC286A2EAF0005B525 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -690,10 +722,13 @@
 			files = (
 				84705CFE286A2EB00005B525 /* LaunchScreen.storyboard in Resources */,
 				84BF33622878ACD900E9C29A /* LoginStoryboard.storyboard in Resources */,
+				8441B9C32878B67F00000888 /* ProductCollectionViewCell.xib in Resources */,
 				84705CFB286A2EB00005B525 /* Assets.xcassets in Resources */,
 				84705CF6286A2EAF0005B525 /* Main.storyboard in Resources */,
 				84A6C982286A4FCA0032529A /* HomePageStoryboard.storyboard in Resources */,
 				84BF33642878ACD900E9C29A /* SignInStoryboard.storyboard in Resources */,
+				8441B9C02878B67F00000888 /* CategoryCollectionViewCell.xib in Resources */,
+				8441B9BF2878B67F00000888 /* Products.storyboard in Resources */,
 				84BF336E2878AD1600E9C29A /* Cart.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,8 +768,8 @@
 				847255E628779A8C0012DBE1 /* Promo+CoreDataProperties.swift in Sources */,
 				84FCC6A32876280B003D8F0B /* PaymentHelperTypes.swift in Sources */,
 				84FCC6A12876262D003D8F0B /* ShippingOptionsPickerView.swift in Sources */,
-				847255F928779B220012DBE1 /* ProductViewModel.swift in Sources */,
 				8456554A2873645700AFF23A /* PaymentDetailsView.swift in Sources */,
+				8441B9B52878B64000000888 /* ProductViewController.swift in Sources */,
 				84BF33662878ACD900E9C29A /* DBHelperUser.swift in Sources */,
 				8466068028773E7000237DE6 /* ShippingDetailsAlertHelper.swift in Sources */,
 				84A6C97C286A4F360032529A /* HomeProductCollectionViewCell.swift in Sources */,
@@ -744,10 +779,13 @@
 				84660691287760B300237DE6 /* PaymentFlags.swift in Sources */,
 				84BF33A32878B32800E9C29A /* User+CoreDataProperties.swift in Sources */,
 				84705CF9286A2EAF0005B525 /* Revature_P3_PickAndPayStore.xcdatamodeld in Sources */,
+				8441B9C12878B67F00000888 /* CategoryCollectionViewCell.swift in Sources */,
+				8441B9C52878B74500000888 /* ProductViewModel.swift in Sources */,
 				846606932877622200237DE6 /* ShippingDetailsFlags.swift in Sources */,
 				84705CF3286A2EAF0005B525 /* ViewController.swift in Sources */,
 				847255E328779A8C0012DBE1 /* ItemHistory+CoreDataClass.swift in Sources */,
 				847255E028779A8C0012DBE1 /* CartItem+CoreDataProperties.swift in Sources */,
+				8441B9C22878B67F00000888 /* ProductCollectionViewCell.swift in Sources */,
 				8446CE37286F78EA0029D539 /* PromoModel.swift in Sources */,
 				84417CCF287387F300207D67 /* ShippingUIView.swift in Sources */,
 				847255F828779B220012DBE1 /* ProductCategoryViewModel.swift in Sources */,
@@ -774,9 +812,11 @@
 				847255F628779B220012DBE1 /* PromoViewModel.swift in Sources */,
 				845655482873640600AFF23A /* ShippingDetailsView.swift in Sources */,
 				84BF33652878ACD900E9C29A /* SignInViewController.swift in Sources */,
+				8441B9B92878B65F00000888 /* ProductService.swift in Sources */,
 				847255F728779B220012DBE1 /* CartItemViewModel.swift in Sources */,
 				8466067E2877380300237DE6 /* ShippingDetailsAlertView.swift in Sources */,
 				84152E57286CE56B005A101C /* ProductModel.swift in Sources */,
+				8441B9B72878B65000000888 /* ProductsModel.swift in Sources */,
 				84A6C980286A4F710032529A /* HomeRecommendedCollectionViewCell.swift in Sources */,
 				847255DE28779A8C0012DBE1 /* ProductCategory+CoreDataProperties.swift in Sources */,
 				84BF33682878ACEB00E9C29A /* CurrentUser.swift in Sources */,
@@ -1142,6 +1182,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8441B9C62878B78F00000888 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8441B9C72878B78F00000888 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8441B9C62878B78F00000888 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		84705CF7286A2EAF0005B525 /* Revature_P3_PickAndPayStore.xcdatamodeld */ = {
