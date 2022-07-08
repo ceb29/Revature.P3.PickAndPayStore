@@ -34,39 +34,38 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41k-CA-zkM">
-                                                    <rect key="frame" x="20" y="11" width="295.66666666666669" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="220" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSm-ad-cW0">
-                                                    <rect key="frame" x="323.66666666666669" y="15" width="31" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="31" id="991-cY-b9r"/>
-                                                        <constraint firstAttribute="height" constant="50" id="l39-Xf-0MO"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system"/>
-                                                    <connections>
-                                                        <action selector="trashTap:" destination="P33-LX-b36" eventType="touchUpInside" id="xUo-N3-Ho2"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQS-1X-qDs">
                                                     <rect key="frame" x="20" y="47" width="303" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to remove Item" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIW-EN-u7B">
+                                                    <rect key="frame" x="248" y="11" width="120" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="Tro-FL-iCz"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" systemColor="systemGray2Color"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="yIW-EN-u7B" firstAttribute="top" secondItem="qfB-pF-H1y" secondAttribute="topMargin" id="1as-vM-shx"/>
                                                 <constraint firstItem="41k-CA-zkM" firstAttribute="leading" secondItem="qfB-pF-H1y" secondAttribute="leadingMargin" id="3Tq-5O-jW7"/>
                                                 <constraint firstItem="kQS-1X-qDs" firstAttribute="leading" secondItem="qfB-pF-H1y" secondAttribute="leadingMargin" id="3vR-6H-M9F"/>
-                                                <constraint firstItem="VSm-ad-cW0" firstAttribute="leading" secondItem="41k-CA-zkM" secondAttribute="trailing" constant="8" symbolic="YES" id="CfW-By-dVs"/>
+                                                <constraint firstItem="yIW-EN-u7B" firstAttribute="leading" secondItem="41k-CA-zkM" secondAttribute="trailing" constant="8" symbolic="YES" id="65k-tj-pmn"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="yIW-EN-u7B" secondAttribute="bottom" id="8gO-u8-kAq"/>
                                                 <constraint firstItem="41k-CA-zkM" firstAttribute="top" secondItem="qfB-pF-H1y" secondAttribute="topMargin" id="K8T-MH-532"/>
-                                                <constraint firstItem="VSm-ad-cW0" firstAttribute="centerY" secondItem="qfB-pF-H1y" secondAttribute="centerY" id="M42-kF-z45"/>
                                                 <constraint firstItem="kQS-1X-qDs" firstAttribute="top" secondItem="41k-CA-zkM" secondAttribute="bottom" constant="15" id="OFz-xy-0Mp"/>
+                                                <constraint firstItem="yIW-EN-u7B" firstAttribute="trailing" secondItem="qfB-pF-H1y" secondAttribute="trailingMargin" id="Xc5-8R-CU3"/>
+                                                <constraint firstItem="yIW-EN-u7B" firstAttribute="centerY" secondItem="qfB-pF-H1y" secondAttribute="centerY" id="iwk-hD-fNm"/>
                                                 <constraint firstItem="kQS-1X-qDs" firstAttribute="bottom" secondItem="qfB-pF-H1y" secondAttribute="bottomMargin" id="rpJ-SA-bg0"/>
-                                                <constraint firstItem="VSm-ad-cW0" firstAttribute="centerX" secondItem="qfB-pF-H1y" secondAttribute="centerX" constant="145" id="tk7-sQ-Afp"/>
                                                 <constraint firstItem="kQS-1X-qDs" firstAttribute="centerX" secondItem="qfB-pF-H1y" secondAttribute="centerX" constant="-22.5" id="zYD-Dy-9Ks"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -162,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbm-CB-jbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-181.15942028985509" y="27.455357142857142"/>
+            <point key="canvasLocation" x="-182.24299065420558" y="27.213822894168469"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vUu-V1-DR4">
@@ -184,9 +183,11 @@
         <image name="background" width="1000" height="1000"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
-        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

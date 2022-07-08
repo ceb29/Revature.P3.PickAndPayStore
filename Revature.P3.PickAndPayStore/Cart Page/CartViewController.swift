@@ -19,12 +19,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var subTotal = self.subTotal(items:itemPrice)
-        var estimatedTax = self.estimateTax(subTotal: subTotal)
-        var total = self.total(subTotal: subTotal, estimatedTax: estimatedTax)
-        subTotalLabel.text = String(format:"Sub Total: $%.2f",subTotal)
-        taxLabel.text = String(format:"Estimated Tax: $%.2f",estimatedTax)
-        totalLabel.text = String(format:"Total: $%.2f",total)
+        self.updatePricing()
         // Do any additional setup after loading the view.
     }
     
@@ -44,7 +39,26 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func checkoutTap(_ sender: Any) {
         
     }
-    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Remove"
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        itemName.remove(at: indexPath.row)
+        itemPrice.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        self.updatePricing()
+    }
+    func updatePricing(){
+        let subTotal = self.subTotal(items:itemPrice)
+        let estimatedTax = self.estimateTax(subTotal: subTotal)
+        let total = self.total(subTotal: subTotal, estimatedTax: estimatedTax)
+        subTotalLabel.text = String(format:"Sub Total: $%.2f",subTotal)
+        taxLabel.text = String(format:"Estimated Tax: $%.2f",estimatedTax)
+        totalLabel.text = String(format:"Total: $%.2f",total)
+    }
     func subTotal (items: [Double]) -> Double {
         var subTotal : Double = 0
         for item in items{
