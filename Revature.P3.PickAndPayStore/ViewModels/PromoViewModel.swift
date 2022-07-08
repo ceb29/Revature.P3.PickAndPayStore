@@ -8,6 +8,5 @@
 import Foundation
 
 struct PromoViewModel{
-    var name : String
     var image : String
 }
