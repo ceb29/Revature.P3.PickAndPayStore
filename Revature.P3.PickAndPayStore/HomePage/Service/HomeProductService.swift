@@ -10,7 +10,7 @@ import Foundation
 class HomeProductService{
     static var homeProductServiceInstance = HomeProductService()
     func getData() -> [ProductCategoryViewModel]{
-        let productModelData = [ProductModel(name : "Fashion", image: "fashion"), ProductModel(name : "Electronics", image: "electronics"), ProductModel(name : "Books", image: "books"), ProductModel(name : "Groceries", image: "groceries"), ProductModel(name : "Pets", image: "pets"), ProductModel(name : "Toys", image: "toys"), ProductModel(name : "Automotive", image: "automotive") ]
+        let productModelData = ProductCategoryCreator.productCategoryHelper.categories
         var productViewModelData : [ProductCategoryViewModel] = []
         
         for product in productModelData{

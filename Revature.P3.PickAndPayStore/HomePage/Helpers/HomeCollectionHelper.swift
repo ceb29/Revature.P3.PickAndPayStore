@@ -12,7 +12,7 @@ class HomeCollectionHelper{
     var productData = HomeProductService.homeProductServiceInstance.getData()
     var promoData = HomePromoService.homePromoServiceInstance.getData()
     var recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getData()
-
+    
     func setupHomeProductCollectionCell(_ homeProductCell : HomeProductCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
         homeProductCell.configure(homeProduct: productData[indexPath.row])
         return setupRoundedCellCorners(homeProductCell)
@@ -33,5 +33,13 @@ class HomeCollectionHelper{
         collectionViewCell.layer.masksToBounds = true
         return collectionViewCell
     }
+    
+    func setupLocalProducts(){
+        let data = DBHelperProducts.dbHelper.getOneProductData(productID: "x00")
+        if data.productFlag == false{
+            ProductCreator.productHelper.addProducts()
+        }
+    }
+    
 }
 
