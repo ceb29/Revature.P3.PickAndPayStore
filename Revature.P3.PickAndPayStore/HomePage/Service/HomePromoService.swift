@@ -10,7 +10,7 @@ import Foundation
 class HomePromoService{
     static var homePromoServiceInstance = HomePromoService()
     func getData() -> [PromoViewModel]{
-        let promoModelData = PromoCreator.promoHelper.promos
+        let promoModelData = PromoHelper.promoHelper.promos
         var promoViewModelData : [PromoViewModel] = []
         for product in promoModelData{
             promoViewModelData.append(PromoViewModel(image: product.image))

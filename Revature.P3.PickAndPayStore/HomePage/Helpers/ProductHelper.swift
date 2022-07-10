@@ -7,8 +7,8 @@
 
 import Foundation
 
-class ProductCreator{
-    static var productHelper = ProductCreator()
+class ProductHelper{
+    static var productHelper = ProductHelper()
     struct newProduct{
         var address: String
         var category: String
@@ -32,6 +32,7 @@ class ProductCreator{
         newProduct(address: "", category: "Electronics", icon: "", images: "xboxSeriesX", name: "Xbox Series X", price: "499.00", productDescription: "", productID: "x06", rating: "", seller: "")
     ]
     
+    //does storing in cored data even make sense for local products and categories
     func addProducts(){
         for product in products{
             DBHelperProducts.dbHelper.addProductData(address: product.address, category: product.category, icon: product.icon, images: product.images, name: product.name, price: product.price, productDescription: product.productDescription, productID: product.productID, rating: product.rating, seller: product.seller)

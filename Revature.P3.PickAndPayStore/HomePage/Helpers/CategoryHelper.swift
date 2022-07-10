@@ -7,8 +7,8 @@
 
 import Foundation
 
-class ProductCategoryCreator{
-    static var productCategoryHelper = ProductCategoryCreator()
+class CategoryHelper{
+    static var categoryHelper = CategoryHelper()
     struct newCategory{
         var name: String
         var image: String

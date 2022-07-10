@@ -7,8 +7,8 @@
 
 import Foundation
 
-class PromoCreator{
-    static var promoHelper = PromoCreator()
+class PromoHelper{
+    static var promoHelper = PromoHelper()
     struct newPromo{
         var image: String
     }

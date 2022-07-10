@@ -10,7 +10,7 @@ import Foundation
 class HomeRecommendedService{
     static var homeRecommendedServiceInstance = HomeRecommendedService()
     func getData() -> [HomeRecommended]{
-        let recommendedModelData = ProductCreator.productHelper.products
+        let recommendedModelData = ProductHelper.productHelper.products
         var recommendedViewModelData : [HomeRecommended] = []
         for product in recommendedModelData{
             recommendedViewModelData.append(HomeRecommended(name: product.name, image: product.images ))

@@ -37,7 +37,7 @@ class HomeCollectionHelper{
     func setupLocalProducts(){
         let data = DBHelperProducts.dbHelper.getOneProductData(productID: "x00")
         if data.productFlag == false{
-            ProductCreator.productHelper.addProducts()
+            ProductHelper.productHelper.addProducts()
         }
     }
     

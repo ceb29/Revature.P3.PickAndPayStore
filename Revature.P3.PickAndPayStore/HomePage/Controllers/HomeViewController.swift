@@ -41,7 +41,7 @@ class HomeViewController: UIViewController{
     }
     
     @IBAction func printProductData(_ sender: Any) {
-        print(ProductCreator.productHelper.products)
+        print(ProductHelper.productHelper.products)
         /*
         let data = DBHelperProducts.dbHelper.getOneProductData(productID: "x06")
         print(data.productData.name)
