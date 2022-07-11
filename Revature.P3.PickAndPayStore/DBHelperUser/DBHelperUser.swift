@@ -35,6 +35,7 @@ class DBHelperUser {
         }
         return isUserCreated
     }
+    //
     
     //CRUD operations - Creation
     func createUser(nameValue : String, emailValue: String, passwordValue: String, reEnterPasswordValue: String, mobileValue: String) {
