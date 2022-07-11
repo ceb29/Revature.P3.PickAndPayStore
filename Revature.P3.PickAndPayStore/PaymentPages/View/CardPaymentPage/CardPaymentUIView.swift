@@ -16,23 +16,27 @@ struct CardPaymentUIView: View {
     @State private var yearSelection: YearOption = .option1
     
     var body: some View {
-        VStack{
-            Text("Payment Details")
-                .font(.system(size: 30))
-                .bold()
+        NavigationView{
             VStack{
-                PaymentDetailsView(paymentDetails: $paymentDetails, monthSelection: $monthSelection, yearSelection: $yearSelection)
-                ShippingDetailsView(shippingDetails: $shippingDetails)
+                Text("Payment Details")
+                    .font(.system(size: 30))
+                    .bold()
+                VStack{
+                    PaymentDetailsView(paymentDetails: $paymentDetails, monthSelection: $monthSelection, yearSelection: $yearSelection)
+                    ShippingDetailsView(shippingDetails: $shippingDetails)
+                }
+                    .background(.white)
+                    .cornerRadius(15)
+                    .padding()
+                Spacer()
+                PaymentAlertView(paymentFlags: paymentFlags, shippingDetailsFlags : shippingDetailsFlags)
+                PaymentPagesButtonView(label: "Place Order", action: placeOrder)
+                Spacer()
             }
-                .background(.white)
-                .cornerRadius(15)
-                .padding()
-            Spacer()
-            PaymentAlertView(paymentFlags: paymentFlags, shippingDetailsFlags : shippingDetailsFlags)
-            PaymentPagesButtonView(label: "Place Order", action: placeOrder)
-            Spacer()
+                .background(Image("backgroundTest1"))
         }
-            .background(Image("backgroundTest1"))
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
 }
 
@@ -61,3 +65,12 @@ extension CardPaymentUIView{
     }
 }
 
+class CardPaymentHostingController: UIHostingController<ShippingDetailsUIView>{
+    required init?(coder: NSCoder) {
+        super.init(coder: coder, rootView: ShippingDetailsUIView());
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
