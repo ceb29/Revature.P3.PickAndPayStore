@@ -20,9 +20,8 @@ class CategoryHelper{
         newCategory(name : "Books", image: "books"),
         newCategory(name : "Groceries", image: "groceries"),
         newCategory(name : "Pets", image: "pets"),
-        newCategory(name : "Toys", image: "toys"),
-        newCategory(name : "Automotive", image: "automotive")
-        
+        //newCategory(name : "Toys", image: "toys"),
+        //newCategory(name : "Automotive", image: "automotive")
     ]
     
     //does storing in cored data even make sense for local products and categories

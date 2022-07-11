@@ -12,19 +12,40 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var welcomeView: UIView!
     @IBOutlet weak var promoPageControl: UIPageControl!
     var homeCollectionHelper = HomeCollectionHelper()
-    
     @IBOutlet weak var recommendedCollectionView: UICollectionView!
+    @IBOutlet weak var welcomeText: UILabel!
+    @IBOutlet weak var welcomeButton: UIButton!
+    var isUserSignedIn = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         //setupLocalProducts()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setWelcomeText()
+    }
+    
     func setupViews(){
         welcomeView.layer.cornerRadius = 10
         welcomeView.layer.masksToBounds = true
         bottomPromoImage.image = UIImage(named: "appleAdvertisement")
+    }
+    
+    func setWelcomeText(){
+        if CurrentUser.currentUser.name != nil{
+            isUserSignedIn = true
+        }
+        if isUserSignedIn{
+            welcomeText.text = CurrentUser.currentUser.name
+            welcomeButton.setTitle("Change Account", for: .normal)
+        }
+        else{
+            welcomeText.text = "Sign in or create an account"
+            welcomeButton.setTitle("Sign In/Sign Up", for: .normal)
+        }
     }
     
     /*
@@ -41,11 +62,9 @@ class HomeViewController: UIViewController{
     }
     
     @IBAction func printProductData(_ sender: Any) {
-        print(ProductHelper.productHelper.products)
-        /*
-        let data = DBHelperProducts.dbHelper.getOneProductData(productID: "x06")
-        print(data.productData.name)
-         */
+        let storyObject = UIStoryboard(name: "PaymentStoryboardHost", bundle: nil)
+        let shippingVC = storyObject.instantiateViewController(withIdentifier: "ShippingVC")
+        self.navigationController?.pushViewController(shippingVC, animated: true)
     }
 }
 

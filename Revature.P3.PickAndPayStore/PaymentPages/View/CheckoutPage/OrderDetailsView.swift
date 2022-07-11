@@ -11,7 +11,7 @@ struct OrderDetailsView : View{
     var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getData()
     
     init(){
-        UITableView.appearance().contentInset.top = -25 //need to figure out a better way of removing top space from list
+        UITableView.appearance().contentInset.top = -10 //need to figure out a better way of removing top space from list
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
     }
@@ -20,6 +20,7 @@ struct OrderDetailsView : View{
         Text("Order Details")
             .font(.system(size: 30))
             .bold()
+
         VStack{
             List{
                 Section(header: Text("List of items").foregroundColor(.black), footer: Spacer(minLength: 0)){

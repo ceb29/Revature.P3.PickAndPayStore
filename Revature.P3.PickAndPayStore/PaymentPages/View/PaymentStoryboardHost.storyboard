@@ -5,29 +5,29 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
     </dependencies>
     <scenes>
-        <!--Hosting Controller-->
-        <scene sceneID="T1l-Wa-FQs">
+        <!--Shipping Hosting Controller-->
+        <scene sceneID="e3T-Va-ufb">
             <objects>
-                <hostingController id="bWC-ZA-1zY" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mrw-oq-tWl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <hostingController storyboardIdentifier="ShippingVC" id="TMR-3R-4Ye" customClass="ShippingHostingController" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5CM-GA-tfr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="769" y="128"/>
+            <point key="canvasLocation" x="1712" y="79"/>
         </scene>
-        <!--Hosting Controller-->
-        <scene sceneID="0Cv-pm-MhV">
+        <!--Checkout Hosting Controller-->
+        <scene sceneID="lER-aC-3jG">
             <objects>
-                <hostingController id="0Bh-dF-NC4" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a40-mW-b6H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <hostingController storyboardIdentifier="CheckoutVC" id="sT7-w4-BdI" customClass="CheckoutHostingController" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="noq-K1-CRr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1609" y="128"/>
+            <point key="canvasLocation" x="2419" y="81"/>
         </scene>
-        <!--Hosting Controller-->
-        <scene sceneID="in2-8E-ylR">
+        <!--Card Payment Hosting Controller-->
+        <scene sceneID="Ft3-Lz-Oye">
             <objects>
-                <hostingController id="SZE-ff-qx5" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gbl-i1-iPk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <hostingController storyboardIdentifier="CardPaymentVC" id="sft-Gs-X26" customClass="CardPaymentHostingController" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yrD-Lo-lg1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2480" y="128"/>
+            <point key="canvasLocation" x="3175" y="78"/>
         </scene>
     </scenes>
 </document>
