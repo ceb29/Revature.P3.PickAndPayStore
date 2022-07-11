@@ -30,6 +30,9 @@
                                                 <rect key="frame" x="158" y="1257" width="97" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                <connections>
+                                                    <action selector="printProductData:" destination="ahj-ne-8MP" eventType="touchUpInside" id="U5C-NA-hj7"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IwZ-rn-O9l">
                                                 <rect key="frame" x="14" y="346" width="385" height="159"/>
@@ -46,13 +49,10 @@
                                                         <rect key="frame" x="74" y="89" width="237" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSN-u1-Sg7">
-                                                        <rect key="frame" x="79" y="128" width="227" height="31"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Create an account"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Sign In/Sign Up"/>
+                                                        <connections>
+                                                            <action selector="goToLoginPage:" destination="ahj-ne-8MP" eventType="touchUpInside" id="KIl-kK-g0Z"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign in or create an account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxo-dq-m8a">
                                                         <rect key="frame" x="8" y="37" width="213" height="34"/>
@@ -309,6 +309,7 @@
                     <connections>
                         <outlet property="bottomPromoImage" destination="N61-mB-8wS" id="a2j-Zk-vNx"/>
                         <outlet property="promoPageControl" destination="SpP-73-PHC" id="5v1-T9-fnh"/>
+                        <outlet property="recommendedCollectionView" destination="coG-st-tEw" id="l6v-aq-UJ4"/>
                         <outlet property="welcomeView" destination="IwZ-rn-O9l" id="Hb3-ix-hct"/>
                     </connections>
                 </viewController>

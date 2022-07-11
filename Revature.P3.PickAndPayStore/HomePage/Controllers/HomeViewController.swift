@@ -13,15 +13,39 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var promoPageControl: UIPageControl!
     var homeCollectionHelper = HomeCollectionHelper()
     
+    @IBOutlet weak var recommendedCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        //setupLocalProducts()
     }
-    
+
     func setupViews(){
         welcomeView.layer.cornerRadius = 10
         welcomeView.layer.masksToBounds = true
         bottomPromoImage.image = UIImage(named: "appleAdvertisement")
+    }
+    
+    /*
+    func setupLocalProducts(){
+        
+        homeCollectionHelper.setupLocalProducts()
+    }
+     */
+    
+    @IBAction func goToLoginPage(_ sender: Any) {
+        let storyObject = UIStoryboard(name: "LoginStoryboard", bundle: nil)
+        let loginVC = storyObject.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
+        self.navigationController?.pushViewController(loginVC, animated: true)
+    }
+    
+    @IBAction func printProductData(_ sender: Any) {
+        print(ProductHelper.productHelper.products)
+        /*
+        let data = DBHelperProducts.dbHelper.getOneProductData(productID: "x06")
+        print(data.productData.name)
+         */
     }
 }
 
