@@ -12,8 +12,9 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var welcomeView: UIView!
     @IBOutlet weak var promoPageControl: UIPageControl!
     var homeCollectionHelper = HomeCollectionHelper()
-    
     @IBOutlet weak var recommendedCollectionView: UICollectionView!
+    @IBOutlet weak var welcomeText: UILabel!
+    var isUserSignedIn = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,15 @@ class HomeViewController: UIViewController{
         welcomeView.layer.cornerRadius = 10
         welcomeView.layer.masksToBounds = true
         bottomPromoImage.image = UIImage(named: "appleAdvertisement")
+    }
+    
+    func setWelcomeText(){
+        if isUserSignedIn{
+            welcomeText.text = "username"
+        }
+        else{
+            welcomeText.text = "Sign in or create an account"
+        }
     }
     
     /*
@@ -41,11 +51,9 @@ class HomeViewController: UIViewController{
     }
     
     @IBAction func printProductData(_ sender: Any) {
-        print(ProductHelper.productHelper.products)
-        /*
-        let data = DBHelperProducts.dbHelper.getOneProductData(productID: "x06")
-        print(data.productData.name)
-         */
+        let storyObject = UIStoryboard(name: "PaymentStoryboardHost", bundle: nil)
+        let shippingVC = storyObject.instantiateViewController(withIdentifier: "ShippingVC")
+        self.navigationController?.pushViewController(shippingVC, animated: true)
     }
 }
 

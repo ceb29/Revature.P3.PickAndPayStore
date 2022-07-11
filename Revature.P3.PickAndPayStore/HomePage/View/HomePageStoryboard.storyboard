@@ -310,6 +310,7 @@
                         <outlet property="bottomPromoImage" destination="N61-mB-8wS" id="a2j-Zk-vNx"/>
                         <outlet property="promoPageControl" destination="SpP-73-PHC" id="5v1-T9-fnh"/>
                         <outlet property="recommendedCollectionView" destination="coG-st-tEw" id="l6v-aq-UJ4"/>
+                        <outlet property="welcomeText" destination="Yxo-dq-m8a" id="6Oq-Qw-FyJ"/>
                         <outlet property="welcomeView" destination="IwZ-rn-O9l" id="Hb3-ix-hct"/>
                     </connections>
                 </viewController>
