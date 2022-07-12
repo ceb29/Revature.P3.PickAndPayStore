@@ -12,9 +12,19 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var sellerLable: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel : UILabel!
+    @IBOutlet weak var priceLabel : UILabel!
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBAction func addToCart(_ sender : Any){
+        
+    }
+    
+    @IBAction func addToWish(_ sender : Any){
+        
+    }
+    
     
     var timer = Timer()
     var isOn = false
@@ -27,7 +37,9 @@ class ProductViewController: UIViewController {
         // Do any additional setup after loading the view.
         productCollectionView.register(ProductCollectionViewCell.nib(), forCellWithReuseIdentifier: ProductCollectionViewCell.identifier)
         
+        ProductService.productService.setID("B073JYC4XM")
         ProductService.productService.createProduct()
+        viewData()
         
         let date = Date.now.addingTimeInterval(0.2)
         timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(updateImages), userInfo: nil, repeats: true)
@@ -41,15 +53,21 @@ class ProductViewController: UIViewController {
         productCollectionView.dataSource = self
     }
     
+    func viewData(){
+        print(ProductService.productService.productViewModel.title)
+        productCollectionView.reloadData()
+        mainImage.image = ProductService.productService.productViewModel.mainImage
+        sellerLable.text = ProductService.productService.productViewModel.seller
+        titleLabel.text = ProductService.productService.productViewModel.title
+        priceLabel.text = "Price: " + ProductService.productService.productViewModel.price
+        ratingLabel.text = "Rating: " + ProductService.productService.productViewModel.rating
+        descriptionLabel.text = ProductService.productService.productViewModel.description
+        print(ProductService.productService.productViewModel.images.count)
+    }
+    
     @objc func updateImages(){
         if(isOn){
-            productCollectionView.reloadData()
-            mainImage.image = ProductService.productService.productViewModel.mainImage
-            sellerLable.text = ProductService.productService.productViewModel.seller
-            titleLabel.text = ProductService.productService.productViewModel.title
-            ratingLabel.text = "Rating: " + ProductService.productService.productViewModel.rating
-            descriptionLabel.text = ProductService.productService.productViewModel.description
-            print(ProductService.productService.productViewModel.images.count)
+            viewData()
             timer.invalidate()
         }
         ProductService.productService.updateProduct = {
@@ -59,8 +77,8 @@ class ProductViewController: UIViewController {
     }
 }
 
-    
 
+//Collection View
 extension ProductViewController : UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)

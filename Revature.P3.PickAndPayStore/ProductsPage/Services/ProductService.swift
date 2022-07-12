@@ -43,7 +43,19 @@ class ProductService{
     
     func createProduct(){
         
-        if(productID.contains("locol-")){
+        if(productID.contains("local-")){
+            for i in ProductHelper.productHelper.products{
+                if(productID == i.productID){
+                    productViewModel.title = i.name
+                    productViewModel.rating = i.rating
+                    productViewModel.description = i.productDescription
+                    productViewModel.seller = i.seller
+                    productViewModel.price = i.price
+                    productViewModel.mainImage = UIImage(named: i.images)!
+                    productViewModel.images.append(UIImage(named: i.images)!)
+                    break
+                }
+            }
             
         } else{
         
@@ -58,7 +70,9 @@ class ProductService{
             for i in product.imagesurl{
                 tempImages.append(UIImage(data: i)!)
             }
-            self.productViewModel = ProductViewModel(id: product.id!, title: product.title!, description: product.desc!, seller: product.seller!, rating: product.rating!, mainImage: UIImage(data: product.iconUrl)!, images: tempImages)
+            self.productViewModel = ProductViewModel(id: product.id!, title: product.title!, description: product.desc!, seller: product.seller!, rating: product.rating!, mainImage: UIImage(data: product.iconUrl)!, images: tempImages, price: product.price!)
+            
+            print("completed creating product")
             self.updateProduct?()
         }
             
