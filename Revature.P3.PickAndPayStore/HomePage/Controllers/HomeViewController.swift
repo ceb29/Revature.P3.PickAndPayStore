@@ -17,8 +17,6 @@ class HomeViewController: UIViewController{
     var isUserSignedIn = false
     let products = HomeRecommendedService.homeRecommendedServiceInstance.getData()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -56,9 +54,31 @@ class HomeViewController: UIViewController{
     }
     
     @IBAction func printProductData(_ sender: Any) {
+        let user = DBHelperUser.dbHelperUser.getOne(username: "a")
+        DBHelperUser.dbHelperUser.addWishlist(username: "a", productID: "testingWishlist")
+        DBHelperUser.dbHelperUser.addCartItem(username: "a", productID: "testingCartItem")
+        DBHelperUser.dbHelperUser.addItemHistory(username: "a", productID: "testingItemHistory", date: Date.now)
+        let wishlistItem = DBHelperUser.dbHelperUser.getWishlist(username: "a")
+        let cartItem = DBHelperUser.dbHelperUser.getCartItems(username: "a")
+        let itemHistory = DBHelperUser.dbHelperUser.getItemHistory(username: "a")
+        for d in wishlistItem{
+            print(d.productID)
+        }
+        print("")
+        for d in cartItem{
+            print(d.productID)
+        }
+        print("")
+        for d in itemHistory{
+            print(d.productID)
+        }
+        print("")
+        //DBHelperWishlist.dbHelper.deleteWishlestData(productID: "testingWishlist")
+        /*
         let storyObject = UIStoryboard(name: "PaymentStoryboardHost", bundle: nil)
         let shippingVC = storyObject.instantiateViewController(withIdentifier: "ShippingVC")
         self.navigationController?.pushViewController(shippingVC, animated: true)
+         */
     }
 }
 

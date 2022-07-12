@@ -67,6 +67,8 @@
 		847255F728779B220012DBE1 /* CartItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847255EF28779B220012DBE1 /* CartItemViewModel.swift */; };
 		847255F828779B220012DBE1 /* ProductCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847255F028779B220012DBE1 /* ProductCategoryViewModel.swift */; };
 		848C9D3B2877A68B00F45B7D /* HomeRecommendedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848C9D3A2877A68B00F45B7D /* HomeRecommendedViewModel.swift */; };
+		8495CDD1287DF7D500493BAF /* DBHelperWishlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDD0287DF7D500493BAF /* DBHelperWishlist.swift */; };
+		8495CDD3287DF7EB00493BAF /* DBHelperCheckoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDD2287DF7EB00493BAF /* DBHelperCheckoutItem.swift */; };
 		849AF96E287235F800D0DFC1 /* CardPaymentUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AF96D287235F800D0DFC1 /* CardPaymentUIView.swift */; };
 		84A6C973286A3EC60032529A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6C972286A3EC60032529A /* HomeViewController.swift */; };
 		84A6C97C286A4F360032529A /* HomeProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6C97B286A4F360032529A /* HomeProductCollectionViewCell.swift */; };
@@ -183,6 +185,8 @@
 		847255EF28779B220012DBE1 /* CartItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemViewModel.swift; sourceTree = "<group>"; };
 		847255F028779B220012DBE1 /* ProductCategoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCategoryViewModel.swift; sourceTree = "<group>"; };
 		848C9D3A2877A68B00F45B7D /* HomeRecommendedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendedViewModel.swift; sourceTree = "<group>"; };
+		8495CDD0287DF7D500493BAF /* DBHelperWishlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelperWishlist.swift; sourceTree = "<group>"; };
+		8495CDD2287DF7EB00493BAF /* DBHelperCheckoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelperCheckoutItem.swift; sourceTree = "<group>"; };
 		849AF96D287235F800D0DFC1 /* CardPaymentUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentUIView.swift; sourceTree = "<group>"; };
 		84A6C972286A3EC60032529A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		84A6C97B286A4F360032529A /* HomeProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProductCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -526,6 +530,8 @@
 			isa = PBXGroup;
 			children = (
 				84BF33612878ACD900E9C29A /* DBHelperUser.swift */,
+				8495CDD0287DF7D500493BAF /* DBHelperWishlist.swift */,
+				8495CDD2287DF7EB00493BAF /* DBHelperCheckoutItem.swift */,
 			);
 			path = DBHelperUser;
 			sourceTree = "<group>";
@@ -787,11 +793,13 @@
 				84BF336D2878AD1600E9C29A /* CartViewController.swift in Sources */,
 				84A6C984286A57840032529A /* HomeCollectionHelper.swift in Sources */,
 				84A6C97E286A4F4F0032529A /* HomePromoCollectionViewCell.swift in Sources */,
+				8495CDD3287DF7EB00493BAF /* DBHelperCheckoutItem.swift in Sources */,
 				8432102D287DF60D00132EBF /* SearchProductsViewModel.swift in Sources */,
 				847255F228779B220012DBE1 /* LoginViewModel.swift in Sources */,
 				84BF33A72878BECB00E9C29A /* ProductHelper.swift in Sources */,
 				84BF33762878AD3800E9C29A /* HistoryDBHelper.swift in Sources */,
 				84A6C973286A3EC60032529A /* HomeViewController.swift in Sources */,
+				8495CDD1287DF7D500493BAF /* DBHelperWishlist.swift in Sources */,
 				84FCC6962875E6D5003D8F0B /* PaymentTextFieldView.swift in Sources */,
 				847255E628779A8C0012DBE1 /* Promo+CoreDataProperties.swift in Sources */,
 				84FCC6A32876280B003D8F0B /* PaymentHelperTypes.swift in Sources */,
