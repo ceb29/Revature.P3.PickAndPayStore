@@ -71,4 +71,88 @@ class DBHelperUser {
         }
         return user
     }
+    
+    func addWishlist(username: String, productID: String){
+        let user = getOne(username: username)
+        do{
+            if context != nil{
+                let wishListItem = WishlistItem(context: context!)
+                wishListItem.productID = productID
+                wishListItem.user = user
+                user.addToWishListItem(wishListItem)
+                try context?.save()
+            }
+        }
+        catch{
+            print("error saving new wishlist item")
+        }
+    }
+    
+    func addCartItem(username: String, productID: String){
+        let user = getOne(username: username)
+        do{
+            if context != nil{
+                let cartItem = CartItem(context: context!)
+                cartItem.productID = productID
+                cartItem.user = user
+                user.addToCartItems(cartItem)
+                try context?.save()
+            }
+        }
+        catch{
+            print("error saving new cart item")
+        }
+    }
+    
+    func addItemHistory(username: String, productID: String, date : Date){
+        let user = getOne(username: username)
+        do{
+            if context != nil{
+                let itemHistory = ItemHistory(context: context!)
+                itemHistory.productID = productID
+                itemHistory.date = date
+                itemHistory.user = user
+                user.addToItemHistory(itemHistory)
+                try context?.save()
+            }
+        }
+        catch{
+            print("error saving new wishlist item")
+        }
+    }
+    
+    func getWishlist(username: String) -> [WishlistItem]{
+        let user = DBHelperUser.dbHelperUser.getOne(username: username)
+        let wishlistItem = user.wishListItem?.allObjects as! [WishlistItem]
+        return wishlistItem
+    }
+    
+    func getCartItems(username: String) -> [CartItem]{
+        let user = DBHelperUser.dbHelperUser.getOne(username: username)
+        let cartItem = user.cartItems?.allObjects as! [CartItem]
+        return cartItem
+    }
+    
+    func getItemHistory(username: String) -> [ItemHistory]{
+        let user = DBHelperUser.dbHelperUser.getOne(username: username)
+        let itemHistory = user.itemHistory?.allObjects as! [ItemHistory]
+        return itemHistory
+    }
+    
+    func deleteWishlist(username: String, productID: String){
+        let user = getOne(username: username)
+        do{
+            if context != nil{
+                let wishListItem = WishlistItem(context: context!)
+                wishListItem.productID = productID
+                wishListItem.user = user
+                user.addToWishListItem(wishListItem)
+                try context?.save()
+            }
+        }
+        catch{
+            print("error saving new wishlist item")
+        }
+    }
+    
 }

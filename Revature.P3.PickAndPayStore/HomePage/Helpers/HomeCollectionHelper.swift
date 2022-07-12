@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class HomeCollectionHelper{
+    static var homeCollectionHelper = HomeCollectionHelper()
     var productData = HomeProductService.homeProductServiceInstance.getData()
     var promoData = HomePromoService.homePromoServiceInstance.getData()
     var recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getData()
