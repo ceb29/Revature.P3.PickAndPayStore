@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B912C6C287C8C0F00B84FF4 /* SecondTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B912C6B287C8C0F00B84FF4 /* SecondTabCell.swift */; };
+		4B912C6E287CC6EE00B84FF4 /* WishHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B912C6D287CC6EE00B84FF4 /* WishHelper.swift */; };
+		4BD3551A287C6C620055745D /* WishListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BD35519287C6C620055745D /* WishListStoryboard.storyboard */; };
+		4BD3551D287C71090055745D /* SecondTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD3551C287C71090055745D /* SecondTab.swift */; };
+		4BD3551F287C71510055745D /* WishContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD3551E287C71510055745D /* WishContentView.swift */; };
+		4BD35521287C71B30055745D /* CheckOrderSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD35520287C71B30055745D /* CheckOrderSwiftUI.swift */; };
+		4BD35525287C72260055745D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BD35524287C72260055745D /* Media.xcassets */; };
+		4BD35527287C72A00055745D /* SecondTabChoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD35526287C72A00055745D /* SecondTabChoices.swift */; };
 		84417CCF287387F300207D67 /* ShippingUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84417CCE287387F300207D67 /* ShippingUIView.swift */; };
 		8441B9B52878B64000000888 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B9B42878B64000000888 /* ProductViewController.swift */; };
 		8441B9B72878B65000000888 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441B9B62878B65000000888 /* ProductsModel.swift */; };
@@ -115,6 +123,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B912C6B287C8C0F00B84FF4 /* SecondTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabCell.swift; sourceTree = "<group>"; };
+		4B912C6D287CC6EE00B84FF4 /* WishHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishHelper.swift; sourceTree = "<group>"; };
+		4BD35519287C6C620055745D /* WishListStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WishListStoryboard.storyboard; sourceTree = "<group>"; };
+		4BD3551C287C71090055745D /* SecondTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondTab.swift; sourceTree = "<group>"; };
+		4BD3551E287C71510055745D /* WishContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishContentView.swift; sourceTree = "<group>"; };
+		4BD35520287C71B30055745D /* CheckOrderSwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckOrderSwiftUI.swift; sourceTree = "<group>"; };
+		4BD35524287C72260055745D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		4BD35526287C72A00055745D /* SecondTabChoices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondTabChoices.swift; sourceTree = "<group>"; };
 		84417CCE287387F300207D67 /* ShippingUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingUIView.swift; sourceTree = "<group>"; };
 		8441B9B42878B64000000888 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductViewController.swift; path = Controllers/ProductViewController.swift; sourceTree = SOURCE_ROOT; };
 		8441B9B62878B65000000888 /* ProductsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductsModel.swift; path = Model/ProductsModel.swift; sourceTree = SOURCE_ROOT; };
@@ -234,6 +250,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4BD35515287C6B3F0055745D /* WishListPage */ = {
+			isa = PBXGroup;
+			children = (
+				4BD3551B287C6CCA0055745D /* WishListControllers */,
+				4BD35518287C6B780055745D /* ViewModel */,
+				4BD35517287C6B6A0055745D /* Model */,
+				4BD35516287C6B5B0055745D /* View */,
+				4BD35524287C72260055745D /* Media.xcassets */,
+			);
+			path = WishListPage;
+			sourceTree = "<group>";
+		};
+		4BD35516287C6B5B0055745D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4BD35519287C6C620055745D /* WishListStoryboard.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4BD35517287C6B6A0055745D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BD35526287C72A00055745D /* SecondTabChoices.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BD35518287C6B780055745D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4B912C6D287CC6EE00B84FF4 /* WishHelper.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4BD3551B287C6CCA0055745D /* WishListControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BD3551C287C71090055745D /* SecondTab.swift */,
+				4BD3551E287C71510055745D /* WishContentView.swift */,
+				4BD35520287C71B30055745D /* CheckOrderSwiftUI.swift */,
+				4B912C6B287C8C0F00B84FF4 /* SecondTabCell.swift */,
+			);
+			path = WishListControllers;
+			sourceTree = "<group>";
+		};
 		84152E4B286CDEDB005A101C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +390,7 @@
 		84705CED286A2EAF0005B525 /* Revature.P3.PickAndPayStore */ = {
 			isa = PBXGroup;
 			children = (
+				4BD35515287C6B3F0055745D /* WishListPage */,
 				84BF33792878AD5400E9C29A /* Products-Page */,
 				84BF33702878AD3800E9C29A /* History */,
 				84BF33692878AD1600E9C29A /* Cart Page */,
@@ -731,12 +795,14 @@
 			files = (
 				84705CFE286A2EB00005B525 /* LaunchScreen.storyboard in Resources */,
 				84BF33622878ACD900E9C29A /* LoginStoryboard.storyboard in Resources */,
+				4BD35525287C72260055745D /* Media.xcassets in Resources */,
 				8441B9C32878B67F00000888 /* ProductCollectionViewCell.xib in Resources */,
 				84705CFB286A2EB00005B525 /* Assets.xcassets in Resources */,
 				84705CF6286A2EAF0005B525 /* Main.storyboard in Resources */,
 				84BF33AA2878D08A00E9C29A /* PaymentStoryboardHost.storyboard in Resources */,
 				84A6C982286A4FCA0032529A /* HomePageStoryboard.storyboard in Resources */,
 				84BF33642878ACD900E9C29A /* SignInStoryboard.storyboard in Resources */,
+				4BD3551A287C6C620055745D /* WishListStoryboard.storyboard in Resources */,
 				8441B9C02878B67F00000888 /* CategoryCollectionViewCell.xib in Resources */,
 				8441B9BF2878B67F00000888 /* Products.storyboard in Resources */,
 				84BF336E2878AD1600E9C29A /* Cart.storyboard in Resources */,
@@ -768,6 +834,7 @@
 				8446CE35286F78980029D539 /* HomePromoService.swift in Sources */,
 				847255F528779B220012DBE1 /* ProductsViewModel.swift in Sources */,
 				8466067C2877355C00237DE6 /* PaymentAlertView.swift in Sources */,
+				4BD3551F287C71510055745D /* WishContentView.swift in Sources */,
 				84BF336D2878AD1600E9C29A /* CartViewController.swift in Sources */,
 				84A6C984286A57840032529A /* HomeCollectionHelper.swift in Sources */,
 				84A6C97E286A4F4F0032529A /* HomePromoCollectionViewCell.swift in Sources */,
@@ -785,6 +852,7 @@
 				8466068028773E7000237DE6 /* ShippingDetailsAlertHelper.swift in Sources */,
 				84A6C97C286A4F360032529A /* HomeProductCollectionViewCell.swift in Sources */,
 				847255E228779A8C0012DBE1 /* Product+CoreDataProperties.swift in Sources */,
+				4BD3551D287C71090055745D /* SecondTab.swift in Sources */,
 				848C9D3B2877A68B00F45B7D /* HomeRecommendedViewModel.swift in Sources */,
 				847255F428779B220012DBE1 /* PastOrderViewModel.swift in Sources */,
 				84660691287760B300237DE6 /* PaymentFlags.swift in Sources */,
@@ -793,6 +861,7 @@
 				8441B9C12878B67F00000888 /* CategoryCollectionViewCell.swift in Sources */,
 				8441B9C52878B74500000888 /* ProductViewModel.swift in Sources */,
 				846606932877622200237DE6 /* ShippingDetailsFlags.swift in Sources */,
+				4BD35521287C71B30055745D /* CheckOrderSwiftUI.swift in Sources */,
 				84705CF3286A2EAF0005B525 /* ViewController.swift in Sources */,
 				847255E328779A8C0012DBE1 /* ItemHistory+CoreDataClass.swift in Sources */,
 				84B0A953287B8406007EACEB /* PromoHelper.swift in Sources */,
@@ -818,17 +887,20 @@
 				846606872877559B00237DE6 /* PaymentDetails.swift in Sources */,
 				847255F328779B220012DBE1 /* SignUpViewModel.swift in Sources */,
 				84BF33A52878BB1E00E9C29A /* DBHelperProducts.swift in Sources */,
+				4B912C6C287C8C0F00B84FF4 /* SecondTabCell.swift in Sources */,
 				845655522873728B00AFF23A /* CheckoutPageUIView.swift in Sources */,
 				84BF33782878AD3800E9C29A /* HistoryView.swift in Sources */,
 				84BF33A22878B32800E9C29A /* User+CoreDataClass.swift in Sources */,
 				8466068F28775DB300237DE6 /* ShippingDetails.swift in Sources */,
 				847255F628779B220012DBE1 /* PromoViewModel.swift in Sources */,
+				4B912C6E287CC6EE00B84FF4 /* WishHelper.swift in Sources */,
 				845655482873640600AFF23A /* ShippingDetailsView.swift in Sources */,
 				84BF33652878ACD900E9C29A /* SignInViewController.swift in Sources */,
 				8441B9B92878B65F00000888 /* ProductService.swift in Sources */,
 				847255F728779B220012DBE1 /* CartItemViewModel.swift in Sources */,
 				8466067E2877380300237DE6 /* ShippingDetailsAlertView.swift in Sources */,
 				8441B9B72878B65000000888 /* ProductsModel.swift in Sources */,
+				4BD35527287C72A00055745D /* SecondTabChoices.swift in Sources */,
 				84A6C980286A4F710032529A /* HomeRecommendedCollectionViewCell.swift in Sources */,
 				847255DE28779A8C0012DBE1 /* ProductCategory+CoreDataProperties.swift in Sources */,
 				84BF33682878ACEB00E9C29A /* CurrentUser.swift in Sources */,
