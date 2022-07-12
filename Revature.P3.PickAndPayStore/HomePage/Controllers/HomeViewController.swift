@@ -11,16 +11,17 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var bottomPromoImage: UIImageView!
     @IBOutlet weak var welcomeView: UIView!
     @IBOutlet weak var promoPageControl: UIPageControl!
-    var homeCollectionHelper = HomeCollectionHelper()
     @IBOutlet weak var recommendedCollectionView: UICollectionView!
     @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var welcomeButton: UIButton!
     var isUserSignedIn = false
+    let products = HomeRecommendedService.homeRecommendedServiceInstance.getData()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        //setupLocalProducts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,13 +49,6 @@ class HomeViewController: UIViewController{
         }
     }
     
-    /*
-    func setupLocalProducts(){
-        
-        homeCollectionHelper.setupLocalProducts()
-    }
-     */
-    
     @IBAction func goToLoginPage(_ sender: Any) {
         let storyObject = UIStoryboard(name: "LoginStoryboard", bundle: nil)
         let loginVC = storyObject.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
@@ -72,12 +66,12 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView.restorationIdentifier{
         case "homeProducts":
-            return homeCollectionHelper.productData.count
+            return HomeCollectionHelper.homeCollectionHelper.productData.count
         case "homePromos":
-            promoPageControl.numberOfPages = homeCollectionHelper.promoData.count
-            return homeCollectionHelper.promoData.count //need to change to promodata
+            promoPageControl.numberOfPages = HomeCollectionHelper.homeCollectionHelper.promoData.count
+            return HomeCollectionHelper.homeCollectionHelper.promoData.count //need to change to promodata
         default:
-            return homeCollectionHelper.recommendedData.count //need to change to recommended data
+            return HomeCollectionHelper.homeCollectionHelper.recommendedData.count //need to change to recommended data
         }
     }
     
@@ -85,13 +79,13 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         switch collectionView.restorationIdentifier{
         case "homeProducts":
             let currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeProductCell", for: indexPath) as! HomeProductCollectionViewCell
-            return homeCollectionHelper.setupHomeProductCollectionCell(currentCell, indexPath)
+            return HomeCollectionHelper.homeCollectionHelper.setupHomeProductCollectionCell(currentCell, indexPath)
         case "homePromos":
             let currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "homePromoCell", for: indexPath) as! HomePromoCollectionViewCell
-            return homeCollectionHelper.setupHomePromoCollectionCell(currentCell, indexPath)
+            return HomeCollectionHelper.homeCollectionHelper.setupHomePromoCollectionCell(currentCell, indexPath)
         default:
             let currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeRecommendedCell", for: indexPath) as! HomeRecommendedCollectionViewCell
-            return homeCollectionHelper.setupHomeRecommendedCollectionCell(currentCell, indexPath)
+            return HomeCollectionHelper.homeCollectionHelper.setupHomeRecommendedCollectionCell(currentCell, indexPath)
         }
     }
     
@@ -103,5 +97,53 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
 }
 
 extension HomeViewController : UISearchBarDelegate{
-    
-}
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //
+        //
+        //need to change this to product service
+        //
+        //
+        var searchResults : [String] = []
+        var currentMax = 0
+        var searchDict : [String : Int] = [:]
+        var currentString = ""
+        if searchText.isEmpty{ //if search is empty, search results table view should be hidden
+            //searchBarTableView.isHidden = true
+            searchResults = []
+            
+        }
+        else{ //filter data using search text and store in search results
+            //searchBarTableView.isHidden = false
+            for char in searchText{
+                currentString += String(char)
+                for i in 0..<products.count{
+                    if products[i].name.lowercased().contains(currentString.lowercased()){
+                        if searchDict[products[i].name] != nil{
+                            searchDict[products[i].name] = searchDict[products[i].name]! + 1
+                        }
+                        else{
+                            searchDict[products[i].name] = 1
+                        }
+                    }
+                }
+            }
+            for (str, cnt) in searchDict{
+                if cnt >= currentMax{
+                    searchResults.insert(str, at: 0)
+                    currentMax = cnt
+                }
+                else{
+                    searchResults.append(str)
+                }
+            }
+            print(searchDict)
+            print(searchResults)
+            /*for product in products{
+                if product.name.lowercased().contains(searchText.lowercased()){
+                    searchResults.append(product.name)
+                }
+            }
+            print(searchResults)*/
+        }
+        //searchBarTableView.reloadData() //reload collection view to show updated result
+    }}

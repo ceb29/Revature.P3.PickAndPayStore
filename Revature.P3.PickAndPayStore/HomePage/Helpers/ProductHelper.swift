@@ -53,8 +53,6 @@ class ProductHelper{
         newProduct(address: "", category: "Pets", icon: "", images: "purina_cat_food", name: "Purina Cat Food", price: "8.45", productDescription: "", productID: "local-p02", rating: "", seller: ""),
         newProduct(address: "", category: "Pets", icon: "", images: "beneful_prepared_meal", name: "Beneful Prepared Meal", price: "1.99", productDescription: "", productID: "local-p03", rating: "", seller: ""),
         newProduct(address: "", category: "Pets", icon: "", images: "cat_bed", name: "Cat Bed", price: "10.50", productDescription: "35.99", productID: "local-p04", rating: "", seller: ""),
-        
-        
     ]
     
     //does storing in cored data even make sense for local products and categories
