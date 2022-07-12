@@ -35,7 +35,7 @@ class DBHelperUser {
         }
         return isUserCreated
     }
-    
+    //
     //CRUD operations - Creation
     func createUser(nameValue : String, emailValue: String, passwordValue: String, reEnterPasswordValue: String, mobileValue: String) {
         let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context!) as! User
