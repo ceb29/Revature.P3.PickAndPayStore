@@ -11,11 +11,43 @@ class ProductService{
     
     static var productService = ProductService()
     private let productModel = ProductsModel()
+    private let searchModel = SearchProductsModel()
     var productViewModel = ProductViewModel()
+    var searchedProducts = [SearchProductsViewModel]()
     var updateProduct : (()->())?
     
+    private var productID = String()
+    
+    func setID(_ id : String){
+        productID = id
+    }
+    
+    func searchProduct(){
+        searchModel.setSearchProduct(search: "water bottle")
+        searchModel.run()
+        
+        searchModel.updateProduct = {
+            () in
+            print("is working")
+            let products = self.searchModel.searchProduct
+            
+            for i in products{
+                self.searchedProducts.append(SearchProductsViewModel(id: i.id!, title: i.title!, rating: i.rating!, price: i.price!, icon: UIImage(data: i.iconUrl)!))
+                self.updateProduct?()
+            }
+        }
+        
+    }
+    
+    
+    
     func createProduct(){
-        productModel.setProductId("B000R4EMWG")
+        
+        if(productID.contains("locol-")){
+            
+        } else{
+        
+        productModel.setProductId(productID)
         productModel.run()
         
         productModel.updateProduct = {
@@ -28,6 +60,8 @@ class ProductService{
             }
             self.productViewModel = ProductViewModel(id: product.id!, title: product.title!, description: product.desc!, seller: product.seller!, rating: product.rating!, mainImage: UIImage(data: product.iconUrl)!, images: tempImages)
             self.updateProduct?()
+        }
+            
         }
         
     }
