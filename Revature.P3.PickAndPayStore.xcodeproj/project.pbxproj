@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5647C767287D8BB90007A9AD /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5647C766287D8BB90007A9AD /* CartViewModel.swift */; };
 		84321077287F5CD700132EBF /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321063287F5CD700132EBF /* ProductsViewModel.swift */; };
 		84321078287F5CD700132EBF /* SearchProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321064287F5CD700132EBF /* SearchProductsViewModel.swift */; };
 		84321079287F5CD700132EBF /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321065287F5CD700132EBF /* ProductViewModel.swift */; };
@@ -125,6 +126,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5647C766287D8BB90007A9AD /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		84321063287F5CD700132EBF /* ProductsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
 		84321064287F5CD700132EBF /* SearchProductsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchProductsViewModel.swift; sourceTree = "<group>"; };
 		84321065287F5CD700132EBF /* ProductViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				84BF336A2878AD1600E9C29A /* CartViewController.swift */,
 				84BF336B2878AD1600E9C29A /* Cart.storyboard */,
 				84BF336C2878AD1600E9C29A /* CartCell.swift */,
+				5647C766287D8BB90007A9AD /* CartViewModel.swift */,
 			);
 			path = "Cart Page";
 			sourceTree = "<group>";
@@ -838,6 +841,7 @@
 				847255F828779B220012DBE1 /* ProductCategoryViewModel.swift in Sources */,
 				847255E428779A8C0012DBE1 /* ItemHistory+CoreDataProperties.swift in Sources */,
 				84FCC6AA28762EBE003D8F0B /* OrderDetailsService.swift in Sources */,
+				5647C767287D8BB90007A9AD /* CartViewModel.swift in Sources */,
 				84BF33772878AD3800E9C29A /* HistoryDetailsSwiftUIView.swift in Sources */,
 				847255DD28779A8C0012DBE1 /* ProductCategory+CoreDataClass.swift in Sources */,
 				84FCC6A728762E1D003D8F0B /* CheckoutItem.swift in Sources */,
@@ -1059,7 +1063,7 @@
 				INFOPLIST_FILE = Revature.P3.PickAndPayStore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Products;
+				INFOPLIST_KEY_UIMainStoryboardFile = Cart;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1086,7 +1090,7 @@
 				INFOPLIST_FILE = Revature.P3.PickAndPayStore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Products;
+				INFOPLIST_KEY_UIMainStoryboardFile = Cart;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
