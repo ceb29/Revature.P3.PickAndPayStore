@@ -15,7 +15,7 @@ class SearchProductsModel{
     var updateProduct : (()->())?
     var noResults : (()->())?
     var searchProduct = [SearchProductApi]()
-    var search = ""
+    private var search = ""
     let json = JSON("{}")
     
     func setSearchProduct(search: String){
@@ -39,7 +39,7 @@ class SearchProductsModel{
         //spaces must be replaced by +...
         
         let url = "https://api.rainforestapi.com/request?api_key=EC521707AB464E8BB2077A4B2184F915&type=search&amazon_domain=amazon.com&search_term=\(getSearchProduct())"
-        
+        print(url)
         let session = URLSession(configuration: .default)
         
         session.dataTask(with: URL(string: url)!) { (data, _, err) in
@@ -77,7 +77,9 @@ class SearchProductsModel{
                 
                 self.searchProduct.append(SearchProductApi(id: id, rating: rating, title: title, price: price, iconUrl: iconData))
             }
+            print(self.searchProduct.count)
             self.updateProduct?()
+            self.searchProduct = [SearchProductApi]()
         }.resume()
         
     }

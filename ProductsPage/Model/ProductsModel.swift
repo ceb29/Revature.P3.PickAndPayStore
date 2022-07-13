@@ -15,28 +15,12 @@ class ProductsModel{
     var updateProduct : (()->())?
     var noResults : (()->())?
     var product = ProductApi()
-    var productId = ""
-    var search = ""
+    private var productId = ""
     let json = JSON("{}")
     
-    func setSearchProduct(search: String){
-        self.search = search
-        for val in search{
-            if(val == " "){
-                let index = self.search.firstIndex(of: " ")!
-                self.search.remove(at: index)
-                self.search.insert("+", at: index)
-            }
-        }
-    }
     
     func setProductId(_ id : String){
         productId = id
-    }
-    
-    
-    func getSearchProduct() -> String{
-        return search
     }
     
     func getProductId() -> String{

@@ -24,6 +24,7 @@ class ProductsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        iconImage.layer.cornerRadius = 20
     }
     
     func configure(title: String, price: String, rating: String, icon: UIImage){
