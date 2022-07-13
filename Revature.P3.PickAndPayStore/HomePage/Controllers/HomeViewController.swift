@@ -20,6 +20,7 @@ class HomeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        ProductHelper.productHelper.createGuestUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +35,7 @@ class HomeViewController: UIViewController{
     }
     
     func setWelcomeText(){
-        if CurrentUser.currentUser.name != nil{
+        if CurrentUser.currentUser.name != "Guest"{
             isUserSignedIn = true
         }
         if isUserSignedIn{
@@ -55,9 +56,11 @@ class HomeViewController: UIViewController{
     
     @IBAction func printProductData(_ sender: Any) {
         //this button is for testing
-        let storyObject = UIStoryboard(name: "PaymentStoryboardHost", bundle: nil)
-        let shippingVC = storyObject.instantiateViewController(withIdentifier: "ShippingVC")
-        self.navigationController?.pushViewController(shippingVC, animated: true)
+        if isUserSignedIn{
+            let storyObject = UIStoryboard(name: "PaymentStoryboardHost", bundle: nil)
+            let shippingVC = storyObject.instantiateViewController(withIdentifier: "ShippingVC")
+            self.navigationController?.pushViewController(shippingVC, animated: true)
+        }
     }
 }
 
