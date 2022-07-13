@@ -81,7 +81,7 @@ class DBHelperCheckoutItem{
         }
     }
     
-    func deleteCartlestData(productID : String){
+    func deleteCartItemData(productID : String){
         var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
         fetchRequest.predicate = NSPredicate(format : "productID == %@", productID)
         do{

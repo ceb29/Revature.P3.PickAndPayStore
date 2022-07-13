@@ -144,7 +144,7 @@
         <!--Product View Controller-->
         <scene sceneID="m78-RU-yRG">
             <objects>
-                <viewController id="k4T-MA-FWv" customClass="ProductViewController" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductVC" id="k4T-MA-FWv" customClass="ProductViewController" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VDV-fd-eJn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

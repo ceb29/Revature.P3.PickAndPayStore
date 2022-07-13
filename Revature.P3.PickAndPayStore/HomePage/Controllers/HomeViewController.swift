@@ -110,6 +110,22 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView.restorationIdentifier{
+        case "homeProducts":
+            print("home product selected")
+        case "homePromos":
+            print("home promo selected")
+        default:
+            let products = HomeCollectionHelper.homeCollectionHelper.recommendedData
+            let productSelected = products[indexPath.row]
+            
+            let storyObject = UIStoryboard(name: "Products", bundle: nil)
+            let productVC = storyObject.instantiateViewController(withIdentifier: "ProductVC") as! ProductViewController
+            productVC.currentID = productSelected.productID
+            self.navigationController?.pushViewController(productVC, animated: true)        }
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if(scrollView.restorationIdentifier == "homePromos"){
             promoPageControl.currentPage = Int(round(scrollView.contentOffset.x / scrollView.frame.width))
