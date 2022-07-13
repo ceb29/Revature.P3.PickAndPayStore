@@ -25,21 +25,18 @@ class cartViewModel{
     
     func total (subTotal:Double,estimatedTax:Double){
         total = subTotal + estimatedTax
-//        return total
-    }
-    func recalc(){
-        subTotal = 0
-        estimatedTax = 0
-        total = 0
     }
     func recalc(items:[CartItemViewModel]){
         var itemPrices:[Double]=[]
+        //reset the values to zero
         subTotal = 0
         estimatedTax = 0
         total = 0
+        //pull the price as a double from the CartViewModel array
         for item in items{
             itemPrices.append(Double(item.price) ?? 0)
         }
+        //call the functions to calculate the subTotal tax and total amounts
         self.subTotal(items: itemPrices)
         self.estimateTax(subTotal: subTotal)
         self.total(subTotal: subTotal, estimatedTax: estimatedTax)
