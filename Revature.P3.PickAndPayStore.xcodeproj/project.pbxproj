@@ -390,7 +390,6 @@
 		84705CE2286A2EAF0005B525 = {
 			isa = PBXGroup;
 			children = (
-				84321061287F5CD700132EBF /* ProductsPage */,
 				847255E728779A910012DBE1 /* Model */,
 				84705CED286A2EAF0005B525 /* Revature.P3.PickAndPayStore */,
 				84705D07286A2EB10005B525 /* Revature.P3.PickAndPayStoreTests */,
@@ -412,6 +411,7 @@
 		84705CED286A2EAF0005B525 /* Revature.P3.PickAndPayStore */ = {
 			isa = PBXGroup;
 			children = (
+				84321061287F5CD700132EBF /* ProductsPage */,
 				84BF33702878AD3800E9C29A /* History */,
 				84BF33692878AD1600E9C29A /* Cart Page */,
 				84BF33602878ACD900E9C29A /* DBHelperUser */,
