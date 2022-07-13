@@ -159,6 +159,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cartTable" destination="fyz-L9-VVJ" id="FnD-a9-dhy"/>
                         <outlet property="subTotalLabel" destination="ZJt-a7-8ZP" id="Csg-Rq-uDy"/>
                         <outlet property="taxLabel" destination="ZGx-5y-WDw" id="WVn-Iz-vUk"/>
                         <outlet property="totalLabel" destination="5YA-0U-Zbt" id="d0q-pK-Kbg"/>

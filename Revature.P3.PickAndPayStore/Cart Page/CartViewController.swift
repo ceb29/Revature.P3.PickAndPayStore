@@ -8,6 +8,7 @@
 import UIKit
 
 class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var cartTable: UITableView!
     var cartItems:[CartItemViewModel] = []
     @IBOutlet weak var subTotalLabel: UILabel!
     @IBOutlet weak var taxLabel: UILabel!
@@ -17,7 +18,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
+        //set up the cartItems from the global cart
+        super.viewWillAppear(true)
         cartItems = OrderDetailsService.orderDetailsServiceInstance.getCheckoutData()
+        cartTable.reloadData()
         self.updatePricing()
     }
     
@@ -39,6 +43,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.navigationController?.pushViewController(shippingVC, animated: true)
         }else{
             self.present(viewModel.dialogLogin, animated: true, completion: nil)
+            viewModel.dialogLogin.addAction(viewModel.acknowledge)
         }
     }
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
@@ -50,6 +55,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     //need to switch this over to MVVM standard
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         DBHelperCheckoutItem.dbHelper.deleteCartItemData(productID: cartItems[indexPath.row].productID)
+        cartItems = OrderDetailsService.orderDetailsServiceInstance.getCheckoutData()
         tableView.deleteRows(at: [indexPath], with: .fade)
         self.updatePricing()
     }
