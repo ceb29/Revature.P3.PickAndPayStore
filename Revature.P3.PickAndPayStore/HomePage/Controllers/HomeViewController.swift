@@ -13,9 +13,15 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var promoPageControl: UIPageControl!
     @IBOutlet weak var recommendedCollectionView: UICollectionView!
     @IBOutlet weak var welcomeText: UILabel!
+    @IBOutlet weak var locationPickerView: UIPickerView!
     @IBOutlet weak var welcomeButton: UIButton!
     var isUserSignedIn = false
+    
+    @IBOutlet weak var selectionView: UIView!
     let products = HomeRecommendedService.homeRecommendedServiceInstance.getData()
+    var pickerData = ["All Locations", "Los Angelos, CA", "New York, NY", "Houston, TX"]
+    var locationPickerViewSelection = "All Locations"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +39,8 @@ class HomeViewController: UIViewController{
     func setupViews(){
         welcomeView.layer.cornerRadius = 10
         welcomeView.layer.masksToBounds = true
+        selectionView.layer.cornerRadius = 10
+        selectionView.layer.masksToBounds = true
         bottomPromoImage.image = UIImage(named: "appleAdvertisement")
     }
     
@@ -54,6 +62,16 @@ class HomeViewController: UIViewController{
         let storyObject = UIStoryboard(name: "LoginStoryboard", bundle: nil)
         let loginVC = storyObject.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
         self.navigationController?.pushViewController(loginVC, animated: true)
+    }
+    
+    
+    
+    @IBAction func openSelectionView(_ sender: Any) {
+        selectionView.isHidden = false
+    }
+    
+    @IBAction func closeSelectionView(_ sender: Any) {
+        selectionView.isHidden = true
     }
     
     @IBAction func printProductData(_ sender: Any) {
@@ -119,6 +137,27 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
 }
+
+
+extension HomeViewController : UIPickerViewDelegate, UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        locationPickerViewSelection = pickerData[row]
+        
+    }}
+
+
 
 extension HomeViewController : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
