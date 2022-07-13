@@ -54,32 +54,10 @@ class HomeViewController: UIViewController{
     }
     
     @IBAction func printProductData(_ sender: Any) {
-        /*let user = DBHelperUser.dbHelperUser.getOne(username: "a")
-        DBHelperUser.dbHelperUser.addWishlist(username: "a", productID: "testingWishlist")
-        DBHelperUser.dbHelperUser.addCartItem(username: "a", productID: "testingCartItem")
-        DBHelperUser.dbHelperUser.addItemHistory(username: "a", productID: "testingItemHistory", date: Date.now)
-        let wishlistItem = DBHelperUser.dbHelperUser.getWishlist(username: "a")
-        let cartItem = DBHelperUser.dbHelperUser.getCartItems(username: "a")
-        let itemHistory = DBHelperUser.dbHelperUser.getItemHistory(username: "a")
-        for d in wishlistItem{
-            print(d.productID)
-        }
-        print("")
-        for d in cartItem{
-            print(d.productID)
-        }
-        print("")
-        for d in itemHistory{
-            print(d.productID)
-        }
-        print("")
-        */
-        //DBHelperWishlist.dbHelper.deleteWishlestData(productID: "testingWishlist")
-        
+        //this button is for testing
         let storyObject = UIStoryboard(name: "PaymentStoryboardHost", bundle: nil)
         let shippingVC = storyObject.instantiateViewController(withIdentifier: "ShippingVC")
         self.navigationController?.pushViewController(shippingVC, animated: true)
-         
     }
 }
 
@@ -115,15 +93,19 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         case "homeProducts":
             print("home product selected")
         case "homePromos":
-            print("home promo selected")
+            let promo = HomeCollectionHelper.homeCollectionHelper.promoData
+            goToProductPage(productID: promo[indexPath.row].productID)
         default:
             let products = HomeCollectionHelper.homeCollectionHelper.recommendedData
-            let productSelected = products[indexPath.row]
-            
-            let storyObject = UIStoryboard(name: "Products", bundle: nil)
-            let productVC = storyObject.instantiateViewController(withIdentifier: "ProductVC") as! ProductViewController
-            productVC.currentID = productSelected.productID
-            self.navigationController?.pushViewController(productVC, animated: true)        }
+            goToProductPage(productID: products[indexPath.row].productID)
+        }
+    }
+    
+    func goToProductPage(productID: String){
+        let storyObject = UIStoryboard(name: "Products", bundle: nil)
+        let productVC = storyObject.instantiateViewController(withIdentifier: "ProductVC") as! ProductViewController
+        productVC.currentID = productID
+        self.navigationController?.pushViewController(productVC, animated: true)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

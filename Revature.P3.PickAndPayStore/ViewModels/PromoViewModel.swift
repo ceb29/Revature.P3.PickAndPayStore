@@ -9,4 +9,5 @@ import Foundation
 
 struct PromoViewModel{
     var image : String
+    var productID : String
 }

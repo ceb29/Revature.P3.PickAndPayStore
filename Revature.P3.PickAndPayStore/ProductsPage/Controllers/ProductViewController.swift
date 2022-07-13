@@ -20,7 +20,9 @@ class ProductViewController: UIViewController {
     @IBAction func addToCart(_ sender : Any){
         if CurrentUser.currentUser.name != nil{
             DBHelperUser.dbHelperUser.addWishlist(username: CurrentUser.currentUser.name!, productID: currentID)
+            
         }
+        
     }
     
     @IBAction func addToWish(_ sender : Any){
