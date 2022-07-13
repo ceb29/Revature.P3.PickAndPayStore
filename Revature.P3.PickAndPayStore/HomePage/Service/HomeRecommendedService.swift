@@ -26,8 +26,12 @@ class HomeRecommendedService{
             for pastProduct in pastProducts{
                 if pastProduct.productID != nil{
                     let product = ProductHelper.productHelper.getProductByID(productID: pastProduct.productID!)
-                    productCategories.insert(product.category)
+                    productCategories.insert(product.productID)
                 }
+            }
+            for category in productCategories {
+                let product = ProductHelper.productHelper.getProductByID(productID: category)
+                recommendedProducts.append(HomeRecommended(name: product.name, image: product.images, productID: product.productID ))
             }
             
         }

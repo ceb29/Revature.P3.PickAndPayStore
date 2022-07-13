@@ -26,6 +26,8 @@ class HomeViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setWelcomeText()
+        HomeCollectionHelper.homeCollectionHelper.updateRecommendedData()
+        recommendedCollectionView.reloadData()
     }
     
     func setupViews(){

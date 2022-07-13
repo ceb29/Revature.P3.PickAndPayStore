@@ -12,7 +12,7 @@ class HomeCollectionHelper{
     static var homeCollectionHelper = HomeCollectionHelper()
     var productData = HomeProductService.homeProductServiceInstance.getData()
     var promoData = HomePromoService.homePromoServiceInstance.getData()
-    var recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getData()
+    var recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getRecommendedData()
     
     func setupHomeProductCollectionCell(_ homeProductCell : HomeProductCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
         homeProductCell.configure(homeProduct: productData[indexPath.row])
@@ -22,6 +22,10 @@ class HomeCollectionHelper{
     func setupHomePromoCollectionCell(_ homePromoCell : HomePromoCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
         homePromoCell.configure(homePromo: promoData[indexPath.row])
         return setupRoundedCellCorners(homePromoCell)
+    }
+    
+    func updateRecommendedData(){
+        recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getRecommendedData()
     }
     
     func setupHomeRecommendedCollectionCell(_ homeRecommendedCell : HomeRecommendedCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
