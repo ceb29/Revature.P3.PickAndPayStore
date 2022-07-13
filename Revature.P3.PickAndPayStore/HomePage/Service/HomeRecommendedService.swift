@@ -18,6 +18,25 @@ class HomeRecommendedService{
         return recommendedViewModelData
     }
     
+    func getRecommendedData() -> [HomeRecommended]{
+        var recommendedProducts : [HomeRecommended] = []
+        var productCategories = Set<String>()
+        if CurrentUser.currentUser.name != nil{
+            let pastProducts = DBHelperUser.dbHelperUser.getItemHistory(username: CurrentUser.currentUser.name!)
+            for pastProduct in pastProducts{
+                if pastProduct.productID != nil{
+                    let product = ProductHelper.productHelper.getProductByID(productID: pastProduct.productID!)
+                    productCategories.insert(product.category)
+                }
+            }
+            
+        }
+        
+        
+        
+        return recommendedProducts
+    }
+    
     /*
     func getData() -> [HomeRecommended]{
         let recommendedModelData = DBHelperProducts.dbHelper.getProductsData()

@@ -70,6 +70,13 @@ class ProductHelper{
         let product = NewProduct(address: currentProd.address, category: currentProd.category, icon: currentProd.icon, images: currentProd.images, name: currentProd.name, price: currentProd.price, productDescription: currentProd.productDescription, productID: currentProd.productID, rating: currentProd.rating, seller: currentProd.seller)
         return product
     }
+    
+    func createGuestUser(){
+        if !DBHelperUser.dbHelperUser.isUserRegistered(username: "Guest"){
+            DBHelperUser.dbHelperUser.createUser(nameValue: "Guest", emailValue: "", passwordValue: "", reEnterPasswordValue: "", mobileValue: "")
+        }
+        CurrentUser.currentUser.name = "Guest"
+    }
 }
 
 
