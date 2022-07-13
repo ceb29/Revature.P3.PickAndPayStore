@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct CheckoutPageUIView: View {
+    var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
+    
     var body: some View {
         NavigationView{
             VStack{
-                OrderDetailsView()
+                OrderDetailsView(checkoutItems: orderItems)
                 //PaymentPagesButtonView(label: "Pay With Card", action: {print("pay with card selected")})
                 NavigationLink(destination: CardPaymentUIView()){
                     Text("Pay With Card")

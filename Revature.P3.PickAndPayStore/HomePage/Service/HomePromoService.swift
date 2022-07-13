@@ -13,7 +13,7 @@ class HomePromoService{
         let promoModelData = PromoHelper.promoHelper.promos
         var promoViewModelData : [PromoViewModel] = []
         for product in promoModelData{
-            promoViewModelData.append(PromoViewModel(image: product.image))
+            promoViewModelData.append(PromoViewModel(image: product.image, productID: product.promoID))
         }
         return promoViewModelData
     }

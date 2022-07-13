@@ -21,10 +21,9 @@ class OrderDetailsService{
     
     func getCheckoutData() -> [CartItemViewModel]{
         var checkoutItems : [CartItemViewModel] = []
-        /*
         if CurrentUser.currentUser.name != nil{
             let checkoutItemsModel = DBHelperUser.dbHelperUser.getCartItems(username: CurrentUser.currentUser.name!)
-            
+            print(checkoutItemsModel)
             for checkoutItem in checkoutItemsModel {
                 if checkoutItem.productID != nil{
                     let currentProduct = ProductHelper.productHelper.getProductByID(productID: checkoutItem.productID!)
@@ -32,8 +31,7 @@ class OrderDetailsService{
                 }
             }
         }
-        */
-        checkoutItems = [CartItemViewModel(productID: "local-f00", name: "Izod Dress Shirt", price: "10.50", icon: "izod_dress_shirt"), CartItemViewModel(productID: "local-f01", name: "Izod Pants", price: "25.10", icon: "izod_dress_shirt"),CartItemViewModel(productID: "local-f02", name: "Izod Polo", price: "22.75", icon: "izod_polo"),CartItemViewModel(productID: "local-f03", name: "Nike Sweater", price: "35.75", icon: "nike_sweater")]
+        /*checkoutItems = [CartItemViewModel(productID: "local-f00", name: "Izod Dress Shirt", price: "10.50", icon: "izod_dress_shirt"), CartItemViewModel(productID: "local-f01", name: "Izod Pants", price: "25.10", icon: "izod_dress_shirt"),CartItemViewModel(productID: "local-f02", name: "Izod Polo", price: "22.75", icon: "izod_polo"),CartItemViewModel(productID: "local-f03", name: "Nike Sweater", price: "35.75", icon: "nike_sweater")]*/
         return checkoutItems
     }
     

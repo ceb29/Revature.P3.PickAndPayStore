@@ -17,9 +17,16 @@ class CheckoutHistoryHelper{
             for checkoutItem in checkoutItems{
                 DBHelperUser.dbHelperUser.addItemHistory(username: user, productID: checkoutItem.productID, date: Date.now)
             }
+            clearCart()
             return true
         }
         return false
+    }
+    
+    func clearCart(){
+        for cartItem in checkoutItems{
+            DBHelperCheckoutItem.dbHelper.deleteCartItemData(productID: cartItem.productID)
+        }
     }
 }
 

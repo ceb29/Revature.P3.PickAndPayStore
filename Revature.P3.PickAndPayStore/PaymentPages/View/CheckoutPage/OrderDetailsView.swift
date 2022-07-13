@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct OrderDetailsView : View{
-    var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
+    //var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
+    var orderItems : [CheckoutItem]
     
-    init(){
+    init(checkoutItems: [CheckoutItem]){
+        self.orderItems = checkoutItems
         UITableView.appearance().contentInset.top = -10 //need to figure out a better way of removing top space from list
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
@@ -40,6 +42,7 @@ struct OrderDetailsView : View{
                     }
                 }
             }
+            .frame(height: 300)
         }
         .padding(.bottom, 5)
     }
