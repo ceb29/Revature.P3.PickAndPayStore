@@ -36,11 +36,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fyz-L9-VVJ">
-                                <rect key="frame" x="20" y="135" width="388" height="587"/>
+                                <rect key="frame" x="20" y="127" width="388" height="587"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="587" id="wts-Ey-vvw"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CartCell" rowHeight="80" id="P33-LX-b36" customClass="CartCell" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="388" height="80"/>
@@ -97,45 +94,35 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJt-a7-8ZP">
-                                <rect key="frame" x="20" y="730" width="388" height="21"/>
+                                <rect key="frame" x="20" y="722" width="388" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimated Tax:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGx-5y-WDw">
-                                <rect key="frame" x="20" y="759" width="388" height="21"/>
+                                <rect key="frame" x="20" y="751" width="388" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5YA-0U-Zbt">
-                                <rect key="frame" x="20" y="788" width="388" height="21"/>
+                                <rect key="frame" x="20" y="780" width="388" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0EG-8y-KY5">
-                                <rect key="frame" x="20" y="817" width="162" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Continue Shopping"/>
-                                <connections>
-                                    <action selector="continueShoppingTap:" destination="nho-sa-PeB" eventType="touchUpInside" id="mff-kU-soE"/>
-                                    <segue destination="eYo-SX-r2g" kind="show" id="GQT-vQ-cdX"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnj-we-K0g">
-                                <rect key="frame" x="159" y="106" width="110" height="21"/>
+                                <rect key="frame" x="159" y="98" width="110" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uu-w6-Blk">
-                                <rect key="frame" x="234" y="817" width="174" height="31"/>
+                                <rect key="frame" x="134" y="809" width="160" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Proceed to Checkout"/>
                                 <connections>
                                     <action selector="checkoutTap:" destination="nho-sa-PeB" eventType="touchUpInside" id="t0D-jP-h0T"/>
-                                    <segue destination="R0M-1m-zbD" kind="show" id="jDL-Zl-Dtl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -144,26 +131,23 @@
                         <constraints>
                             <constraint firstItem="5YA-0U-Zbt" firstAttribute="leading" secondItem="Vlm-O5-lv6" secondAttribute="leading" constant="20" id="0sk-46-vAb"/>
                             <constraint firstItem="oH2-jp-YQn" firstAttribute="trailing" secondItem="Vlm-O5-lv6" secondAttribute="trailing" id="1K7-hq-qga"/>
-                            <constraint firstItem="0EG-8y-KY5" firstAttribute="leading" secondItem="Vlm-O5-lv6" secondAttribute="leading" constant="20" id="2t1-dV-5Oc"/>
                             <constraint firstItem="6uu-w6-Blk" firstAttribute="top" secondItem="5YA-0U-Zbt" secondAttribute="bottom" constant="8" symbolic="YES" id="44C-mj-xc6"/>
                             <constraint firstItem="5YA-0U-Zbt" firstAttribute="top" secondItem="ZGx-5y-WDw" secondAttribute="bottom" constant="8" symbolic="YES" id="8dr-c9-J5O"/>
                             <constraint firstItem="Vlm-O5-lv6" firstAttribute="trailing" secondItem="ZJt-a7-8ZP" secondAttribute="trailing" constant="20" id="GfY-Qe-aqB"/>
                             <constraint firstAttribute="bottom" secondItem="oH2-jp-YQn" secondAttribute="bottom" id="VmJ-g2-Y5f"/>
                             <constraint firstItem="Vlm-O5-lv6" firstAttribute="trailing" secondItem="ZGx-5y-WDw" secondAttribute="trailing" constant="20" id="XvD-Il-RGn"/>
-                            <constraint firstItem="0EG-8y-KY5" firstAttribute="centerX" secondItem="ujK-Fo-ClB" secondAttribute="centerX" constant="-113" id="ZGq-QL-JKb"/>
+                            <constraint firstItem="Vlm-O5-lv6" firstAttribute="bottom" secondItem="6uu-w6-Blk" secondAttribute="bottom" constant="3" id="Z35-BP-LgX"/>
                             <constraint firstItem="oH2-jp-YQn" firstAttribute="top" secondItem="ujK-Fo-ClB" secondAttribute="top" id="Zj5-u9-mme"/>
                             <constraint firstItem="Vlm-O5-lv6" firstAttribute="trailing" secondItem="fyz-L9-VVJ" secondAttribute="trailing" constant="20" id="aUy-45-XRm"/>
-                            <constraint firstItem="bnj-we-K0g" firstAttribute="top" secondItem="Vlm-O5-lv6" secondAttribute="top" constant="18" id="bSy-zb-yao"/>
+                            <constraint firstItem="bnj-we-K0g" firstAttribute="top" secondItem="Vlm-O5-lv6" secondAttribute="top" constant="10" id="bSy-zb-yao"/>
                             <constraint firstItem="ZJt-a7-8ZP" firstAttribute="top" secondItem="fyz-L9-VVJ" secondAttribute="bottom" constant="8" symbolic="YES" id="bUu-SK-F3k"/>
-                            <constraint firstItem="6uu-w6-Blk" firstAttribute="centerX" secondItem="ujK-Fo-ClB" secondAttribute="centerX" constant="107" id="dPZ-HZ-o1M"/>
+                            <constraint firstItem="6uu-w6-Blk" firstAttribute="centerX" secondItem="ujK-Fo-ClB" secondAttribute="centerX" id="dPZ-HZ-o1M"/>
                             <constraint firstItem="fyz-L9-VVJ" firstAttribute="centerX" secondItem="ujK-Fo-ClB" secondAttribute="centerX" id="gvq-B0-FuZ"/>
                             <constraint firstItem="fyz-L9-VVJ" firstAttribute="leading" secondItem="Vlm-O5-lv6" secondAttribute="leading" constant="20" id="ir6-Ix-qlH"/>
                             <constraint firstItem="bnj-we-K0g" firstAttribute="centerX" secondItem="ujK-Fo-ClB" secondAttribute="centerX" id="jnl-kw-BfI"/>
-                            <constraint firstItem="0EG-8y-KY5" firstAttribute="top" secondItem="5YA-0U-Zbt" secondAttribute="bottom" constant="8" symbolic="YES" id="ocZ-sQ-Bq7"/>
                             <constraint firstItem="Vlm-O5-lv6" firstAttribute="trailing" secondItem="5YA-0U-Zbt" secondAttribute="trailing" constant="20" id="oia-4n-Xr6"/>
                             <constraint firstItem="fyz-L9-VVJ" firstAttribute="top" secondItem="bnj-we-K0g" secondAttribute="bottom" constant="8" symbolic="YES" id="ozw-jy-8hC"/>
                             <constraint firstItem="ZJt-a7-8ZP" firstAttribute="leading" secondItem="Vlm-O5-lv6" secondAttribute="leading" constant="20" id="qqn-Wu-cij"/>
-                            <constraint firstItem="Vlm-O5-lv6" firstAttribute="trailing" secondItem="6uu-w6-Blk" secondAttribute="trailing" constant="20" id="rfR-CL-0OH"/>
                             <constraint firstItem="oH2-jp-YQn" firstAttribute="leading" secondItem="Vlm-O5-lv6" secondAttribute="leading" id="wy1-9u-x07"/>
                             <constraint firstItem="ZGx-5y-WDw" firstAttribute="top" secondItem="ZJt-a7-8ZP" secondAttribute="bottom" constant="8" symbolic="YES" id="xgV-be-ip8"/>
                             <constraint firstItem="ZGx-5y-WDw" firstAttribute="leading" secondItem="Vlm-O5-lv6" secondAttribute="leading" constant="20" id="y1a-lp-Kit"/>
@@ -183,26 +167,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbm-CB-jbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-182.24299065420558" y="27.213822894168469"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="lTT-Yh-pxT">
-            <objects>
-                <viewControllerPlaceholder id="eYo-SX-r2g" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="4No-KZ-elR"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aMr-Sd-qc4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="640" y="-265"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="2hk-r1-tTd">
-            <objects>
-                <viewControllerPlaceholder id="R0M-1m-zbD" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="k3v-j5-TVe"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sfv-v7-naL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="640" y="319"/>
         </scene>
     </scenes>
     <resources>
