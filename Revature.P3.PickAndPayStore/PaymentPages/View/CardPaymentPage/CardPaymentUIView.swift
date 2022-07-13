@@ -50,6 +50,12 @@ extension CardPaymentUIView{
     func placeOrder(){
         setAlertText()
         if paymentFlags.cardNumberFlag && paymentFlags.securityCodeFlag && shippingDetailsFlags.zipCodeFlag && shippingDetailsFlags.addressFlag && shippingDetailsFlags.cityFlag{
+            CheckoutHistoryHelper.checkoutHistoryHelper.saveToOrderHistory()
+            let itemHistory = DBHelperUser.dbHelperUser.getItemHistory(username: "a")
+            for d in itemHistory{
+                print(d.productID)
+            }
+            
             print("successfully placed order")
         }
     }

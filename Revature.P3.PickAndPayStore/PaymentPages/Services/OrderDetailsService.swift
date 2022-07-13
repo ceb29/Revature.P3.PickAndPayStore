@@ -9,6 +9,7 @@ import Foundation
 
 class OrderDetailsService{
     static var orderDetailsServiceInstance = OrderDetailsService()
+    
     func getData() -> [CheckoutItem]{
         //need get data from model first
         //then use view model
@@ -17,4 +18,33 @@ class OrderDetailsService{
 
         return orderItems
     }
+    
+    func getCheckoutData() -> [CartItemViewModel]{
+        var checkoutItems : [CartItemViewModel] = []
+        /*
+        if CurrentUser.currentUser.name != nil{
+            let checkoutItemsModel = DBHelperUser.dbHelperUser.getCartItems(username: CurrentUser.currentUser.name!)
+            
+            for checkoutItem in checkoutItemsModel {
+                if checkoutItem.productID != nil{
+                    let currentProduct = ProductHelper.productHelper.getProductByID(productID: checkoutItem.productID!)
+                    checkoutItems.append(CartItemViewModel(productID: currentProduct.productID, name: currentProduct.name, price: currentProduct.price, icon: currentProduct.images))
+                }
+            }
+        }
+        */
+        checkoutItems = [CartItemViewModel(productID: "local-f00", name: "Izod Dress Shirt", price: "10.50", icon: "izod_dress_shirt"), CartItemViewModel(productID: "local-f01", name: "Izod Pants", price: "25.10", icon: "izod_dress_shirt"),CartItemViewModel(productID: "local-f02", name: "Izod Polo", price: "22.75", icon: "izod_polo"),CartItemViewModel(productID: "local-f03", name: "Nike Sweater", price: "35.75", icon: "nike_sweater")]
+        return checkoutItems
+    }
+    
+    func getCheckoutDataWithID() -> [CheckoutItem]{
+        let cartItems : [CartItemViewModel] = getCheckoutData()
+        var orderItems : [CheckoutItem] = []
+        
+        for cartItem in cartItems {
+            orderItems.append(CheckoutItem(name: cartItem.name, price: Float(cartItem.price) ?? 0))
+        }
+        return orderItems
+    }
 }
+
