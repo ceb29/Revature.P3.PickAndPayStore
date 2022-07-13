@@ -104,7 +104,6 @@ extension ShippingDetailsUIView{
                 paymentSuccessful = true
                 paymentText = "Payment Successful"
                 //need to clear cart
-                
                 let itemHistory = DBHelperUser.dbHelperUser.getItemHistory(username: "a")
                 for d in itemHistory{
                     print(d.productID, d.date )
