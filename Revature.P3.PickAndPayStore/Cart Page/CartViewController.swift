@@ -54,8 +54,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        let subTotal = self.subTotal(items:itemPrice)
 //        let estimatedTax = self.estimateTax(subTotal: subTotal)
 //        let total = self.total(subTotal: subTotal, estimatedTax: estimatedTax)
-        viewModel.recalc()
-        viewModel.subTotal(items: itemPrice)
+        viewModel.recalc() //sets the values in viewModel back to zero
+        viewModel.subTotal(items: itemPrice) //passes the list in the cart to calculate the subTotal, Tax and Total
         subTotalLabel.text = String(format:"Sub Total: $%.2f",viewModel.subTotal)
         taxLabel.text = String(format:"Estimated Tax: $%.2f",viewModel.estimatedTax)
         totalLabel.text = String(format:"Total: $%.2f",viewModel.total)
