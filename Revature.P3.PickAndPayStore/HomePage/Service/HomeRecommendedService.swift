@@ -13,7 +13,7 @@ class HomeRecommendedService{
         let recommendedModelData = ProductHelper.productHelper.products
         var recommendedViewModelData : [HomeRecommended] = []
         for product in recommendedModelData{
-            recommendedViewModelData.append(HomeRecommended(name: product.name, image: product.images ))
+            recommendedViewModelData.append(HomeRecommended(name: product.name, image: product.images, productID: product.productID ))
         }
         return recommendedViewModelData
     }

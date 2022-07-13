@@ -18,11 +18,15 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBAction func addToCart(_ sender : Any){
-        DBHelperUser.dbHelperUser.addWishlist(username: CurrentUser.currentUser.name!, productID: currentID)
+        if CurrentUser.currentUser.name != nil{
+            DBHelperUser.dbHelperUser.addWishlist(username: CurrentUser.currentUser.name!, productID: currentID)
+        }
     }
     
     @IBAction func addToWish(_ sender : Any){
-        DBHelperUser.dbHelperUser.addCartItem(username: CurrentUser.currentUser.name!, productID: currentID)
+        if CurrentUser.currentUser.name != nil{
+            DBHelperUser.dbHelperUser.addCartItem(username: CurrentUser.currentUser.name!, productID: currentID)
+        }
     }
     
     

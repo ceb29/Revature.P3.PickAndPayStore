@@ -14,6 +14,7 @@ struct CardPaymentUIView: View {
     @State private var shippingDetailsFlags = ShippingDetailsFlags()
     @State private var monthSelection: MonthOption = .Jan
     @State private var yearSelection: YearOption = .option1
+    @State private var paymentSuccessful: Bool = false
     
     var body: some View {
         NavigationView{
@@ -30,7 +31,13 @@ struct CardPaymentUIView: View {
                     .padding()
                 Spacer()
                 PaymentAlertView(paymentFlags: paymentFlags, shippingDetailsFlags : shippingDetailsFlags)
-                PaymentPagesButtonView(label: "Place Order", action: placeOrder)
+                if !paymentSuccessful{
+                    PaymentPagesButtonView(label: "Place Order", action: placeOrder)
+                }
+                else{
+                    Text("Payment Successful")
+                }
+                
                 Spacer()
             }
                 .background(Image("backgroundTest1"))
@@ -50,13 +57,16 @@ extension CardPaymentUIView{
     func placeOrder(){
         setAlertText()
         if paymentFlags.cardNumberFlag && paymentFlags.securityCodeFlag && shippingDetailsFlags.zipCodeFlag && shippingDetailsFlags.addressFlag && shippingDetailsFlags.cityFlag{
-            CheckoutHistoryHelper.checkoutHistoryHelper.saveToOrderHistory()
-            let itemHistory = DBHelperUser.dbHelperUser.getItemHistory(username: "a")
-            for d in itemHistory{
-                print(d.productID)
+            if CheckoutHistoryHelper.checkoutHistoryHelper.saveToOrderHistory(){
+                paymentSuccessful = true
+                //need to clear cart
+                
+                let itemHistory = DBHelperUser.dbHelperUser.getItemHistory(username: "a")
+                for d in itemHistory{
+                    print(d.productID, d.date )
+                }
+                print("successfully placed order")
             }
-            
-            print("successfully placed order")
         }
     }
     func setAlertText(){

@@ -11,13 +11,15 @@ class CheckoutHistoryHelper{
     static var checkoutHistoryHelper = CheckoutHistoryHelper()
     var checkoutItems : [CartItemViewModel] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutData()
     
-    func saveToOrderHistory(){
+    func saveToOrderHistory() -> Bool{
         if CurrentUser.currentUser.name != nil{
             let user = CurrentUser.currentUser.name!
             for checkoutItem in checkoutItems{
                 DBHelperUser.dbHelperUser.addItemHistory(username: user, productID: checkoutItem.productID, date: Date.now)
             }
+            return true
         }
+        return false
     }
 }
 

@@ -10,4 +10,5 @@ import Foundation
 struct HomeRecommended{
     var name : String
     var image : String = ""
+    var productID : String = ""
 }
