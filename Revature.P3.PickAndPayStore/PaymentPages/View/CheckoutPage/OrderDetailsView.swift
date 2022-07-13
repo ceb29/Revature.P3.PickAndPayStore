@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OrderDetailsView : View{
-    var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getData()
+    var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
     
     init(){
         UITableView.appearance().contentInset.top = -10 //need to figure out a better way of removing top space from list

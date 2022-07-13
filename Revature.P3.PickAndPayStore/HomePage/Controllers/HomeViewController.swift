@@ -54,7 +54,7 @@ class HomeViewController: UIViewController{
     }
     
     @IBAction func printProductData(_ sender: Any) {
-        let user = DBHelperUser.dbHelperUser.getOne(username: "a")
+        /*let user = DBHelperUser.dbHelperUser.getOne(username: "a")
         DBHelperUser.dbHelperUser.addWishlist(username: "a", productID: "testingWishlist")
         DBHelperUser.dbHelperUser.addCartItem(username: "a", productID: "testingCartItem")
         DBHelperUser.dbHelperUser.addItemHistory(username: "a", productID: "testingItemHistory", date: Date.now)
@@ -73,12 +73,13 @@ class HomeViewController: UIViewController{
             print(d.productID)
         }
         print("")
+        */
         //DBHelperWishlist.dbHelper.deleteWishlestData(productID: "testingWishlist")
-        /*
+        
         let storyObject = UIStoryboard(name: "PaymentStoryboardHost", bundle: nil)
         let shippingVC = storyObject.instantiateViewController(withIdentifier: "ShippingVC")
         self.navigationController?.pushViewController(shippingVC, animated: true)
-         */
+         
     }
 }
 

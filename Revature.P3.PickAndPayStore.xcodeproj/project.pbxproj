@@ -95,6 +95,8 @@
 		84BF33A52878BB1E00E9C29A /* DBHelperProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF33A42878BB1E00E9C29A /* DBHelperProducts.swift */; };
 		84BF33A72878BECB00E9C29A /* ProductHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF33A62878BECB00E9C29A /* ProductHelper.swift */; };
 		84BF33AA2878D08A00E9C29A /* PaymentStoryboardHost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BF33A92878D08A00E9C29A /* PaymentStoryboardHost.storyboard */; };
+		84DC542B287E308F0092346E /* CheckoutHistoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC542A287E308F0092346E /* CheckoutHistoryHelper.swift */; };
+		84DC542F287E43460092346E /* NewProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC542E287E43460092346E /* NewProduct.swift */; };
 		84FCC179286DE90A00C86836 /* HomeProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC178286DE90A00C86836 /* HomeProductService.swift */; };
 		84FCC6962875E6D5003D8F0B /* PaymentTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC6952875E6D5003D8F0B /* PaymentTextFieldView.swift */; };
 		84FCC69F28760AAF003D8F0B /* PaymentPagesButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC69E28760AAF003D8F0B /* PaymentPagesButtonView.swift */; };
@@ -213,6 +215,8 @@
 		84BF33A42878BB1E00E9C29A /* DBHelperProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelperProducts.swift; sourceTree = "<group>"; };
 		84BF33A62878BECB00E9C29A /* ProductHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHelper.swift; sourceTree = "<group>"; };
 		84BF33A92878D08A00E9C29A /* PaymentStoryboardHost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentStoryboardHost.storyboard; sourceTree = "<group>"; };
+		84DC542A287E308F0092346E /* CheckoutHistoryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutHistoryHelper.swift; sourceTree = "<group>"; };
+		84DC542E287E43460092346E /* NewProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProduct.swift; sourceTree = "<group>"; };
 		84FCC178286DE90A00C86836 /* HomeProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProductService.swift; sourceTree = "<group>"; };
 		84FCC6952875E6D5003D8F0B /* PaymentTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTextFieldView.swift; sourceTree = "<group>"; };
 		84FCC69E28760AAF003D8F0B /* PaymentPagesButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPagesButtonView.swift; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 		84152E4B286CDEDB005A101C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84DC542E287E43460092346E /* NewProduct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -617,6 +622,7 @@
 				84FCC6A22876280B003D8F0B /* PaymentHelperTypes.swift */,
 				8466067F28773E7000237DE6 /* ShippingDetailsAlertHelper.swift */,
 				8466068128773E8900237DE6 /* CardPaymentAlertHelper.swift */,
+				84DC542A287E308F0092346E /* CheckoutHistoryHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -848,6 +854,7 @@
 				84BF33A52878BB1E00E9C29A /* DBHelperProducts.swift in Sources */,
 				845655522873728B00AFF23A /* CheckoutPageUIView.swift in Sources */,
 				84BF33782878AD3800E9C29A /* HistoryView.swift in Sources */,
+				84DC542B287E308F0092346E /* CheckoutHistoryHelper.swift in Sources */,
 				84BF33A22878B32800E9C29A /* User+CoreDataClass.swift in Sources */,
 				8466068F28775DB300237DE6 /* ShippingDetails.swift in Sources */,
 				847255F628779B220012DBE1 /* PromoViewModel.swift in Sources */,
@@ -865,6 +872,7 @@
 				84FCC179286DE90A00C86836 /* HomeProductService.swift in Sources */,
 				8456554C2873649800AFF23A /* OrderDetailsView.swift in Sources */,
 				84705CF1286A2EAF0005B525 /* SceneDelegate.swift in Sources */,
+				84DC542F287E43460092346E /* NewProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
