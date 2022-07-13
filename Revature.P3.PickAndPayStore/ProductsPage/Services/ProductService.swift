@@ -44,19 +44,14 @@ class ProductService{
     func createProduct(){
         
         if(productID.contains("local-")){
-            for i in ProductHelper.productHelper.products{
-                if(productID == i.productID){
-                    productViewModel.title = i.name
-                    productViewModel.rating = i.rating
-                    productViewModel.description = i.productDescription
-                    productViewModel.seller = i.seller
-                    productViewModel.price = i.price
-                    productViewModel.mainImage = UIImage(named: i.images)!
-                    productViewModel.images.append(UIImage(named: i.images)!)
-                    break
-                }
-            }
-            
+            let temPoduct = ProductHelper.productHelper.getProductByID(productID: productID)
+            productViewModel.title = temPoduct.name
+            productViewModel.rating = temPoduct.rating
+            productViewModel.description = temPoduct.productDescription
+            productViewModel.seller = temPoduct.seller
+            productViewModel.price = temPoduct.price
+            productViewModel.mainImage = UIImage(named: temPoduct.images)!
+            productViewModel.images.append(UIImage(named: temPoduct.images)!)
         } else{
         
         productModel.setProductId(productID)

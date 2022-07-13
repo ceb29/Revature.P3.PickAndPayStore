@@ -18,16 +18,20 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBAction func addToCart(_ sender : Any){
-        
+        DBHelperUser.dbHelperUser.addWishlist(username: CurrentUser.currentUser.name!, productID: currentID)
     }
     
     @IBAction func addToWish(_ sender : Any){
-        
+        DBHelperUser.dbHelperUser.addCartItem(username: CurrentUser.currentUser.name!, productID: currentID)
     }
     
     
+    
+    
     var timer = Timer()
-    var isOn = false
+    var currentID = String()
+    var updateAvailable = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +41,7 @@ class ProductViewController: UIViewController {
         // Do any additional setup after loading the view.
         productCollectionView.register(ProductCollectionViewCell.nib(), forCellWithReuseIdentifier: ProductCollectionViewCell.identifier)
         
-        ProductService.productService.setID("B073JYC4XM")
+        ProductService.productService.setID(currentID)
         ProductService.productService.createProduct()
         viewData()
         
@@ -66,13 +70,13 @@ class ProductViewController: UIViewController {
     }
     
     @objc func updateImages(){
-        if(isOn){
+        if(updateAvailable){
             viewData()
             timer.invalidate()
         }
         ProductService.productService.updateProduct = {
             () in
-            self.isOn = true
+            self.updateAvailable = true
         }
     }
 }

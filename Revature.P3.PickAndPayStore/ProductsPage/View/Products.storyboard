@@ -159,6 +159,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Add to Cart"/>
                                 <connections>
                                     <action selector="addToCart:" destination="k4T-MA-FWv" eventType="touchUpInside" id="KkL-bH-pO1"/>
+                                    <segue destination="Jz9-Ci-kti" kind="push" id="M3y-LJ-WeG"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UqA-yT-l0c">
@@ -259,6 +260,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WzV-I1-3eH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1795.6521739130437" y="89.732142857142847"/>
+        </scene>
+        <!--CartVC-->
+        <scene sceneID="2Ef-ts-Oj4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Cart" referencedIdentifier="CartVC" id="Jz9-Ci-kti" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QH5-Ki-adt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="16z-eS-sS6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2385" y="-52"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="zrF-O7-zwe">
+            <objects>
+                <viewControllerPlaceholder id="vrQ-vT-KLI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OKt-1w-Ucb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2370" y="48"/>
         </scene>
     </scenes>
     <resources>
