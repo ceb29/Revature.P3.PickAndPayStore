@@ -22,10 +22,20 @@ class ProductService{
         productID = id
     }
     
-    func searchProduct(){
-        searchModel.setSearchProduct(search: "water bottle")
-        searchModel.run()
+    func searchProduct(_ search: String){
+        //clean out array for reuse
+        searchedProducts = [SearchProductsViewModel]()
         
+        //local data
+        for i in ProductHelper.productHelper.products{
+            if(i.name == search || i.category == search){
+                searchedProducts.append(SearchProductsViewModel(id: i.productID, title: i.name, rating: i.rating, price: i.price, icon: UIImage(named: i.images)!))
+            }
+        }
+        
+        //online data
+        searchModel.setSearchProduct(search: search)
+        searchModel.run()
         searchModel.updateProduct = {
             () in
             print("is working")
@@ -33,8 +43,8 @@ class ProductService{
             
             for i in products{
                 self.searchedProducts.append(SearchProductsViewModel(id: i.id!, title: i.title!, rating: i.rating!, price: i.price!, icon: UIImage(data: i.iconUrl)!))
-                self.updateProduct?()
             }
+            self.updateProduct?()
         }
         
     }
