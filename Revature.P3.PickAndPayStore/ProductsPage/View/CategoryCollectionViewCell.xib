@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CategoryCollectionViewCell" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="127" height="190"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="127" height="190"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w0X-wJ-5n8">
+                        <rect key="frame" x="0.0" y="0.0" width="140" height="170"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="140" id="1bc-S8-1CU"/>
+                            <constraint firstAttribute="height" constant="170" id="oUe-xy-Tbe"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST4-sL-MP4">
+                        <rect key="frame" x="0.0" y="169" width="127" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="veK-vk-M0N"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" systemColor="systemBlueColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ST4-sL-MP4" secondAttribute="trailing" id="AdL-Hv-Tu9"/>
+                <constraint firstItem="w0X-wJ-5n8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Agl-wm-h1C"/>
+                <constraint firstItem="ST4-sL-MP4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Mr1-BS-Qjj"/>
+                <constraint firstAttribute="bottom" secondItem="ST4-sL-MP4" secondAttribute="bottom" id="blC-gp-Ks1"/>
+                <constraint firstItem="w0X-wJ-5n8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jLJ-Ez-0y2"/>
+                <constraint firstAttribute="trailing" secondItem="w0X-wJ-5n8" secondAttribute="trailing" id="pkW-aw-a07"/>
+                <constraint firstItem="ST4-sL-MP4" firstAttribute="top" secondItem="w0X-wJ-5n8" secondAttribute="bottom" constant="-1" id="wYe-Yi-mEN"/>
+            </constraints>
+            <size key="customSize" width="104" height="194"/>
+            <connections>
+                <outlet property="categoryImage" destination="w0X-wJ-5n8" id="7eY-eY-khh"/>
+                <outlet property="categoryLabel" destination="ST4-sL-MP4" id="JUy-3U-61m"/>
+            </connections>
+            <point key="canvasLocation" x="73.188405797101453" y="139.95535714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

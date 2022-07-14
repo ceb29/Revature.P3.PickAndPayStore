@@ -25,10 +25,8 @@ class ProductsViewController: UIViewController {
         timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(updateTable), userInfo: nil, repeats: true)
         RunLoop.main.add(timer, forMode: .common)
         
-        //testing
-        searchedItem = "Electronics"
-        
         //activate to run search products
+        //ProductService.productService.multiSearchProducts(["B0B538KW78", "B099VMT8VZ", "B07VGRJDFY", "B01CQTUIKE"])
         ProductService.productService.searchProduct(searchedItem)
         
         productsTable.register(ProductsTableViewCell.nib(), forCellReuseIdentifier: ProductsTableViewCell.identefier)
