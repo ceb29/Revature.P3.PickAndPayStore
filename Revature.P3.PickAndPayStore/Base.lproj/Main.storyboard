@@ -43,6 +43,26 @@
             </objects>
             <point key="canvasLocation" x="4844.927536231884" y="481.47321428571428"/>
         </scene>
+        <!--userChoiceVC-->
+        <scene sceneID="aIA-B8-FH0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WishListStoryboard" referencedIdentifier="userChoiceVC" id="Q4O-BS-vED" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gOH-U5-C9N"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2jn-7J-SfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5818.115942028986" y="995.75892857142856"/>
+        </scene>
+        <!--CategoryVC-->
+        <scene sceneID="6cE-21-bqY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Products" referencedIdentifier="CategoryVC" id="Ife-fU-i1R" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="dzL-cd-PM4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bnk-te-BdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4431" y="1910"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MCr-S8-Bkw">
             <objects>
@@ -56,6 +76,8 @@
                     <connections>
                         <segue destination="cuc-2P-ksm" kind="relationship" relationship="viewControllers" id="bBV-Kp-GKE"/>
                         <segue destination="XuQ-1L-I9H" kind="relationship" relationship="viewControllers" id="Hie-3f-RKk"/>
+                        <segue destination="EZU-T5-rAi" kind="relationship" relationship="viewControllers" id="Xi2-8e-CZR"/>
+                        <segue destination="aQq-HX-rQw" kind="relationship" relationship="viewControllers" id="Goa-Aa-zEr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4j-GE-TYL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -98,7 +120,45 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXa-Ec-og5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3934.7826086956525" y="481.47321428571428"/>
+            <point key="canvasLocation" x="2970" y="441"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="0jN-AW-5QV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EZU-T5-rAi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="iqe-f1-77d"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ifw-AQ-tpf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Q4O-BS-vED" kind="relationship" relationship="rootViewController" id="VEf-e2-2vv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="igo-3L-dbx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3006" y="1138"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="I4d-Ug-MYS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aQq-HX-rQw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Ey7-FR-Ir4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fYZ-OX-sm8">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ife-fU-i1R" kind="relationship" relationship="rootViewController" id="SFy-Kj-VHY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yQF-th-ZP7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3006" y="1910"/>
         </scene>
     </scenes>
     <resources>
