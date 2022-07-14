@@ -22,33 +22,46 @@ class ProductService{
         productID = id
     }
     
+    
+    func multiSearchProducts(_ search: [String]){
+        searchedProducts = [SearchProductsViewModel]()
+        for item in search{
+            searchApiData(item)
+        }
+    }
+    
     func searchProduct(_ search: String){
         //clean out array for reuse
         searchedProducts = [SearchProductsViewModel]()
         
-        //local data
+        //Local data
         for i in ProductHelper.productHelper.products{
             if(i.name == search || i.category == search){
                 searchedProducts.append(SearchProductsViewModel(id: i.productID, title: i.name, rating: i.rating, price: i.price, icon: UIImage(named: i.images)!))
             }
         }
-        
-        //online data
-        searchModel.setSearchProduct(search: search)
-        searchModel.run()
-        searchModel.updateProduct = {
-            () in
-            print("is working")
-            let products = self.searchModel.searchProduct
-            
-            for i in products{
-                self.searchedProducts.append(SearchProductsViewModel(id: i.id!, title: i.title!, rating: i.rating!, price: i.price!, icon: UIImage(data: i.iconUrl)!))
-            }
-            self.updateProduct?()
-        }
-        
+        //Api Data
+        searchApiData(search)
     }
     
+    private func searchApiData(_ search: String){
+        //online data
+        Task.init{
+            searchModel.setSearchProduct(search: search)
+        
+            let results = await searchModel.run()
+            switch(results){
+            case .success(let products):
+                for i in products{
+                    self.searchedProducts.append(SearchProductsViewModel(id: i.id!, title: i.title!, rating: i.rating!, price: i.price!, icon: UIImage(data: i.iconUrl)!))
+                }
+                self.updateProduct?()
+                break
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     
     func createProduct(){
@@ -64,24 +77,21 @@ class ProductService{
             productViewModel.images.append(UIImage(named: temPoduct.images)!)
         } else{
         
-        productModel.setProductId(productID)
-        productModel.run()
-        
-        productModel.updateProduct = {
-            () in
-            let product = self.productModel.product
-            
-            var tempImages = [UIImage]()
-            for i in product.imagesurl{
-                tempImages.append(UIImage(data: i)!)
+            Task.init{
+                productModel.setProductId(productID)
+                let result = await productModel.run()
+                switch(result){
+                case .success(let product):
+                    var tempImages = [UIImage]()
+                    for i in product.imagesurl{
+                        tempImages.append(UIImage(data: i)!)
+                    }
+                    self.productViewModel = ProductViewModel(id: product.id!, title: product.title!, description: product.desc!, seller: product.seller!, rating: product.rating!, mainImage: UIImage(data: product.iconUrl)!, images: tempImages, price: product.price!)
+                    self.updateProduct?()
+                case .failure(let error):
+                    print(error)
+                }
             }
-            self.productViewModel = ProductViewModel(id: product.id!, title: product.title!, description: product.desc!, seller: product.seller!, rating: product.rating!, mainImage: UIImage(data: product.iconUrl)!, images: tempImages, price: product.price!)
-            
-            print("completed creating product")
-            self.updateProduct?()
         }
-            
-        }
-        
     }
 }
