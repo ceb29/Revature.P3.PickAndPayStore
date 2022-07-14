@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Revature.P3.PickAndPayStore
 //
-//  Created by admin on 7/8/22.
+//  Created by admin on 7/14/22.
 //
 //
 
@@ -23,6 +23,7 @@ extension User {
     @NSManaged public var cartItems: NSSet?
     @NSManaged public var itemHistory: NSSet?
     @NSManaged public var wishListItem: NSSet?
+    @NSManaged public var apiProduct: NSSet?
 
 }
 
@@ -74,6 +75,23 @@ extension User {
 
     @objc(removeWishListItem:)
     @NSManaged public func removeFromWishListItem(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for apiProduct
+extension User {
+
+    @objc(addApiProductObject:)
+    @NSManaged public func addToApiProduct(_ value: APIProduct)
+
+    @objc(removeApiProductObject:)
+    @NSManaged public func removeFromApiProduct(_ value: APIProduct)
+
+    @objc(addApiProduct:)
+    @NSManaged public func addToApiProduct(_ values: NSSet)
+
+    @objc(removeApiProduct:)
+    @NSManaged public func removeFromApiProduct(_ values: NSSet)
 
 }
 
