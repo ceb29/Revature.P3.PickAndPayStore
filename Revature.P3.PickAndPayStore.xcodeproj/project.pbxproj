@@ -80,6 +80,7 @@
 		84A6C984286A57840032529A /* HomeCollectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6C983286A57840032529A /* HomeCollectionHelper.swift */; };
 		84B0A951287B8022007EACEB /* CategoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0A950287B8022007EACEB /* CategoryHelper.swift */; };
 		84B0A953287B8406007EACEB /* PromoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0A952287B8406007EACEB /* PromoHelper.swift */; };
+		84B118E72880DA1600FD1F58 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B118E62880DA1600FD1F58 /* SearchTableViewCell.swift */; };
 		84BF33622878ACD900E9C29A /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BF335B2878ACD900E9C29A /* LoginStoryboard.storyboard */; };
 		84BF33632878ACD900E9C29A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF335C2878ACD900E9C29A /* LoginViewController.swift */; };
 		84BF33642878ACD900E9C29A /* SignInStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BF335E2878ACD900E9C29A /* SignInStoryboard.storyboard */; };
@@ -212,6 +213,7 @@
 		84A6C983286A57840032529A /* HomeCollectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionHelper.swift; sourceTree = "<group>"; };
 		84B0A950287B8022007EACEB /* CategoryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHelper.swift; sourceTree = "<group>"; };
 		84B0A952287B8406007EACEB /* PromoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoHelper.swift; sourceTree = "<group>"; };
+		84B118E62880DA1600FD1F58 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		84BF335B2878ACD900E9C29A /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		84BF335C2878ACD900E9C29A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84BF335E2878ACD900E9C29A /* SignInStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignInStoryboard.storyboard; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			children = (
 				84A6C976286A4EA50032529A /* HomeCollectionCells */,
 				84A6C981286A4FCA0032529A /* HomePageStoryboard.storyboard */,
+				84B118E62880DA1600FD1F58 /* SearchTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -947,6 +950,7 @@
 				847255F728779B220012DBE1 /* CartItemViewModel.swift in Sources */,
 				8466067E2877380300237DE6 /* ShippingDetailsAlertView.swift in Sources */,
 				84A6C980286A4F710032529A /* HomeRecommendedCollectionViewCell.swift in Sources */,
+				84B118E72880DA1600FD1F58 /* SearchTableViewCell.swift in Sources */,
 				847255DE28779A8C0012DBE1 /* ProductCategory+CoreDataProperties.swift in Sources */,
 				84BF33682878ACEB00E9C29A /* CurrentUser.swift in Sources */,
 				84705CEF286A2EAF0005B525 /* AppDelegate.swift in Sources */,
