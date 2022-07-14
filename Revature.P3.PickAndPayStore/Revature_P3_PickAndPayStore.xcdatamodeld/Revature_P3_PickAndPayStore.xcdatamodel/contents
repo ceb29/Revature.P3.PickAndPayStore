@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="APIProduct" representedClassName="APIProduct" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="price" optional="YES" attributeType="String"/>
+        <attribute name="productId" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="apiProduct" inverseEntity="User"/>
+    </entity>
     <entity name="CartItem" representedClassName="CartItem" syncable="YES">
+        <attribute name="attribute" optional="YES"/>
         <attribute name="productID" optional="YES" attributeType="String"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="cartItems" inverseEntity="User"/>
     </entity>
@@ -33,6 +42,7 @@
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
+        <relationship name="apiProduct" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="APIProduct" inverseName="user" inverseEntity="APIProduct"/>
         <relationship name="cartItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CartItem" inverseName="user" inverseEntity="CartItem"/>
         <relationship name="itemHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemHistory" inverseName="user" inverseEntity="ItemHistory"/>
         <relationship name="wishListItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WishlistItem" inverseName="user" inverseEntity="WishlistItem"/>
@@ -42,12 +52,13 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="wishListItem" inverseEntity="User"/>
     </entity>
     <elements>
-        <element name="CartItem" positionX="-54" positionY="18" width="128" height="59"/>
+        <element name="CartItem" positionX="-54" positionY="18" width="128" height="74"/>
         <element name="ItemHistory" positionX="-18" positionY="36" width="128" height="74"/>
         <element name="Product" positionX="36" positionY="99" width="128" height="179"/>
         <element name="ProductCategory" positionX="18" positionY="72" width="128" height="59"/>
         <element name="Promo" positionX="0" positionY="63" width="128" height="44"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="149"/>
         <element name="WishlistItem" positionX="-36" positionY="27" width="128" height="59"/>
+        <element name="APIProduct" positionX="-9" positionY="117" width="128" height="119"/>
     </elements>
 </model>
