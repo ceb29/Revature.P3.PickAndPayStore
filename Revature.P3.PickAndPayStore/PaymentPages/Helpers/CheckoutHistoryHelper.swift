@@ -81,8 +81,9 @@ class CheckoutHistoryHelper{
     func saveToOrderHistory() -> Bool{
         if CurrentUser.currentUser.name != nil{
             let user = CurrentUser.currentUser.name!
+            let date = Date.now
             for checkoutItem in checkoutItems{
-                DBHelperUser.dbHelperUser.addItemHistory(username: user, productID: checkoutItem.productID, date: Date.now)
+                DBHelperUser.dbHelperUser.addItemHistory(username: user, productID: checkoutItem.productID, date: date)
             }
             clearCart()
             return true

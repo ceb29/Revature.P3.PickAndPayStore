@@ -33,6 +33,7 @@ class OrderDetailsService{
     }
     
     func removeDollarSign(price: String?) -> String{
+        print(price)
         var newPrice : String
         if price != nil{
             newPrice = price!
