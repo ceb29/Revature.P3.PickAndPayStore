@@ -12,28 +12,45 @@ class OrderDetailsService{
     
     func getCheckoutData() -> [CartItemViewModel]{
         var checkoutItems : [CartItemViewModel] = []
-        if CurrentUser.currentUser.name != nil{
-            let checkoutItemsModel = DBHelperUser.dbHelperUser.getCartItems(username: CurrentUser.currentUser.name!)
-            for checkoutItem in checkoutItemsModel {
-                if checkoutItem.productID != nil{
-                    if isLocalCheckoutItem(productID: checkoutItem.productID!){
-                        let currentProduct = ProductHelper.productHelper.getProductByID(productID: checkoutItem.productID!)
-                        checkoutItems.append(CartItemViewModel(productID: currentProduct.productID, name: currentProduct.name, price: currentProduct.price, icon: currentProduct.images))
-                    }
-                    else{
-                        let currentResult = DBHelperProductApi.dBHelperProductApi.getProductApiItem(productID: checkoutItem.productID!)
-                        if case .success(let currentProduct) = currentResult{
-                            checkoutItems.append(CartItemViewModel(productID: currentProduct.productId ?? "", name: currentProduct.title ?? "", price: removeDollarSign(price: currentProduct.price), icon: "API", data: currentProduct.image))
-                        }
-                    }
-                }
+        let user = CurrentUser.currentUser.name
+        guard user != nil else{
+            return checkoutItems
+        }
+        let checkoutItemsModel = DBHelperUser.dbHelperUser.getCartItems(username: user!)
+        for checkoutItemModel in checkoutItemsModel {
+            guard checkoutItemModel.productID != nil else{
+                continue
             }
+            let checkoutItem = addCheckoutItem(productId: checkoutItemModel.productID!)
+            guard checkoutItem != nil else{
+                continue
+            }
+            checkoutItems.append(checkoutItem!)
         }
         return checkoutItems
     }
     
+    func addCheckoutItem(productId: String) -> CartItemViewModel?{
+        var checkoutItem : CartItemViewModel?
+        if isLocalCheckoutItem(productID: productId){
+            checkoutItem = addLocalItem(productID: productId)
+        }
+        else{
+            let currentResult = DBHelperProductApi.dBHelperProductApi.getProductApiItem(productID: productId)
+            if case .success(let currentProduct) = currentResult{
+                checkoutItem = CartItemViewModel(productID: currentProduct.productId ?? "", name: currentProduct.title ?? "", price: removeDollarSign(price: currentProduct.price), icon: "API", data: currentProduct.image)
+            }
+        }
+        return checkoutItem
+    }
+    
+    func addLocalItem(productID: String) -> CartItemViewModel{
+        let currentProduct = ProductHelper.productHelper.getProductByID(productID: productID)
+        let checkoutItem = CartItemViewModel(productID: currentProduct.productID, name: currentProduct.name, price: currentProduct.price, icon: currentProduct.images)
+        return checkoutItem
+    }
+    
     func removeDollarSign(price: String?) -> String{
-        print(price)
         var newPrice : String
         if price != nil{
             newPrice = price!
