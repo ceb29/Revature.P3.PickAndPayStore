@@ -15,8 +15,10 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var locationPickerView: UIPickerView!
     @IBOutlet weak var welcomeButton: UIButton!
+    @IBOutlet weak var searchTable: UITableView!
     var isUserSignedIn = false
-    
+    var searchResults : [String] = []
+    var searchResultsID : [String] = []
     @IBOutlet weak var selectionView: UIView!
     let products = HomeRecommendedService.homeRecommendedServiceInstance.getData()
     var pickerData = ["All Locations", "Los Angelos, CA", "New York, NY", "Houston, TX"]
@@ -63,8 +65,6 @@ class HomeViewController: UIViewController{
         let loginVC = storyObject.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
-    
-    
     
     @IBAction func openSelectionView(_ sender: Any) {
         selectionView.isHidden = false
@@ -157,7 +157,23 @@ extension HomeViewController : UIPickerViewDelegate, UIPickerViewDataSource{
         
     }}
 
-
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(searchResults.count)
+        return searchResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let searchCell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchTableViewCell
+        searchCell.searchLabel.text = ProductHelper.productHelper.getProductByID(productID: searchResults[indexPath.row]).name
+        return searchCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        goToProductPage(productID: searchResults[indexPath.row])
+    }
+    
+}
 
 extension HomeViewController : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -166,26 +182,29 @@ extension HomeViewController : UISearchBarDelegate{
         //need to change this to product service
         //
         //
-        var searchResults : [String] = []
+        searchResults = []
+        searchResultsID = []
         var currentMax = 0
         var searchDict : [String : Int] = [:]
         var currentString = ""
         if searchText.isEmpty{ //if search is empty, search results table view should be hidden
             //searchBarTableView.isHidden = true
             searchResults = []
-            
+            searchResultsID = []
+            searchTable.isHidden = true
         }
         else{ //filter data using search text and store in search results
             //searchBarTableView.isHidden = false
+            searchTable.isHidden = false
             for char in searchText{
                 currentString += String(char)
                 for i in 0..<products.count{
                     if products[i].name.lowercased().contains(currentString.lowercased()){
-                        if searchDict[products[i].name] != nil{
-                            searchDict[products[i].name] = searchDict[products[i].name]! + 1
+                        if searchDict[products[i].productID] != nil{
+                            searchDict[products[i].productID] = searchDict[products[i].productID]! + 1
                         }
                         else{
-                            searchDict[products[i].name] = 1
+                            searchDict[products[i].productID] = 1
                         }
                     }
                 }
@@ -199,8 +218,9 @@ extension HomeViewController : UISearchBarDelegate{
                     searchResults.append(str)
                 }
             }
-            print(searchDict)
-            print(searchResults)
+            
+            //print(searchDict)
+            //print(searchResults)
             /*for product in products{
                 if product.name.lowercased().contains(searchText.lowercased()){
                     searchResults.append(product.name)
@@ -209,4 +229,7 @@ extension HomeViewController : UISearchBarDelegate{
             print(searchResults)*/
         }
         //searchBarTableView.reloadData() //reload collection view to show updated result
-    }}
+        searchTable.reloadData()
+    }
+    
+}

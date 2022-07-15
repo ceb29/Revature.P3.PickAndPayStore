@@ -20,42 +20,12 @@ struct ShippingDetailsUIView: View {
     @State private var yearSelection: YearOption = .option1
     @State private var paymentSuccessful: Bool = false
     @State private var paymentText = ""
-    var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
+    @State private var update : Bool = true
+    @State private var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
     
     var body: some View {
-        /*
-        NavigationView{
-        VStack{
-            Text("Shipping Details")
-               .font(.system(size: 30))
-               .bold()
-            VStack{
-                ShippingDetailsView(shippingDetails: $shippingDetails)
-                ShippingOptionsPickerView(shippingSelection: $shippingSelection)
-            }
-                .background(.white)
-                .cornerRadius(15)
-                .padding()
-            Spacer()
-            ShippingDetailsAlertView(continueFlag: continueFlag, shippingDetailsFlags: shippingDetailsFlags)
-            PaymentPagesButtonView(label: "Save", action: continueToNextPage)
-            if successFlag{
-                NavigationLink(destination: CheckoutPageUIView()){
-                    Text("Continue")
-                }
-                .frame(width: 200, height: 40, alignment: .center)
-                .foregroundColor(.white)
-                .background(.blue)
-                .cornerRadius(10)
-            }
-            Spacer()
-            
-        }
-            .background(Image("backgroundTest1"))
-        }*/
         ScrollView{
         VStack{
-            
             Text("Payment Details")
                 .font(.system(size: 30))
                 .bold()
@@ -70,12 +40,13 @@ struct ShippingDetailsUIView: View {
                .bold()
             VStack{
                 ShippingDetailsView(shippingDetails: $shippingDetails)
-                ShippingOptionsPickerView(shippingSelection: $shippingSelection)
+                ShippingOptionsPickerView(shippingSelection: $shippingSelection, standardShippingText: CheckoutHistoryHelper.checkoutHistoryHelper.getShippingText(shippingSelection: shippingSelection))
             }
                 .background(.white)
                 .cornerRadius(15)
                 .padding()
-            OrderDetailsView(checkoutItems: orderItems)
+            OrderDetailsView(orderItems: orderItems, shippingcost: CheckoutHistoryHelper.checkoutHistoryHelper.getShippingCost(shippingSelection: shippingSelection), taxCost: CheckoutHistoryHelper.checkoutHistoryHelper.getTaxCost(shippingSelection: shippingSelection), totalCost: CheckoutHistoryHelper.checkoutHistoryHelper.getFinalCost(shippingSelection: shippingSelection))
+                
             Text(paymentText)
                 .padding()
             PaymentAlertView(paymentFlags: paymentFlags, shippingDetailsFlags : shippingDetailsFlags)
@@ -84,7 +55,10 @@ struct ShippingDetailsUIView: View {
                     .padding()
             }
         }
+            
             Spacer()
+        }
+        .onAppear {orderItems = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
         }
             .background(Image("backgroundTest1"))
     }
@@ -103,15 +77,12 @@ extension ShippingDetailsUIView{
             if CheckoutHistoryHelper.checkoutHistoryHelper.saveToOrderHistory(){
                 paymentSuccessful = true
                 paymentText = "Payment Successful"
-                //need to clear cart
-                let itemHistory = DBHelperUser.dbHelperUser.getItemHistory(username: "a")
-                for d in itemHistory{
-                    print(d.productID, d.date )
-                }
                 print("successfully placed order")
             }
         }
     }
+    
+    
     
     func setAlertText(){
         let cardPaymentAlertHelper = CardPaymentAlertHelper()
@@ -123,23 +94,6 @@ extension ShippingDetailsUIView{
         shippingDetailsFlags.addressFlag = shippingDetailsAlertHelper.isValidAddress(address: shippingDetails.address)
         shippingDetailsFlags.cityFlag = shippingDetailsAlertHelper.isValidCity(city: shippingDetails.city)
     }
-    /*
-    func continueToNextPage(){
-        setAlertText()
-        if shippingDetailsFlags.zipCodeFlag && shippingDetailsFlags.addressFlag && shippingDetailsFlags.cityFlag{
-            successFlag = true
-            print("continue to next page")
-        }
-    }
-    
-    func setAlertText(){
-        let shippingDetailsAlertHelper = ShippingDetailsAlertHelper()
-        continueFlag = true
-        shippingDetailsFlags.zipCodeFlag = shippingDetailsAlertHelper.isValidZipCode(zipCode: shippingDetails.zipCode)
-        shippingDetailsFlags.addressFlag = shippingDetailsAlertHelper.isValidAddress(address: shippingDetails.address)
-        shippingDetailsFlags.cityFlag = shippingDetailsAlertHelper.isValidCity(city: shippingDetails.city)
-    }
-     */
 }
 
 class ShippingHostingController: UIHostingController<ShippingDetailsUIView>{

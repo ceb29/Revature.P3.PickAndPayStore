@@ -26,6 +26,8 @@ struct ShippingDetailsAlertHelper{
         return cityPred.evaluate(with: city)
     }
     
+    
+    
     /*
     func isValidState(state: String) -> Bool{
         let stateRegEx = "^[A-Za-z ]$"

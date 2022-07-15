@@ -10,9 +10,15 @@ import SwiftUI
 struct OrderDetailsView : View{
     //var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
     var orderItems : [CheckoutItem]
+    var shippingCost : Float
+    var taxCost : Float
+    var totalCost : Float
     
-    init(checkoutItems: [CheckoutItem]){
-        self.orderItems = checkoutItems
+    init(orderItems: [CheckoutItem], shippingcost: Float, taxCost: Float, totalCost: Float){
+        self.orderItems = orderItems
+        self.shippingCost = shippingcost
+        self.taxCost = taxCost
+        self.totalCost = totalCost
         UITableView.appearance().contentInset.top = -10 //need to figure out a better way of removing top space from list
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
@@ -33,12 +39,16 @@ struct OrderDetailsView : View{
                         }
                     }
                     HStack{
+                        Text("Shipping")
+                        Text(String(format: "$%.02f", shippingCost))
+                    }
+                    HStack{
                         Text("Estimated Tax")
-                        Text(String(format: "$%.02f", getTaxCost()))
+                        Text(String(format: "$%.02f", taxCost))
                     }
                     HStack{
                         Text("Total Cost")
-                        Text(String(format: "$%.02f", getTotalCost()))
+                        Text(String(format: "$%.02f", totalCost))
                     }
                 }
             }
@@ -47,19 +57,7 @@ struct OrderDetailsView : View{
         .padding(.bottom, 5)
     }
     
-    func getTotalCost() -> Float{
-        var cost : Float = 0
-        for item in orderItems{
-            cost += item.price
-        }
-        cost += cost * 0.07 //getTaxCost()
-        return cost
-    }
     
-    func getTaxCost() -> Float{
-        let totalCost = getTotalCost()
-        return totalCost * 0.07
-    }
     
 }
 
