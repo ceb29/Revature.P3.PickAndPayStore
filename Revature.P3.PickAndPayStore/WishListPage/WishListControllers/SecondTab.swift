@@ -21,17 +21,16 @@ class SecondTab: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func SignInButton(_ sender: Any) {
-    }
-    
-    @IBAction func SignUpButton(_ sender: Any) {
+    @IBAction func SignInSignUpButton(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "LoginStoryboard", bundle: nil)
+        let signInAndUp = storyBoard.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
+        self.navigationController?.pushViewController(signInAndUp, animated: true)
     }
     
 
 }
 extension SecondTab: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(userChoices.count, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         return userChoices.count
     }
     

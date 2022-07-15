@@ -9,6 +9,8 @@ import SwiftUI
 import CoreData
 struct WishContentView: View {
     
+    var wishObj = [WishlistItem]()
+    //wishObj = DBHelperWishlist.dbHelper.getWishlistData()
     @State var wishItems: [String] = [
         "This is item one",
         "This is item two",
@@ -17,7 +19,6 @@ struct WishContentView: View {
         "This is item five"
     ]
     init(){
-//        UITableView.appearance().contentInset.top = -25 //need to figure out a better way of removing top space from list
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
     }
@@ -40,7 +41,7 @@ struct WishContentView: View {
                             wishItems.move(fromOffsets: fset, toOffset: nset)
                         })
                     }
-                }.navigationTitle("Mihir's wish list")
+                }.navigationTitle("User's wish list")
                 .navigationBarItems(trailing: EditButton())
             }
             .background(
@@ -52,7 +53,7 @@ struct WishContentView: View {
         }
     }
     func deleteData(index : IndexSet){
-        //WishHelper.wishHelper.deleteData(productValue: productID)
+        //DBHelperWishlist.dbHelper.deleteWishlestData(productID: index)
         wishItems.remove(atOffsets: index)
     }
 }
