@@ -66,8 +66,6 @@ class HomeViewController: UIViewController{
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
-    
-    
     @IBAction func openSelectionView(_ sender: Any) {
         selectionView.isHidden = false
     }

@@ -20,6 +20,8 @@ struct ShippingDetailsUIView: View {
     @State private var yearSelection: YearOption = .option1
     @State private var paymentSuccessful: Bool = false
     @State private var paymentText = ""
+    @State private var update : Bool = true
+    @State private var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
     
     var body: some View {
         ScrollView{
@@ -43,7 +45,8 @@ struct ShippingDetailsUIView: View {
                 .background(.white)
                 .cornerRadius(15)
                 .padding()
-            OrderDetailsView(shippingcost: CheckoutHistoryHelper.checkoutHistoryHelper.getShippingCost(shippingSelection: shippingSelection), taxCost: CheckoutHistoryHelper.checkoutHistoryHelper.getTaxCost(shippingSelection: shippingSelection), totalCost: CheckoutHistoryHelper.checkoutHistoryHelper.getFinalCost(shippingSelection: shippingSelection))
+            OrderDetailsView(orderItems: orderItems, shippingcost: CheckoutHistoryHelper.checkoutHistoryHelper.getShippingCost(shippingSelection: shippingSelection), taxCost: CheckoutHistoryHelper.checkoutHistoryHelper.getTaxCost(shippingSelection: shippingSelection), totalCost: CheckoutHistoryHelper.checkoutHistoryHelper.getFinalCost(shippingSelection: shippingSelection))
+                
             Text(paymentText)
                 .padding()
             PaymentAlertView(paymentFlags: paymentFlags, shippingDetailsFlags : shippingDetailsFlags)
@@ -52,7 +55,10 @@ struct ShippingDetailsUIView: View {
                     .padding()
             }
         }
+            
             Spacer()
+        }
+        .onAppear {orderItems = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
         }
             .background(Image("backgroundTest1"))
     }

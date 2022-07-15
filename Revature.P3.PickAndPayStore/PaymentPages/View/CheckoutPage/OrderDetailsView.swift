@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct OrderDetailsView : View{
-    var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
+    //var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
+    var orderItems : [CheckoutItem]
     var shippingCost : Float
     var taxCost : Float
     var totalCost : Float
     
-    init(shippingcost: Float, taxCost: Float, totalCost: Float){
+    init(orderItems: [CheckoutItem], shippingcost: Float, taxCost: Float, totalCost: Float){
+        self.orderItems = orderItems
         self.shippingCost = shippingcost
         self.taxCost = taxCost
         self.totalCost = totalCost
