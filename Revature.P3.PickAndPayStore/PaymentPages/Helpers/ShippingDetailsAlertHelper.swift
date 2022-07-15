@@ -26,19 +26,15 @@ struct ShippingDetailsAlertHelper{
         return cityPred.evaluate(with: city)
     }
     
-    
-    
-    /*
     func isValidState(state: String) -> Bool{
-        let stateRegEx = "^[A-Za-z ]$"
+        let stateRegEx = "^[A-Za-z ]{1,}$"
         let statePred = NSPredicate(format: "SELF MATCHES %@", stateRegEx)
         return statePred.evaluate(with: state)
     }
     
     func isValidCountry(country: String) -> Bool{
-        let countryRegEx = "^[A-Za-z ]$"
+        let countryRegEx = "^[A-Za-z ]{1,}$"
         let countryPred = NSPredicate(format: "SELF MATCHES %@", countryRegEx)
         return countryPred.evaluate(with: country)
     }
-    */
 }

@@ -73,7 +73,7 @@ struct ShippingDetailsUIView_Previews: PreviewProvider {
 extension ShippingDetailsUIView{
     func placeOrder(){
         setAlertText()
-        if paymentFlags.cardNumberFlag && paymentFlags.securityCodeFlag && shippingDetailsFlags.zipCodeFlag && shippingDetailsFlags.addressFlag && shippingDetailsFlags.cityFlag{
+        if paymentFlags.cardNumberFlag && paymentFlags.securityCodeFlag && shippingDetailsFlags.zipCodeFlag && shippingDetailsFlags.addressFlag && shippingDetailsFlags.cityFlag && shippingDetailsFlags.stateFlag && shippingDetailsFlags.countryFlag{
             if CheckoutHistoryHelper.checkoutHistoryHelper.saveToOrderHistory(){
                 paymentSuccessful = true
                 paymentText = "Payment Successful"
@@ -81,8 +81,6 @@ extension ShippingDetailsUIView{
             }
         }
     }
-    
-    
     
     func setAlertText(){
         let cardPaymentAlertHelper = CardPaymentAlertHelper()
@@ -93,6 +91,8 @@ extension ShippingDetailsUIView{
         shippingDetailsFlags.zipCodeFlag = shippingDetailsAlertHelper.isValidZipCode(zipCode: shippingDetails.zipCode)
         shippingDetailsFlags.addressFlag = shippingDetailsAlertHelper.isValidAddress(address: shippingDetails.address)
         shippingDetailsFlags.cityFlag = shippingDetailsAlertHelper.isValidCity(city: shippingDetails.city)
+        shippingDetailsFlags.stateFlag = shippingDetailsAlertHelper.isValidState(state: shippingDetails.state)
+        shippingDetailsFlags.countryFlag = shippingDetailsAlertHelper.isValidCountry(country: shippingDetails.country)
     }
 }
 
