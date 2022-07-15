@@ -12,8 +12,8 @@ class HomeCollectionHelper{
     static var homeCollectionHelper = HomeCollectionHelper()
     var productData = HomeProductService.homeProductServiceInstance.getData()
     var promoData = HomePromoService.homePromoServiceInstance.getData()
-    //var recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getRecommendedData()
-    var recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getData() //need to use other function this is just for testing
+    var recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getRecommendedData()
+    var guestRecommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getData() //need to use other function this is just for testing
     
     func setupHomeProductCollectionCell(_ homeProductCell : HomeProductCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
         homeProductCell.configure(homeProduct: productData[indexPath.row])
@@ -25,8 +25,13 @@ class HomeCollectionHelper{
         return setupRoundedCellCorners(homePromoCell)
     }
     
-    func updateRecommendedData(){
-        recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getRecommendedData()
+    func updateRecommendedData(isUserSignedIn: Bool){
+        if isUserSignedIn{
+            recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getRecommendedData()
+        }
+        else{
+            recommendedData = guestRecommendedData
+        }
     }
     
     func setupHomeRecommendedCollectionCell(_ homeRecommendedCell : HomeRecommendedCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
