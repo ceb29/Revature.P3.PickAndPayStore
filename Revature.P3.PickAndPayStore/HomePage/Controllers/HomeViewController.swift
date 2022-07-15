@@ -28,14 +28,15 @@ class HomeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        HomeCollectionHelper.homeCollectionHelper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
         ProductHelper.productHelper.createGuestUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setWelcomeText()
-        //HomeCollectionHelper.homeCollectionHelper.updateRecommendedData()
-        //recommendedCollectionView.reloadData()
+        HomeCollectionHelper.homeCollectionHelper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
+        recommendedCollectionView.reloadData()
     }
     
     func setupViews(){
@@ -114,7 +115,8 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView.restorationIdentifier{
         case "homeProducts":
-            print("home product selected")
+            let category = HomeCollectionHelper.homeCollectionHelper.productData
+            goToCategoryPage(category: category[indexPath.row].name)
         case "homePromos":
             let promo = HomeCollectionHelper.homeCollectionHelper.promoData
             goToProductPage(productID: promo[indexPath.row].productID)
@@ -122,6 +124,13 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
             let products = HomeCollectionHelper.homeCollectionHelper.recommendedData
             goToProductPage(productID: products[indexPath.row].productID)
         }
+    }
+    
+    func goToCategoryPage(category: String){
+        let storyObject = UIStoryboard(name: "Products", bundle: nil)
+        let categoryVC = storyObject.instantiateViewController(withIdentifier: "ProductSVC") as! ProductsViewController
+        categoryVC.searchedItem = category
+        self.navigationController?.pushViewController(categoryVC, animated: true)
     }
     
     func goToProductPage(productID: String){
