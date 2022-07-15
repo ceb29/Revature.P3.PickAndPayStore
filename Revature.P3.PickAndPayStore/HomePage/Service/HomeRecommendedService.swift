@@ -29,9 +29,17 @@ class HomeRecommendedService{
                     productCategories.insert(product.productID)
                 }
             }
-            for category in productCategories {
-                let product = ProductHelper.productHelper.getProductByID(productID: category)
-                recommendedProducts.append(HomeRecommended(name: product.name, image: product.images, productID: product.productID ))
+            for historyItemID in productCategories {
+                if isLocalCheckoutItem(productID: historyItemID){
+                    let currentProduct = ProductHelper.productHelper.getProductByID(productID: historyItemID)
+                    recommendedProducts.append(HomeRecommended(name: currentProduct.name, image: currentProduct.images, productID: currentProduct.productID ))
+                }
+                else{
+                    let currentResult = DBHelperProductApi.dBHelperProductApi.getProductApiItem(productID: historyItemID)
+                    if case .success(let currentProduct) = currentResult{
+                        recommendedProducts.append(HomeRecommended(name: currentProduct.title ?? "", image: "API", productID: currentProduct.productId ?? "", data: currentProduct.image))
+                    }
+                }
             }
             
         }
@@ -39,6 +47,16 @@ class HomeRecommendedService{
         
         
         return recommendedProducts
+    }
+    
+    func isLocalCheckoutItem(productID: String) -> Bool{
+        let product = productID.components(separatedBy: "-")
+        if product[0] == "local"{
+            return true
+        }
+        else{
+            return false
+        }
     }
     
     /*

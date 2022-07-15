@@ -11,4 +11,5 @@ struct HomeRecommended{
     var name : String
     var image : String = ""
     var productID : String = ""
+    var data : Data?
 }
