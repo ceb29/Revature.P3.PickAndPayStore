@@ -28,7 +28,7 @@ struct WishContentView: View {
                                 
                             }
                         }
-                        //.onDelete(perform: deleteData)
+                        .onDelete(perform: deleteData)
                         .onMove(perform: {fset, nset in
                             wishObj.move(fromOffsets: fset, toOffset: nset)
                         })
@@ -44,10 +44,10 @@ struct WishContentView: View {
             )
         }
     }
-//    func deleteData(index : IndexSet){
-//        DBHelperWishlist.dbHelper.deleteWishlestData(productID: wishObj[index])
-//        wishObj.remove(atOffsets: index)
-//    }
+    func deleteData(index : IndexSet){
+        DBHelperWishlist.dbHelper.deleteWishlestData(productID: wishObj[index.first!].prodId)
+        wishObj.remove(atOffsets: index)
+    }
 }
 
 struct WishContentView_Previews: PreviewProvider {
