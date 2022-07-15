@@ -13,7 +13,7 @@ struct CheckoutPageUIView: View {
     var body: some View {
         NavigationView{
             VStack{
-                OrderDetailsView(checkoutItems: orderItems)
+                //OrderDetailsView(checkoutItems: orderItems, shippingcost: 0)
                 //PaymentPagesButtonView(label: "Pay With Card", action: {print("pay with card selected")})
                 NavigationLink(destination: CardPaymentUIView()){
                     Text("Pay With Card")
