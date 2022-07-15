@@ -66,9 +66,11 @@
                                 <rect key="frame" x="20" y="215" width="374" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Sign in"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sign in / Sign up">
+                                    <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="25"/>
+                                </buttonConfiguration>
                                 <connections>
-                                    <action selector="SignInButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nH9-LT-xvH"/>
+                                    <action selector="SignInUp:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Yiz-Wh-GCi"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cube" translatesAutoresizingMaskIntoConstraints="NO" id="azh-aR-ryz">
