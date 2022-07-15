@@ -16,6 +16,7 @@ struct ProductViewModel{
     var seller = String()
     var rating = String()
     var mainImage = UIImage()
+    var imageData = Data()
     var images = [UIImage]()
     var price = String()
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class ProductsViewController: UIViewController {
 
+    @IBOutlet weak var loadingIcon: UIActivityIndicatorView!
     @IBOutlet weak var productsTable : UITableView!
     @IBOutlet weak var productSearchBar : UISearchBar!
     
@@ -18,7 +19,7 @@ class ProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        loadingIcon.startAnimating()
         
         // Do any additional setup after loading the view.
         let date = Date.now.addingTimeInterval(0.2)
@@ -38,6 +39,7 @@ class ProductsViewController: UIViewController {
     @objc func updateTable(){
         if(isUpdateAvailable){
             isUpdateAvailable = false
+            loadingIcon.stopAnimating()
             productsTable.reloadData()
             timer.invalidate()
         }
@@ -53,6 +55,8 @@ extension ProductsViewController: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        
+        loadingIcon.startAnimating()
         ProductService.productService.searchProduct(searchBar.text!)
         
         let date = Date.now.addingTimeInterval(0.2)

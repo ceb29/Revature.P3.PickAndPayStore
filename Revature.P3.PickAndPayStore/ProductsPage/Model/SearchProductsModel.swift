@@ -34,9 +34,9 @@ class SearchProductsModel{
     }
     
     func run() async -> Result<[SearchProductApi], Error> {
-        
         // any search query....
         //spaces must be replaced by +...
+        searchProduct = [SearchProductApi]()
         
         let url = URL(string: "https://api.rainforestapi.com/request?api_key=EC521707AB464E8BB2077A4B2184F915&type=search&amazon_domain=amazon.com&search_term=\(getSearchProduct())")
         
@@ -48,7 +48,6 @@ class SearchProductsModel{
         let (data, _) = try await URLSession.shared.data(from: url)
             
             let json = try! JSON(data: data)
-            print("worked")
             
             
             guard let items = json["search_results"].array else{

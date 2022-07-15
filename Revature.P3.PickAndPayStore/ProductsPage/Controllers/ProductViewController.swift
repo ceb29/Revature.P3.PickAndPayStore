@@ -9,6 +9,7 @@ import UIKit
 
 class ProductViewController: UIViewController {
 
+    @IBOutlet weak var loadingIcon: UIActivityIndicatorView!
     @IBOutlet weak var sellerLable: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel : UILabel!
@@ -19,13 +20,16 @@ class ProductViewController: UIViewController {
     
     @IBAction func addToCart(_ sender : Any){
         if CurrentUser.currentUser.name != nil{
+            storeData()
             DBHelperUser.dbHelperUser.addCartItem(username: CurrentUser.currentUser.name!, productID: currentID)
+            self.tabBarController?.selectedIndex = 1
         }
     }
     
     @IBAction func addToWish(_ sender : Any){
         if CurrentUser.currentUser.name != nil{
             DBHelperUser.dbHelperUser.addWishlist(username: CurrentUser.currentUser.name!, productID: currentID)
+            storeData()
         }
     }
     
@@ -39,6 +43,7 @@ class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadingIcon.startAnimating()
         descriptionLabel.numberOfLines = 0
         titleLabel.numberOfLines = 3
 
@@ -61,7 +66,24 @@ class ProductViewController: UIViewController {
         productCollectionView.dataSource = self
     }
     
+    func storeData(){
+        let product = ProductService.productService.productViewModel
+        var isStored = false
+        for i in DBHelperProductApi.dBHelperProductApi.getProductApiList(username: CurrentUser.currentUser.name!){
+            if(i.productId == currentID){
+                isStored = true
+                break
+            }
+        }
+        if(!isStored){
+            DBHelperProductApi.dBHelperProductApi.addProductApiItem(username: CurrentUser.currentUser.name!, productID: currentID, title: product.title, rating: product.rating, price: product.price, image: product.imageData)
+        }
+    }
+    
     func viewData(){
+        if(currentID.contains("local-")){
+            loadingIcon.stopAnimating()
+        }
         print(ProductService.productService.productViewModel.title)
         productCollectionView.reloadData()
         mainImage.image = ProductService.productService.productViewModel.mainImage
@@ -76,6 +98,7 @@ class ProductViewController: UIViewController {
     @objc func updateImages(){
         if(updateAvailable){
             viewData()
+            loadingIcon.stopAnimating()
             timer.invalidate()
         }
         ProductService.productService.updateProduct = {

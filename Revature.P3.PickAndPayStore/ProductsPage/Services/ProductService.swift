@@ -86,7 +86,7 @@ class ProductService{
                     for i in product.imagesurl{
                         tempImages.append(UIImage(data: i)!)
                     }
-                    self.productViewModel = ProductViewModel(id: product.id!, title: product.title!, description: product.desc!, seller: product.seller!, rating: product.rating!, mainImage: UIImage(data: product.iconUrl)!, images: tempImages, price: product.price!)
+                    self.productViewModel = ProductViewModel(id: product.id!, title: product.title!, description: product.desc!, seller: product.seller!, rating: product.rating!, mainImage: UIImage(data: product.iconUrl)!, imageData: product.iconUrl, images: tempImages, price: product.price!)
                     self.updateProduct?()
                 case .failure(let error):
                     print(error)
