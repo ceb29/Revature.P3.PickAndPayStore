@@ -6,7 +6,9 @@
 //
 
 import Foundation
-struct WishlistItemViewModel{
+struct WishlistItemViewModel: Identifiable{
+    var id = UUID()
+    
     var name : String
     var prodId : String
     var prodPrice : String
