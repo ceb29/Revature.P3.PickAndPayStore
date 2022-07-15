@@ -16,6 +16,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.contentView.autoresizingMask.insert(.flexibleHeight)
+        self.contentView.autoresizingMask.insert(.flexibleWidth)
     }
     
     func configure(image: UIImage, name: String){

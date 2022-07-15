@@ -47,7 +47,6 @@ class ProductsModel{
             let json = try! JSON(data: data)
             print("worked")
             let item = json["product"]
-
             
             guard let title = item["title"].string else{
                 return .failure(productError.pMFailedToLoadTitle)
@@ -57,22 +56,24 @@ class ProductsModel{
                 return .failure(productError.pMFailedToLoadProductID)
             }
             
-            guard let category = item["categories_flat"].string else{
-                return .failure(productError.pMFailedToLoadProduct)
+            var category = item["categories_flat"].stringValue
+            if(category.isEmpty){
+                category = "N/A"
             }
             
-            let description = item["description"].stringValue
-//            guard let description = item["description"].string else{
-//                return .failure(productError.pMFailedToLoadDescription)
-//            }
-            
-            guard let rating =  item["rating"].float else{
-                print(id)
-                return .failure(productError.pMFailedToLoadRating)
+            var description = item["description"].stringValue
+            if(description.isEmpty){
+                description = "N/A"
             }
             
-            guard let seller = item["manufacturer"].string else{
-                return .failure(productError.pMFailedToLoadSeller)
+            var rating =  item["rating"].stringValue
+            if(rating.isEmpty){
+                rating = "N/A"
+            }
+            
+            var seller = item["manufacturer"].stringValue
+            if(seller.isEmpty){
+                seller = "N/A"
             }
             
             
@@ -90,7 +91,6 @@ class ProductsModel{
 
                 
             guard let icon = item["main_image"]["link"].url else{
-                print("icon has failed to load")
                 return .failure(productError.pMFailedToLoadProduct)
             }
             let iconData = try! Data(contentsOf: icon)
