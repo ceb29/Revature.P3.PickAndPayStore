@@ -12,4 +12,5 @@ struct CartItemViewModel{
     var name : String
     var price : String
     var icon : String
+    var data : Data?
 }
