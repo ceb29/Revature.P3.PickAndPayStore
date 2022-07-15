@@ -12,7 +12,17 @@ class HomeRecommendedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var recommendedLabel: UILabel!
     
     func configure(homeRecommended : HomeRecommended){
-        recommendedImage.image = UIImage(named : homeRecommended.image)
+        if homeRecommended.image != "API"{
+            recommendedImage.image = UIImage(named: homeRecommended.image)
+        }
+        else{
+            if homeRecommended.data != nil{
+                recommendedImage.image = UIImage(data: homeRecommended.data!)
+            }
+            else{
+                recommendedImage.image = UIImage(named: homeRecommended.image)
+            }
+        }
         recommendedLabel.text = homeRecommended.name
     }
 }

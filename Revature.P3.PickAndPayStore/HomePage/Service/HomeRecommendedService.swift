@@ -25,14 +25,15 @@ class HomeRecommendedService{
             let pastProducts = DBHelperUser.dbHelperUser.getItemHistory(username: CurrentUser.currentUser.name!)
             for pastProduct in pastProducts{
                 if pastProduct.productID != nil{
-                    let product = ProductHelper.productHelper.getProductByID(productID: pastProduct.productID!)
-                    productCategories.insert(product.productID)
+                    productCategories.insert(pastProduct.productID!)
                 }
             }
             for historyItemID in productCategories {
                 if isLocalCheckoutItem(productID: historyItemID){
                     let currentProduct = ProductHelper.productHelper.getProductByID(productID: historyItemID)
+                    
                     recommendedProducts.append(HomeRecommended(name: currentProduct.name, image: currentProduct.images, productID: currentProduct.productID ))
+                    
                 }
                 else{
                     let currentResult = DBHelperProductApi.dBHelperProductApi.getProductApiItem(productID: historyItemID)
