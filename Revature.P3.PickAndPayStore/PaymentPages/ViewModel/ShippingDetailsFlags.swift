@@ -11,4 +11,6 @@ struct ShippingDetailsFlags{
     var zipCodeFlag : Bool = false
     var addressFlag : Bool = false
     var cityFlag : Bool = false
+    var stateFlag : Bool = false
+    var countryFlag : Bool = false
 }

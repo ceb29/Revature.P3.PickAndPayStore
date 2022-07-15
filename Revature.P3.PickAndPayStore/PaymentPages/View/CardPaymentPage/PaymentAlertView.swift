@@ -28,6 +28,12 @@ struct PaymentAlertView : View{
             else if !shippingDetailsFlags.cityFlag{
                 Text("City text is invalid")
             }
+            else if !shippingDetailsFlags.stateFlag{
+                Text("State text is invalid")
+            }
+            else if !shippingDetailsFlags.countryFlag{
+                Text("Country text is invalid")
+            }
         }
     }
 }
