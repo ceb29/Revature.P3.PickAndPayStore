@@ -23,13 +23,27 @@ class OrderDetailsService{
                     else{
                         let currentResult = DBHelperProductApi.dBHelperProductApi.getProductApiItem(productID: checkoutItem.productID!)
                         if case .success(let currentProduct) = currentResult{
-                            checkoutItems.append(CartItemViewModel(productID: currentProduct.productId ?? "", name: currentProduct.title ?? "", price: currentProduct.price ?? "", icon: "API", data: currentProduct.image))
+                            checkoutItems.append(CartItemViewModel(productID: currentProduct.productId ?? "", name: currentProduct.title ?? "", price: removeDollarSign(price: currentProduct.price), icon: "API", data: currentProduct.image))
                         }
                     }
                 }
             }
         }
         return checkoutItems
+    }
+    
+    func removeDollarSign(price: String?) -> String{
+        var newPrice : String
+        if price != nil{
+            newPrice = price!
+            if price!.contains("$"){
+                newPrice.removeFirst()
+            }
+        }
+        else{
+            newPrice = ""
+        }
+        return newPrice
     }
     
     func isLocalCheckoutItem(productID: String) -> Bool{
