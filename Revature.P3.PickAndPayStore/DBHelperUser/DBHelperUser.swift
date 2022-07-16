@@ -104,13 +104,16 @@ class DBHelperUser {
         }
     }
     
-    func addItemHistory(username: String, productID: String, date : Date){
+    func addItemHistory(username: String, productID: String, date : Date, address: String, card: String, shippingOption: String){
         let user = getOne(username: username)
         do{
             if context != nil{
                 let itemHistory = ItemHistory(context: context!)
                 itemHistory.productID = productID
                 itemHistory.date = date
+                itemHistory.address = address
+                itemHistory.card = card
+                itemHistory.shippingOption = shippingOption
                 itemHistory.user = user
                 user.addToItemHistory(itemHistory)
                 try context?.save()

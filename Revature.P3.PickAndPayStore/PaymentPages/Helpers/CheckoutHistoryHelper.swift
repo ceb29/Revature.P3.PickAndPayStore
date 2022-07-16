@@ -77,13 +77,37 @@ class CheckoutHistoryHelper{
                 return 14.99
         }
     }
-
-    func saveToOrderHistory() -> Bool{
+    
+    func getShippingOptionString(shippingOption: ShippingOption) -> String{
+        switch shippingOption {
+        case .standard:
+            return "standard"
+        case .priority:
+            return "priority"
+        case .express:
+            return "express"
+        }
+    }
+    
+    func getAddressString(shippingDetails: ShippingDetails) -> String{
+        let address = shippingDetails.zipCode + " " + shippingDetails.address + " "  + shippingDetails.city + " " + shippingDetails.state + " " + shippingDetails.country
+        return address
+    }
+    
+    func getCardString(paymentDetails: PaymentDetails, monthOption: MonthOption, yearOption: YearOption) -> String{
+        let card = paymentDetails.cardNumber + " " + monthOption.rawValue + " " + yearOption.rawValue + " " + paymentDetails.securityCode
+        return card
+    }
+    
+    func saveToOrderHistory(shippingDetails: ShippingDetails, paymentDetails: PaymentDetails, shippingOption: ShippingOption, monthSelection: MonthOption, yearSelection: YearOption) -> Bool{
         if CurrentUser.currentUser.name != nil{
             let user = CurrentUser.currentUser.name!
             let date = Date.now
+            let address = getAddressString(shippingDetails: shippingDetails)
+            let card = getCardString(paymentDetails: paymentDetails, monthOption: monthSelection, yearOption: yearSelection)
+            let shipOption = getShippingOptionString(shippingOption: shippingOption)
             for checkoutItem in checkoutItems{
-                DBHelperUser.dbHelperUser.addItemHistory(username: user, productID: checkoutItem.productID, date: date)
+                DBHelperUser.dbHelperUser.addItemHistory(username: user, productID: checkoutItem.productID, date: date, address: address, card: card, shippingOption: shipOption)
             }
             clearCart()
             return true
