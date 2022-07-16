@@ -72,7 +72,7 @@ extension ShippingDetailsUIView{
     func placeOrder(){
         setAlertText()
         if paymentFlags.cardNumberFlag && paymentFlags.securityCodeFlag && shippingDetailsFlags.zipCodeFlag && shippingDetailsFlags.addressFlag && shippingDetailsFlags.cityFlag && shippingDetailsFlags.stateFlag && shippingDetailsFlags.countryFlag{
-            if CheckoutHistoryHelper.checkoutHistoryHelper.saveToOrderHistory(){
+            if CheckoutHistoryHelper.checkoutHistoryHelper.saveToOrderHistory(shippingDetails: shippingDetails, paymentDetails: paymentDetails, shippingOption: shippingSelection, monthSelection: monthSelection, yearSelection: yearSelection){
                 paymentSuccessful = true
                 paymentText = "Payment Successful"
                 print("successfully placed order")

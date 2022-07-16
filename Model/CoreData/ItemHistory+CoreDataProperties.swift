@@ -2,7 +2,7 @@
 //  ItemHistory+CoreDataProperties.swift
 //  Revature.P3.PickAndPayStore
 //
-//  Created by admin on 7/7/22.
+//  Created by admin on 7/16/22.
 //
 //
 
@@ -18,6 +18,9 @@ extension ItemHistory {
 
     @NSManaged public var date: Date?
     @NSManaged public var productID: String?
+    @NSManaged public var shippingOption: String?
+    @NSManaged public var card: String?
+    @NSManaged public var address: String?
     @NSManaged public var user: User?
 
 }
