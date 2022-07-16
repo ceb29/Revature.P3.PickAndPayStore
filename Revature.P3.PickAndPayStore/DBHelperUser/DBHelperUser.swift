@@ -139,19 +139,32 @@ class DBHelperUser {
         return itemHistory
     }
     
-    func deleteWishlist(username: String, productID: String){
+    func deleteCartItem(username: String, productID: String){
         let user = getOne(username: username)
+        let cartItem = DBHelperCheckoutItem.dbHelper.getOneCartItemData(user: user, productID: productID)
+        print(cartItem)
         do{
             if context != nil{
-                let wishListItem = WishlistItem(context: context!)
-                wishListItem.productID = productID
-                wishListItem.user = user
-                user.addToWishListItem(wishListItem)
+                user.removeFromCartItems(cartItem.cartItemData)
                 try context?.save()
             }
         }
         catch{
-            print("error saving new wishlist item")
+            print("error deleting new cart item")
+        }
+    }
+    
+    func deleteWishlist(username: String, productID: String){
+        let user = getOne(username: username)
+        let wishlistItem = DBHelperWishlist.dbHelper.getOneWishlistItemData(user: user, productID: productID)
+        do{
+            if context != nil{
+                user.removeFromWishListItem(wishlistItem.wishlistData)
+                try context?.save()
+            }
+        }
+        catch{
+            print("error deleting new cart item")
         }
     }
     

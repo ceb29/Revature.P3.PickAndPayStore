@@ -17,8 +17,6 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var searchTable: UITableView!
     var isUserSignedIn = false
     var searchResults : [String] = []
-    var searchResultsID : [String] = []
-    let products = HomeRecommendedService.sharedInstance.getData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +33,7 @@ class HomeViewController: UIViewController{
     func setupViews(){
         HomeCollectionHelper.helper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
         ProductHelper.productHelper.createGuestUser()
-        welcomeView.layer.cornerRadius = 10
-        welcomeView.layer.masksToBounds = true
         bottomPromoImage.image = UIImage(named: "appleAdvertisement")
-        
     }
     
     func setWelcomeText(){
@@ -59,15 +54,6 @@ class HomeViewController: UIViewController{
         let storyObject = UIStoryboard(name: "LoginStoryboard", bundle: nil)
         let loginVC = storyObject.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
         self.navigationController?.pushViewController(loginVC, animated: true)
-    }
-    
-    @IBAction func printProductData(_ sender: Any) {
-        //this button is for testing
-        if isUserSignedIn{
-            let storyObject = UIStoryboard(name: "PaymentStoryboardHost", bundle: nil)
-            let shippingVC = storyObject.instantiateViewController(withIdentifier: "ShippingVC")
-            self.navigationController?.pushViewController(shippingVC, animated: true)
-        }
     }
 }
 
@@ -119,13 +105,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         self.navigationController?.pushViewController(categoryVC, animated: true)
     }
     
-    func goToProductPage(productID: String){
-        let storyObject = UIStoryboard(name: "Products", bundle: nil)
-        let productVC = storyObject.instantiateViewController(withIdentifier: "ProductVC") as! ProductViewController
-        productVC.currentID = productID
-        self.navigationController?.pushViewController(productVC, animated: true)
-    }
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if(scrollView.restorationIdentifier == "homePromos"){
             promoPageControl.currentPage = Int(round(scrollView.contentOffset.x / scrollView.frame.width))
@@ -135,7 +114,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(searchResults.count)
         return searchResults.count
     }
     
@@ -148,44 +126,25 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         goToProductPage(productID: searchResults[indexPath.row])
     }
+    
+    func goToProductPage(productID: String){
+        let storyObject = UIStoryboard(name: "Products", bundle: nil)
+        let productVC = storyObject.instantiateViewController(withIdentifier: "ProductVC") as! ProductViewController
+        productVC.currentID = productID
+        self.navigationController?.pushViewController(productVC, animated: true)
+    }
 }
 
 extension HomeViewController : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchResults = []
-        searchResultsID = []
-        var currentMax = 0
-        var searchDict : [String : Int] = [:]
-        var currentString = ""
         if searchText.isEmpty{ //if search is empty, search results table view should be hidden
             searchTable.isHidden = true
         }
         else{ //filter data using search text and store in search results
             searchTable.isHidden = false
-            for char in searchText{
-                currentString += String(char)
-                for i in 0..<products.count{
-                    if products[i].name.lowercased().contains(currentString.lowercased()){
-                        if searchDict[products[i].productID] != nil{
-                            searchDict[products[i].productID] = searchDict[products[i].productID]! + 1
-                        }
-                        else{
-                            searchDict[products[i].productID] = 1
-                        }
-                    }
-                }
-            }
-            for (str, cnt) in searchDict{
-                if cnt >= currentMax{
-                    searchResults.insert(str, at: 0)
-                    currentMax = cnt
-                }
-                else{
-                    searchResults.append(str)
-                }
-            }
+            searchResults = HomeSearchHelper.helper.searchWithPartial(searchText: searchText)
         }
         searchTable.reloadData()
     }
-    
 }
