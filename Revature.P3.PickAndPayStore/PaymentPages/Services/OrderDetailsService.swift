@@ -81,6 +81,7 @@ class OrderDetailsService{
         for cartItem in cartItems {
             orderItems.append(CheckoutItem(name: cartItem.name, price: Float(cartItem.price) ?? 0))
         }
+        print(orderItems)
         return orderItems
     }
 }

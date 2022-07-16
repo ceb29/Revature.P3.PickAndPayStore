@@ -38,11 +38,11 @@ class DBHelperWishlist{
         return wishlistItems
     }
     
-    func getOneWishlistItemData(productID : String) -> (wishlistData : WishlistItem, wishlistFlag : Bool){
+    func getOneWishlistItemData(user: User, productID : String) -> (wishlistData : WishlistItem, wishlistFlag : Bool){
         var wishlistItem = WishlistItem()
         var wishlistExists = true
         var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WishlistItem")
-        fetchRequest.predicate = NSPredicate(format: "productID == %@", productID)
+        fetchRequest.predicate = NSPredicate(format: "productID == %@ && user == %@", productID, user)
         fetchRequest.fetchLimit = 1
         do{
             let request = try context?.fetch(fetchRequest) as! [WishlistItem]

@@ -39,11 +39,11 @@ class DBHelperCheckoutItem{
         return cartItem
     }
     
-    func getOneCartItemData(productID : String) -> (cartItemData : CartItem, cartItemFlag : Bool){
+    func getOneCartItemData(user: User, productID : String) -> (cartItemData : CartItem, cartItemFlag : Bool){
         var cartItem = CartItem()
         var cartItemExists = true
         var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
-        fetchRequest.predicate = NSPredicate(format: "productID == %@", productID)
+        fetchRequest.predicate = NSPredicate(format: "productID == %@ && user == %@", productID, user)
         fetchRequest.fetchLimit = 1
         do{
             let request = try context?.fetch(fetchRequest) as! [CartItem]
