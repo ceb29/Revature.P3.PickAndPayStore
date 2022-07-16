@@ -9,6 +9,7 @@ import Foundation
 
 class CategoryHelper{
     static var categoryHelper = CategoryHelper()
+    
     struct newCategory{
         var name: String
         var image: String
@@ -20,13 +21,5 @@ class CategoryHelper{
         newCategory(name : "Books", image: "books"),
         newCategory(name : "Groceries", image: "groceries"),
         newCategory(name : "Pets", image: "pets"),
-        //newCategory(name : "Toys", image: "toys"),
-        //newCategory(name : "Automotive", image: "automotive")
     ]
-    
-    //does storing in cored data even make sense for local products and categories
-    //on first load of app products and categories would need to be added and collections would be empty
-    func addProducts(){
-        //add to core data
-    }
 }
