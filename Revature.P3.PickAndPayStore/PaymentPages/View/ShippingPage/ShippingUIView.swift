@@ -12,7 +12,6 @@ struct ShippingDetailsUIView: View {
     @State private var shippingDetails = ShippingDetails()
     @State private var shippingSelection : ShippingOption = .standard
     @State private var shippingDetailsFlags = ShippingDetailsFlags()
-    @State private var continueFlag : Bool = false
     @State private var successFlag : Bool = false
     @State private var paymentDetails = PaymentDetails()
     @State private var paymentFlags = PaymentFlags()
@@ -20,7 +19,6 @@ struct ShippingDetailsUIView: View {
     @State private var yearSelection: YearOption = .option1
     @State private var paymentSuccessful: Bool = false
     @State private var paymentText = ""
-    @State private var update : Bool = true
     @State private var orderItems : [CheckoutItem] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
     
     var body: some View {

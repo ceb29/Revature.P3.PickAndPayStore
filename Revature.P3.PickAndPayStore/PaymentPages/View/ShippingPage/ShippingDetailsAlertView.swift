@@ -4,7 +4,7 @@
 //
 //  Created by admin on 7/7/22.
 //
-
+/*
 import SwiftUI
 
 struct ShippingDetailsAlertView : View{
@@ -31,3 +31,4 @@ struct ShippingDetailsAlertView : View{
         }
     }
 }
+*/
