@@ -20,26 +20,25 @@ class HomeViewController: UIViewController{
     var searchResults : [String] = []
     var searchResultsID : [String] = []
     @IBOutlet weak var selectionView: UIView!
-    let products = HomeRecommendedService.homeRecommendedServiceInstance.getData()
+    let products = HomeRecommendedService.sharedInstance.getData()
     var pickerData = ["All Locations", "Los Angelos, CA", "New York, NY", "Houston, TX"]
     var locationPickerViewSelection = "All Locations"
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        HomeCollectionHelper.homeCollectionHelper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
-        ProductHelper.productHelper.createGuestUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setWelcomeText()
-        HomeCollectionHelper.homeCollectionHelper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
+        HomeCollectionHelper.helper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
         recommendedCollectionView.reloadData()
     }
     
     func setupViews(){
+        HomeCollectionHelper.helper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
+        ProductHelper.productHelper.createGuestUser()
         welcomeView.layer.cornerRadius = 10
         welcomeView.layer.masksToBounds = true
         selectionView.layer.cornerRadius = 10
@@ -89,12 +88,12 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView.restorationIdentifier{
         case "homeProducts":
-            return HomeCollectionHelper.homeCollectionHelper.productData.count
+            return HomeCollectionHelper.helper.productData.count
         case "homePromos":
-            promoPageControl.numberOfPages = HomeCollectionHelper.homeCollectionHelper.promoData.count
-            return HomeCollectionHelper.homeCollectionHelper.promoData.count //need to change to promodata
+            promoPageControl.numberOfPages = HomeCollectionHelper.helper.promoData.count
+            return HomeCollectionHelper.helper.promoData.count //need to change to promodata
         default:
-            return HomeCollectionHelper.homeCollectionHelper.recommendedData.count //need to change to recommended data
+            return HomeCollectionHelper.helper.recommendedData.count //need to change to recommended data
         }
     }
     
@@ -102,26 +101,26 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         switch collectionView.restorationIdentifier{
         case "homeProducts":
             let currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeProductCell", for: indexPath) as! HomeProductCollectionViewCell
-            return HomeCollectionHelper.homeCollectionHelper.setupHomeProductCollectionCell(currentCell, indexPath)
+            return HomeCollectionHelper.helper.setupHomeProductCollectionCell(currentCell, indexPath)
         case "homePromos":
             let currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "homePromoCell", for: indexPath) as! HomePromoCollectionViewCell
-            return HomeCollectionHelper.homeCollectionHelper.setupHomePromoCollectionCell(currentCell, indexPath)
+            return HomeCollectionHelper.helper.setupHomePromoCollectionCell(currentCell, indexPath)
         default:
             let currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeRecommendedCell", for: indexPath) as! HomeRecommendedCollectionViewCell
-            return HomeCollectionHelper.homeCollectionHelper.setupHomeRecommendedCollectionCell(currentCell, indexPath)
+            return HomeCollectionHelper.helper.setupHomeRecommendedCollectionCell(currentCell, indexPath)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView.restorationIdentifier{
         case "homeProducts":
-            let category = HomeCollectionHelper.homeCollectionHelper.productData
+            let category = HomeCollectionHelper.helper.productData
             goToCategoryPage(category: category[indexPath.row].name)
         case "homePromos":
-            let promo = HomeCollectionHelper.homeCollectionHelper.promoData
+            let promo = HomeCollectionHelper.helper.promoData
             goToProductPage(productID: promo[indexPath.row].productID)
         default:
-            let products = HomeCollectionHelper.homeCollectionHelper.recommendedData
+            let products = HomeCollectionHelper.helper.recommendedData
             goToProductPage(productID: products[indexPath.row].productID)
         }
     }
@@ -147,7 +146,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
 }
 
-
 extension HomeViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -164,7 +162,8 @@ extension HomeViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         locationPickerViewSelection = pickerData[row]
         
-    }}
+    }
+}
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

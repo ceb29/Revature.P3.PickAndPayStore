@@ -8,7 +8,8 @@
 import Foundation
 
 class HomeRecommendedService{
-    static var homeRecommendedServiceInstance = HomeRecommendedService()
+    static var sharedInstance = HomeRecommendedService()
+    
     func getData() -> [HomeRecommended]{
         let recommendedModelData = ProductHelper.productHelper.products
         var recommendedViewModelData : [HomeRecommended] = []
