@@ -8,7 +8,8 @@
 import Foundation
 
 class HomeRecommendedService{
-    static var homeRecommendedServiceInstance = HomeRecommendedService()
+    static var sharedInstance = HomeRecommendedService()
+    
     func getData() -> [HomeRecommended]{
         let recommendedModelData = ProductHelper.productHelper.products
         var recommendedViewModelData : [HomeRecommended] = []
@@ -18,34 +19,42 @@ class HomeRecommendedService{
         return recommendedViewModelData
     }
     
+    func getUniqueProductIDs(user: String) -> Set<String>{
+        var productCategories = Set<String>()
+        let pastProducts = DBHelperUser.dbHelperUser.getItemHistory(username: user)
+        for pastProduct in pastProducts{
+            if pastProduct.productID != nil{
+                productCategories.insert(pastProduct.productID!)
+            }
+        }
+        return productCategories
+    }
+    
+    func getLocalRecommendedProduct(productID: String) -> HomeRecommended{
+        let currentProduct = ProductHelper.productHelper.getProductByID(productID: productID)
+        let recommendedProduct = HomeRecommended(name: currentProduct.name, image: currentProduct.images, productID: currentProduct.productID )
+        return recommendedProduct
+    }
+    
     func getRecommendedData() -> [HomeRecommended]{
         var recommendedProducts : [HomeRecommended] = []
         var productCategories = Set<String>()
-        if CurrentUser.currentUser.name != nil{
-            let pastProducts = DBHelperUser.dbHelperUser.getItemHistory(username: CurrentUser.currentUser.name!)
-            for pastProduct in pastProducts{
-                if pastProduct.productID != nil{
-                    let product = ProductHelper.productHelper.getProductByID(productID: pastProduct.productID!)
-                    productCategories.insert(product.productID)
-                }
-            }
-            for historyItemID in productCategories {
-                if isLocalCheckoutItem(productID: historyItemID){
-                    let currentProduct = ProductHelper.productHelper.getProductByID(productID: historyItemID)
-                    recommendedProducts.append(HomeRecommended(name: currentProduct.name, image: currentProduct.images, productID: currentProduct.productID ))
-                }
-                else{
-                    let currentResult = DBHelperProductApi.dBHelperProductApi.getProductApiItem(productID: historyItemID)
-                    if case .success(let currentProduct) = currentResult{
-                        recommendedProducts.append(HomeRecommended(name: currentProduct.title ?? "", image: "API", productID: currentProduct.productId ?? "", data: currentProduct.image))
-                    }
-                }
-            }
-            
+        let user = CurrentUser.currentUser.name
+        guard user != nil else{
+            return recommendedProducts
         }
-        
-        
-        
+        productCategories = getUniqueProductIDs(user: user!)
+        for historyItemID in productCategories {
+            if isLocalCheckoutItem(productID: historyItemID){
+                recommendedProducts.append(getLocalRecommendedProduct(productID: historyItemID))
+            }
+            else{
+                let currentResult = DBHelperProductApi.dBHelperProductApi.getProductApiItem(productID: historyItemID)
+                if case .success(let currentProduct) = currentResult{
+                    recommendedProducts.append(HomeRecommended(name: currentProduct.title ?? "", image: "API", productID: currentProduct.productId ?? "", data: currentProduct.image))
+                }
+            }
+        }
         return recommendedProducts
     }
     
@@ -58,17 +67,5 @@ class HomeRecommendedService{
             return false
         }
     }
-    
-    /*
-    func getData() -> [HomeRecommended]{
-        let recommendedModelData = DBHelperProducts.dbHelper.getProductsData()
-        var recommendedViewModelData : [HomeRecommended] = []
-        for product in recommendedModelData{
-            recommendedViewModelData.append(HomeRecommended(name: product.name ?? "", image: product.images ?? ""))
-            print(product.name ?? "",product.images ?? "")
-        }
-        return recommendedViewModelData
-    }
-    */
     
 }

@@ -33,9 +33,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartCell
         let price = Double(cartItems[indexPath.row].price)
         cell.itemNameLabel.text = cartItems[indexPath.row].name
-        cell.itemPriceLable.text = String(format: "$%.2f",price!)
+        cell.itemPriceLable.text = String(format: "$%.2f",price ?? 0)
         return cell
     }
+    
     @IBAction func checkoutTap(_ sender: Any) {
         if CurrentUser.currentUser.name != "Guest"{
             let storyObject = UIStoryboard(name: "PaymentStoryboardHost", bundle: nil)

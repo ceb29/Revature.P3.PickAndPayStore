@@ -9,21 +9,16 @@ import Foundation
 
 class PromoHelper{
     static var promoHelper = PromoHelper()
-    struct newPromo{
+    struct NewPromo{
         var image: String
         var promoID: String
     }
     
-    var promos : [newPromo] = [
-        newPromo(image: "xbox1", promoID: "local-09"),
-        newPromo(image: "purinaBeneful_v2", promoID: "local-23"),
-        newPromo(image: "xbox1", promoID: "local-09"),
-        newPromo(image: "purinaBeneful_v2", promoID: "local-23"),
-        newPromo(image: "xbox1", promoID: "local-09")
+    var promos : [NewPromo] = [
+        NewPromo(image: "xbox1", promoID: "local-09"),
+        NewPromo(image: "purinaBeneful_v2", promoID: "local-23"),
+        NewPromo(image: "xbox1", promoID: "local-09"),
+        NewPromo(image: "purinaBeneful_v2", promoID: "local-23"),
+        NewPromo(image: "xbox1", promoID: "local-09")
     ]
-    
-    //does storing in cored data even make sense for promos
-    func addProducts(){
-        //add to core data
-    }
 }

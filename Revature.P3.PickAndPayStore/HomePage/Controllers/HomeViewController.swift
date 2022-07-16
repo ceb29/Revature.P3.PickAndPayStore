@@ -13,38 +13,32 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var promoPageControl: UIPageControl!
     @IBOutlet weak var recommendedCollectionView: UICollectionView!
     @IBOutlet weak var welcomeText: UILabel!
-    @IBOutlet weak var locationPickerView: UIPickerView!
     @IBOutlet weak var welcomeButton: UIButton!
     @IBOutlet weak var searchTable: UITableView!
     var isUserSignedIn = false
     var searchResults : [String] = []
     var searchResultsID : [String] = []
-    @IBOutlet weak var selectionView: UIView!
-    let products = HomeRecommendedService.homeRecommendedServiceInstance.getData()
-    var pickerData = ["All Locations", "Los Angelos, CA", "New York, NY", "Houston, TX"]
-    var locationPickerViewSelection = "All Locations"
-    
+    let products = HomeRecommendedService.sharedInstance.getData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        HomeCollectionHelper.homeCollectionHelper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
-        ProductHelper.productHelper.createGuestUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setWelcomeText()
-        HomeCollectionHelper.homeCollectionHelper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
+        HomeCollectionHelper.helper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
         recommendedCollectionView.reloadData()
     }
     
     func setupViews(){
+        HomeCollectionHelper.helper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
+        ProductHelper.productHelper.createGuestUser()
         welcomeView.layer.cornerRadius = 10
         welcomeView.layer.masksToBounds = true
-        selectionView.layer.cornerRadius = 10
-        selectionView.layer.masksToBounds = true
         bottomPromoImage.image = UIImage(named: "appleAdvertisement")
+        
     }
     
     func setWelcomeText(){
@@ -67,14 +61,6 @@ class HomeViewController: UIViewController{
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
-    @IBAction func openSelectionView(_ sender: Any) {
-        selectionView.isHidden = false
-    }
-    
-    @IBAction func closeSelectionView(_ sender: Any) {
-        selectionView.isHidden = true
-    }
-    
     @IBAction func printProductData(_ sender: Any) {
         //this button is for testing
         if isUserSignedIn{
@@ -89,12 +75,12 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView.restorationIdentifier{
         case "homeProducts":
-            return HomeCollectionHelper.homeCollectionHelper.productData.count
+            return HomeCollectionHelper.helper.productData.count
         case "homePromos":
-            promoPageControl.numberOfPages = HomeCollectionHelper.homeCollectionHelper.promoData.count
-            return HomeCollectionHelper.homeCollectionHelper.promoData.count //need to change to promodata
+            promoPageControl.numberOfPages = HomeCollectionHelper.helper.promoData.count
+            return HomeCollectionHelper.helper.promoData.count //need to change to promodata
         default:
-            return HomeCollectionHelper.homeCollectionHelper.recommendedData.count //need to change to recommended data
+            return HomeCollectionHelper.helper.recommendedData.count //need to change to recommended data
         }
     }
     
@@ -102,26 +88,26 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         switch collectionView.restorationIdentifier{
         case "homeProducts":
             let currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeProductCell", for: indexPath) as! HomeProductCollectionViewCell
-            return HomeCollectionHelper.homeCollectionHelper.setupHomeProductCollectionCell(currentCell, indexPath)
+            return HomeCollectionHelper.helper.setupHomeProductCollectionCell(currentCell, indexPath)
         case "homePromos":
             let currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "homePromoCell", for: indexPath) as! HomePromoCollectionViewCell
-            return HomeCollectionHelper.homeCollectionHelper.setupHomePromoCollectionCell(currentCell, indexPath)
+            return HomeCollectionHelper.helper.setupHomePromoCollectionCell(currentCell, indexPath)
         default:
             let currentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeRecommendedCell", for: indexPath) as! HomeRecommendedCollectionViewCell
-            return HomeCollectionHelper.homeCollectionHelper.setupHomeRecommendedCollectionCell(currentCell, indexPath)
+            return HomeCollectionHelper.helper.setupHomeRecommendedCollectionCell(currentCell, indexPath)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView.restorationIdentifier{
         case "homeProducts":
-            let category = HomeCollectionHelper.homeCollectionHelper.productData
+            let category = HomeCollectionHelper.helper.productData
             goToCategoryPage(category: category[indexPath.row].name)
         case "homePromos":
-            let promo = HomeCollectionHelper.homeCollectionHelper.promoData
+            let promo = HomeCollectionHelper.helper.promoData
             goToProductPage(productID: promo[indexPath.row].productID)
         default:
-            let products = HomeCollectionHelper.homeCollectionHelper.recommendedData
+            let products = HomeCollectionHelper.helper.recommendedData
             goToProductPage(productID: products[indexPath.row].productID)
         }
     }
@@ -147,25 +133,6 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
 }
 
-
-extension HomeViewController : UIPickerViewDelegate, UIPickerViewDataSource{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        locationPickerViewSelection = pickerData[row]
-        
-    }}
-
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(searchResults.count)
@@ -181,29 +148,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         goToProductPage(productID: searchResults[indexPath.row])
     }
-    
 }
 
 extension HomeViewController : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //
-        //
-        //need to change this to product service
-        //
-        //
         searchResults = []
         searchResultsID = []
         var currentMax = 0
         var searchDict : [String : Int] = [:]
         var currentString = ""
         if searchText.isEmpty{ //if search is empty, search results table view should be hidden
-            //searchBarTableView.isHidden = true
-            searchResults = []
-            searchResultsID = []
             searchTable.isHidden = true
         }
         else{ //filter data using search text and store in search results
-            //searchBarTableView.isHidden = false
             searchTable.isHidden = false
             for char in searchText{
                 currentString += String(char)
@@ -227,17 +184,7 @@ extension HomeViewController : UISearchBarDelegate{
                     searchResults.append(str)
                 }
             }
-            
-            //print(searchDict)
-            //print(searchResults)
-            /*for product in products{
-                if product.name.lowercased().contains(searchText.lowercased()){
-                    searchResults.append(product.name)
-                }
-            }
-            print(searchResults)*/
         }
-        //searchBarTableView.reloadData() //reload collection view to show updated result
         searchTable.reloadData()
     }
     

@@ -4,7 +4,7 @@
 //
 //  Created by admin on 7/3/22.
 //
-
+/*
 import SwiftUI
 
 struct CardPaymentUIView: View {
@@ -90,3 +90,4 @@ class CardPaymentHostingController: UIHostingController<ShippingDetailsUIView>{
         super.viewDidLoad()
     }
 }
+*/

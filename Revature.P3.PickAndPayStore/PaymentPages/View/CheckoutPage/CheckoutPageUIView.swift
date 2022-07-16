@@ -4,7 +4,7 @@
 //
 //  Created by admin on 7/4/22.
 //
-
+/*
 import SwiftUI
 
 struct CheckoutPageUIView: View {
@@ -47,3 +47,4 @@ class CheckoutHostingController: UIHostingController<ShippingDetailsUIView>{
         super.viewDidLoad()
     }
 }
+*/

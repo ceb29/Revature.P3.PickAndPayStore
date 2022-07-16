@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 class HomeCollectionHelper{
-    static var homeCollectionHelper = HomeCollectionHelper()
+    static var helper = HomeCollectionHelper()
     var productData = HomeProductService.homeProductServiceInstance.getData()
     var promoData = HomePromoService.homePromoServiceInstance.getData()
-    var recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getRecommendedData()
-    var guestRecommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getData() //need to use other function this is just for testing
+    var recommendedData = HomeRecommendedService.sharedInstance.getRecommendedData()
+    var guestRecommendedData = HomeRecommendedService.sharedInstance.getData() //need to use other function this is just for testing
     
     func setupHomeProductCollectionCell(_ homeProductCell : HomeProductCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
         homeProductCell.configure(homeProduct: productData[indexPath.row])
@@ -27,7 +27,7 @@ class HomeCollectionHelper{
     
     func updateRecommendedData(isUserSignedIn: Bool){
         if isUserSignedIn{
-            recommendedData = HomeRecommendedService.homeRecommendedServiceInstance.getRecommendedData()
+            recommendedData = HomeRecommendedService.sharedInstance.getRecommendedData()
         }
         else{
             recommendedData = guestRecommendedData

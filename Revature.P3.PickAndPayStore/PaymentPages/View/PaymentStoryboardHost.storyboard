@@ -13,21 +13,5 @@
             </objects>
             <point key="canvasLocation" x="1712" y="79"/>
         </scene>
-        <!--Checkout Hosting Controller-->
-        <scene sceneID="lER-aC-3jG">
-            <objects>
-                <hostingController storyboardIdentifier="CheckoutVC" id="sT7-w4-BdI" customClass="CheckoutHostingController" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="noq-K1-CRr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2419" y="81"/>
-        </scene>
-        <!--Card Payment Hosting Controller-->
-        <scene sceneID="Ft3-Lz-Oye">
-            <objects>
-                <hostingController storyboardIdentifier="CardPaymentVC" id="sft-Gs-X26" customClass="CardPaymentHostingController" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yrD-Lo-lg1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3175" y="78"/>
-        </scene>
     </scenes>
 </document>

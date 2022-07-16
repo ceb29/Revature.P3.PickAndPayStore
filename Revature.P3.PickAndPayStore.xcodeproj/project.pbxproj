@@ -99,6 +99,8 @@
 		84BF33A52878BB1E00E9C29A /* DBHelperProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF33A42878BB1E00E9C29A /* DBHelperProducts.swift */; };
 		84BF33A72878BECB00E9C29A /* ProductHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF33A62878BECB00E9C29A /* ProductHelper.swift */; };
 		84BF33AA2878D08A00E9C29A /* PaymentStoryboardHost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BF33A92878D08A00E9C29A /* PaymentStoryboardHost.storyboard */; };
+		84C8561A28834F170096AEEC /* HomeSearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8561928834F170096AEEC /* HomeSearchHelper.swift */; };
+		84C8561C28834FCF0096AEEC /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8561B28834FCF0096AEEC /* WelcomeView.swift */; };
 		84DC542B287E308F0092346E /* CheckoutHistoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC542A287E308F0092346E /* CheckoutHistoryHelper.swift */; };
 		84DC542F287E43460092346E /* NewProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC542E287E43460092346E /* NewProduct.swift */; };
 		84F2919E28806DF70010D099 /* APIProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2919A28806DF60010D099 /* APIProduct+CoreDataClass.swift */; };
@@ -234,6 +236,8 @@
 		84BF33A42878BB1E00E9C29A /* DBHelperProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelperProducts.swift; sourceTree = "<group>"; };
 		84BF33A62878BECB00E9C29A /* ProductHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHelper.swift; sourceTree = "<group>"; };
 		84BF33A92878D08A00E9C29A /* PaymentStoryboardHost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentStoryboardHost.storyboard; sourceTree = "<group>"; };
+		84C8561928834F170096AEEC /* HomeSearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchHelper.swift; sourceTree = "<group>"; };
+		84C8561B28834FCF0096AEEC /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		84DC542A287E308F0092346E /* CheckoutHistoryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutHistoryHelper.swift; sourceTree = "<group>"; };
 		84DC542E287E43460092346E /* NewProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProduct.swift; sourceTree = "<group>"; };
 		84F2919A28806DF60010D099 /* APIProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 				84A6C976286A4EA50032529A /* HomeCollectionCells */,
 				84A6C981286A4FCA0032529A /* HomePageStoryboard.storyboard */,
 				84B118E62880DA1600FD1F58 /* SearchTableViewCell.swift */,
+				84C8561B28834FCF0096AEEC /* WelcomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				84BF33A62878BECB00E9C29A /* ProductHelper.swift */,
 				84B0A950287B8022007EACEB /* CategoryHelper.swift */,
 				84B0A952287B8406007EACEB /* PromoHelper.swift */,
+				84C8561928834F170096AEEC /* HomeSearchHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -906,6 +912,7 @@
 				84BF33762878AD3800E9C29A /* HistoryDBHelper.swift in Sources */,
 				4B0986C22881FA3200D61849 /* WishlistItemViewModel.swift in Sources */,
 				84A6C973286A3EC60032529A /* HomeViewController.swift in Sources */,
+				84C8561C28834FCF0096AEEC /* WelcomeView.swift in Sources */,
 				8495CDD1287DF7D500493BAF /* DBHelperWishlist.swift in Sources */,
 				84FCC6962875E6D5003D8F0B /* PaymentTextFieldView.swift in Sources */,
 				8432113B2881C59600132EBF /* ProductsTableViewCell.swift in Sources */,
@@ -953,6 +960,7 @@
 				847255F328779B220012DBE1 /* SignUpViewModel.swift in Sources */,
 				843211422881C59600132EBF /* ProductCategoryViewController.swift in Sources */,
 				84BF33A52878BB1E00E9C29A /* DBHelperProducts.swift in Sources */,
+				84C8561A28834F170096AEEC /* HomeSearchHelper.swift in Sources */,
 				845655522873728B00AFF23A /* CheckoutPageUIView.swift in Sources */,
 				843211362881C59600132EBF /* ProductViewModel.swift in Sources */,
 				84BF33782878AD3800E9C29A /* HistoryView.swift in Sources */,
