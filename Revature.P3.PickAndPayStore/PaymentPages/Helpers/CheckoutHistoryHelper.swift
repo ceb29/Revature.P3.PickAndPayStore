@@ -93,7 +93,7 @@ class CheckoutHistoryHelper{
     
     func clearCart(){
         for cartItem in checkoutItems{
-            DBHelperCheckoutItem.dbHelper.deleteCartItemData(productID: cartItem.productID)
+            DBHelperUser.dbHelperUser.deleteCartItem(username: CurrentUser.currentUser.name!, productID: cartItem.productID)
         }
     }
 }
