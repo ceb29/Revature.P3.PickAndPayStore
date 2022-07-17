@@ -44,7 +44,6 @@ struct ShippingDetailsUIView: View {
                 .cornerRadius(15)
                 .padding()
             OrderDetailsView(orderItems: orderItems, shippingcost: CheckoutHistoryHelper.checkoutHistoryHelper.getShippingCost(shippingSelection: shippingSelection), taxCost: CheckoutHistoryHelper.checkoutHistoryHelper.getTaxCost(shippingSelection: shippingSelection), totalCost: CheckoutHistoryHelper.checkoutHistoryHelper.getFinalCost(shippingSelection: shippingSelection))
-                
             Text(paymentText)
                 .padding()
             PaymentAlertView(paymentFlags: paymentFlags, shippingDetailsFlags : shippingDetailsFlags)
@@ -53,7 +52,6 @@ struct ShippingDetailsUIView: View {
                     .padding()
             }
         }
-            
             Spacer()
         }
         .onAppear {orderItems = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
@@ -75,22 +73,13 @@ extension ShippingDetailsUIView{
             if CheckoutHistoryHelper.checkoutHistoryHelper.saveToOrderHistory(shippingDetails: shippingDetails, paymentDetails: paymentDetails, shippingOption: shippingSelection, monthSelection: monthSelection, yearSelection: yearSelection){
                 paymentSuccessful = true
                 paymentText = "Payment Successful"
-                print("successfully placed order")
             }
         }
     }
     
     func setAlertText(){
-        let cardPaymentAlertHelper = CardPaymentAlertHelper()
-        let shippingDetailsAlertHelper = ShippingDetailsAlertHelper()
-        paymentFlags.placeOrderFlag = true
-        paymentFlags.cardNumberFlag = cardPaymentAlertHelper.isValidCardNumber(cardNumber: paymentDetails.cardNumber)
-        paymentFlags.securityCodeFlag = cardPaymentAlertHelper.isValidSecurityCode(securityCode: paymentDetails.securityCode)
-        shippingDetailsFlags.zipCodeFlag = shippingDetailsAlertHelper.isValidZipCode(zipCode: shippingDetails.zipCode)
-        shippingDetailsFlags.addressFlag = shippingDetailsAlertHelper.isValidAddress(address: shippingDetails.address)
-        shippingDetailsFlags.cityFlag = shippingDetailsAlertHelper.isValidCity(city: shippingDetails.city)
-        shippingDetailsFlags.stateFlag = shippingDetailsAlertHelper.isValidState(state: shippingDetails.state)
-        shippingDetailsFlags.countryFlag = shippingDetailsAlertHelper.isValidCountry(country: shippingDetails.country)
+        paymentFlags = CardPaymentAlertHelper.helper.isValidPayment(paymentDetails: paymentDetails)
+        shippingDetailsFlags = ShippingDetailsAlertHelper.helper.isValidShipping(shippingDetails: shippingDetails)
     }
 }
 
@@ -101,6 +90,5 @@ class ShippingHostingController: UIHostingController<ShippingDetailsUIView>{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }

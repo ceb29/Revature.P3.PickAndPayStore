@@ -8,6 +8,18 @@
 import Foundation
 
 struct ShippingDetailsAlertHelper{
+    static var helper = ShippingDetailsAlertHelper()
+    
+    func isValidShipping(shippingDetails: ShippingDetails) -> ShippingDetailsFlags{
+        var shippingDetailsFlags = ShippingDetailsFlags()
+        shippingDetailsFlags.zipCodeFlag = isValidZipCode(zipCode: shippingDetails.zipCode)
+        shippingDetailsFlags.addressFlag = isValidAddress(address: shippingDetails.address)
+        shippingDetailsFlags.cityFlag = isValidCity(city: shippingDetails.city)
+        shippingDetailsFlags.stateFlag = isValidState(state: shippingDetails.state)
+        shippingDetailsFlags.countryFlag = isValidCountry(country: shippingDetails.country)
+        return shippingDetailsFlags
+    }
+    
     func isValidZipCode(zipCode: String) -> Bool{
         let zipCodeRegEx = "^[0-9]{5}$"
         let zipCodePred = NSPredicate(format: "SELF MATCHES %@", zipCodeRegEx)
