@@ -55,7 +55,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     //need to switch this over to MVVM standard
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        DBHelperCheckoutItem.dbHelper.deleteCartItemData(productID: cartItems[indexPath.row].productID)
+//        DBHelperCheckoutItem.dbHelper.deleteCartItemData(productID: cartItems[indexPath.row].productID)
+        DBHelperUser.dbHelperUser.deleteCartItem(username: CurrentUser.currentUser.name!, productID: cartItems[indexPath.row].productID)
         cartItems = OrderDetailsService.orderDetailsServiceInstance.getCheckoutData()
         tableView.deleteRows(at: [indexPath], with: .fade)
         self.updatePricing()
