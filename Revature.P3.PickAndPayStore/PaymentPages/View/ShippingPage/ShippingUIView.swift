@@ -38,12 +38,12 @@ struct ShippingDetailsUIView: View {
                .bold()
             VStack{
                 ShippingDetailsView(shippingDetails: $shippingDetails)
-                ShippingOptionsPickerView(shippingSelection: $shippingSelection, standardShippingText: CheckoutHistoryHelper.checkoutHistoryHelper.getShippingText(shippingSelection: shippingSelection))
+                ShippingOptionsPickerView(shippingSelection: $shippingSelection, standardShippingText: CheckoutHistoryHelper.helper.getShippingText(shippingSelection: shippingSelection))
             }
                 .background(.white)
                 .cornerRadius(15)
                 .padding()
-            OrderDetailsView(orderItems: orderItems, shippingcost: CheckoutHistoryHelper.checkoutHistoryHelper.getShippingCost(shippingSelection: shippingSelection), taxCost: CheckoutHistoryHelper.checkoutHistoryHelper.getTaxCost(shippingSelection: shippingSelection), totalCost: CheckoutHistoryHelper.checkoutHistoryHelper.getFinalCost(shippingSelection: shippingSelection))
+            OrderDetailsView(orderItems: orderItems, shippingcost: CheckoutHistoryHelper.helper.getShippingCost(shippingSelection: shippingSelection), taxCost: CheckoutHistoryHelper.helper.getTaxCost(shippingSelection: shippingSelection), totalCost: CheckoutHistoryHelper.helper.getFinalCost(shippingSelection: shippingSelection))
             Text(paymentText)
                 .padding()
             PaymentAlertView(paymentFlags: paymentFlags, shippingDetailsFlags : shippingDetailsFlags)
@@ -69,8 +69,8 @@ struct ShippingDetailsUIView_Previews: PreviewProvider {
 extension ShippingDetailsUIView{
     func placeOrder(){
         setAlertText()
-        if paymentFlags.cardNumberFlag && paymentFlags.securityCodeFlag && shippingDetailsFlags.zipCodeFlag && shippingDetailsFlags.addressFlag && shippingDetailsFlags.cityFlag && shippingDetailsFlags.stateFlag && shippingDetailsFlags.countryFlag{
-            if CheckoutHistoryHelper.checkoutHistoryHelper.saveToOrderHistory(shippingDetails: shippingDetails, paymentDetails: paymentDetails, shippingOption: shippingSelection, monthSelection: monthSelection, yearSelection: yearSelection){
+        if CheckoutHistoryHelper.helper.areTextFieldsCorrect(paymentFlags: paymentFlags, shippingDetailsFlags: shippingDetailsFlags){
+            if CheckoutHistoryHelper.helper.saveToOrderHistory(shippingDetails: shippingDetails, paymentDetails: paymentDetails, shippingOption: shippingSelection, monthSelection: monthSelection, yearSelection: yearSelection){
                 paymentSuccessful = true
                 paymentText = "Payment Successful"
             }
