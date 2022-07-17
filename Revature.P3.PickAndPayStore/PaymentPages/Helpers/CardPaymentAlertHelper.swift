@@ -7,7 +7,17 @@
 
 import Foundation
 
-struct CardPaymentAlertHelper{
+class CardPaymentAlertHelper{
+    static var helper = CardPaymentAlertHelper()
+    
+    func isValidPayment(paymentDetails: PaymentDetails) -> PaymentFlags{
+        var paymentFlags = PaymentFlags()
+        paymentFlags.placeOrderFlag = true
+        paymentFlags.cardNumberFlag = isValidCardNumber(cardNumber: paymentDetails.cardNumber)
+        paymentFlags.securityCodeFlag = isValidSecurityCode(securityCode: paymentDetails.securityCode)
+        return paymentFlags
+    }
+    
     func isValidCardNumber(cardNumber: String) -> Bool{
         let cardNumberRegEx = "^[0-9]{16}$"
         let cardNumberPred = NSPredicate(format: "SELF MATCHES %@", cardNumberRegEx)

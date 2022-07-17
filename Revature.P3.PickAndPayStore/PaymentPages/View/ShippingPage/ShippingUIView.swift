@@ -81,16 +81,10 @@ extension ShippingDetailsUIView{
     }
     
     func setAlertText(){
-        let cardPaymentAlertHelper = CardPaymentAlertHelper()
-        let shippingDetailsAlertHelper = ShippingDetailsAlertHelper()
-        paymentFlags.placeOrderFlag = true
-        paymentFlags.cardNumberFlag = cardPaymentAlertHelper.isValidCardNumber(cardNumber: paymentDetails.cardNumber)
-        paymentFlags.securityCodeFlag = cardPaymentAlertHelper.isValidSecurityCode(securityCode: paymentDetails.securityCode)
-        shippingDetailsFlags.zipCodeFlag = shippingDetailsAlertHelper.isValidZipCode(zipCode: shippingDetails.zipCode)
-        shippingDetailsFlags.addressFlag = shippingDetailsAlertHelper.isValidAddress(address: shippingDetails.address)
-        shippingDetailsFlags.cityFlag = shippingDetailsAlertHelper.isValidCity(city: shippingDetails.city)
-        shippingDetailsFlags.stateFlag = shippingDetailsAlertHelper.isValidState(state: shippingDetails.state)
-        shippingDetailsFlags.countryFlag = shippingDetailsAlertHelper.isValidCountry(country: shippingDetails.country)
+        paymentFlags = CardPaymentAlertHelper.helper.isValidPayment(paymentDetails: paymentDetails)
+        print(paymentFlags)
+        shippingDetailsFlags = ShippingDetailsAlertHelper.helper.isValidShipping(shippingDetails: shippingDetails)
+        print(shippingDetailsFlags)
     }
 }
 
