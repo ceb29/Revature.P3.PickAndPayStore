@@ -44,7 +44,6 @@ struct ShippingDetailsUIView: View {
                 .cornerRadius(15)
                 .padding()
             OrderDetailsView(orderItems: orderItems, shippingcost: CheckoutHistoryHelper.checkoutHistoryHelper.getShippingCost(shippingSelection: shippingSelection), taxCost: CheckoutHistoryHelper.checkoutHistoryHelper.getTaxCost(shippingSelection: shippingSelection), totalCost: CheckoutHistoryHelper.checkoutHistoryHelper.getFinalCost(shippingSelection: shippingSelection))
-                
             Text(paymentText)
                 .padding()
             PaymentAlertView(paymentFlags: paymentFlags, shippingDetailsFlags : shippingDetailsFlags)
@@ -53,7 +52,6 @@ struct ShippingDetailsUIView: View {
                     .padding()
             }
         }
-            
             Spacer()
         }
         .onAppear {orderItems = OrderDetailsService.orderDetailsServiceInstance.getCheckoutDataWithID()
@@ -75,16 +73,13 @@ extension ShippingDetailsUIView{
             if CheckoutHistoryHelper.checkoutHistoryHelper.saveToOrderHistory(shippingDetails: shippingDetails, paymentDetails: paymentDetails, shippingOption: shippingSelection, monthSelection: monthSelection, yearSelection: yearSelection){
                 paymentSuccessful = true
                 paymentText = "Payment Successful"
-                print("successfully placed order")
             }
         }
     }
     
     func setAlertText(){
         paymentFlags = CardPaymentAlertHelper.helper.isValidPayment(paymentDetails: paymentDetails)
-        print(paymentFlags)
         shippingDetailsFlags = ShippingDetailsAlertHelper.helper.isValidShipping(shippingDetails: shippingDetails)
-        print(shippingDetailsFlags)
     }
 }
 
@@ -95,6 +90,5 @@ class ShippingHostingController: UIHostingController<ShippingDetailsUIView>{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }
