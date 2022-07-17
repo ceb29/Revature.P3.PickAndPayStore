@@ -8,7 +8,7 @@
 import Foundation
 
 class CheckoutHistoryHelper{
-    static var checkoutHistoryHelper = CheckoutHistoryHelper()
+    static var helper = CheckoutHistoryHelper()
     var checkoutItems : [CartItemViewModel] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutData()
     
     func updateCheckoutItems(){
@@ -76,6 +76,13 @@ class CheckoutHistoryHelper{
             case .express:
                 return 14.99
         }
+    }
+    
+    func areTextFieldsCorrect(paymentFlags: PaymentFlags, shippingDetailsFlags: ShippingDetailsFlags) -> Bool{
+        if paymentFlags.cardNumberFlag && paymentFlags.securityCodeFlag && shippingDetailsFlags.zipCodeFlag && shippingDetailsFlags.addressFlag && shippingDetailsFlags.cityFlag && shippingDetailsFlags.stateFlag && shippingDetailsFlags.countryFlag{
+            return true
+        }
+        return false
     }
     
     func getShippingOptionString(shippingOption: ShippingOption) -> String{
