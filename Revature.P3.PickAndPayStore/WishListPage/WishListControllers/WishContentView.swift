@@ -45,7 +45,8 @@ struct WishContentView: View {
         }
     }
     func deleteData(index : IndexSet){
-        DBHelperWishlist.dbHelper.deleteWishlestData(productID: wishObj[index.first!].prodId)
+        //DBHelperWishlist.dbHelper.deleteWishlestData(productID: wishObj[index.first!].prodId)
+        DBHelperUser.dbHelperUser.deleteWishlist(username: CurrentUser.currentUser.name!, productID: wishObj[index.first!].prodId)
         wishObj.remove(atOffsets: index)
     }
 }
