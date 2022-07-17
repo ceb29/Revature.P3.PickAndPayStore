@@ -57,9 +57,12 @@ class OrderDetailsService{
             if price!.contains("$"){
                 newPrice.removeFirst()
             }
+            else if price! == ""{
+                newPrice = "0"
+            }
         }
         else{
-            newPrice = ""
+            newPrice = "0"
         }
         return newPrice
     }
