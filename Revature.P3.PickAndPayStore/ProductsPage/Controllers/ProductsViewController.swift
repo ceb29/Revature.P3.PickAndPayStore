@@ -27,7 +27,6 @@ class ProductsViewController: UIViewController {
         RunLoop.main.add(timer, forMode: .common)
         
         //activate to run search products
-        //ProductService.productService.multiSearchProducts(["B0B538KW78", "B099VMT8VZ", "B07VGRJDFY", "B01CQTUIKE"])
         ProductService.productService.searchProduct(searchedItem)
         
         productsTable.register(ProductsTableViewCell.nib(), forCellReuseIdentifier: ProductsTableViewCell.identefier)

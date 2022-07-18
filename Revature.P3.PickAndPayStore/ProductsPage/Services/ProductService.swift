@@ -10,8 +10,8 @@ import UIKit
 class ProductService{
     
     static var productService = ProductService()
-    private let productModel = ProductsModel()
-    private let searchModel = SearchProductsModel()
+    private let productModel = ProductApiService()
+    private let searchModel = SearchedProductApiService()
     var productViewModel = ProductViewModel()
     var searchedProducts = [SearchProductsViewModel]()
     var updateProduct : (()->())?
