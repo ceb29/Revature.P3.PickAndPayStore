@@ -94,5 +94,19 @@ class DBHelperWishlist{
             print("error deleting data")
         }
     }
+    func deleteHistoryData(productID: String){
+        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "itemHistory")
+        fetchRequest.predicate = NSPredicate(format : "productID == %@", productID)
+        do{
+            let historyItem = try context?.fetch(fetchRequest)
+            if historyItem?.first != nil{
+                context?.delete(historyItem?.first as! ItemHistory)
+                try context?.save()
+            }
+        }
+        catch{
+            print("error deleting data")
+        }
+    }
     
 }

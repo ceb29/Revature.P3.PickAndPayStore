@@ -170,5 +170,18 @@ class DBHelperUser {
             print("error deleting new cart item")
         }
     }
+    func refundItem(username : String, productID: String){
+        let user = getOne(username: username)
+        let historyItem = HistoryDBHelper.histDBHandler.getOneProductData(productID: productID)
+        do{
+            if context != nil{
+                user.removeFromItemHistory(historyItem.productData)
+                try context?.save()
+            }
+        }
+        catch{
+            print("error deleting history item")
+        }
+    }
     
 }

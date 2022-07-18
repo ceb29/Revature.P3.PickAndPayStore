@@ -27,25 +27,46 @@ class HistoryDBHelper {
             print("not saved")
         }
     }
-    
-    func retrieveHistory(productID: String) -> ItemHistory{
-        var entry = ItemHistory()
-        let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "itemHistory")
-        fetchrequest.predicate = NSPredicate(format: "title == %@", productID)
+    func getOneHistoryItemData(user: User, productID : String) -> (historyData : ItemHistory, historyFlag : Bool){
+        var historyItem = ItemHistory()
+        var historyExists = true
+        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ItemHistory")
+        fetchRequest.predicate = NSPredicate(format: "productID == %@ && user == %@", productID, user)
+        fetchRequest.fetchLimit = 1
         do{
-            let request = try context?.fetch(fetchrequest) as! [ItemHistory]
-            if(request.count != 0){
-                entry = request.first as! ItemHistory
+            let request = try context?.fetch(fetchRequest) as! [ItemHistory]
+            if request.count != 0{
+                historyItem = request.first as! ItemHistory
+                historyExists = true
             }
             else{
-                print("entry not found")
+                //print("data not found")
+                historyExists = false
             }
         }
         catch{
-            print("Error")
+            print("error")
         }
-        return entry
+        return (historyItem, historyExists)
     }
+//    func retrieveHistory(productID: String) -> ItemHistory{
+//        var entry = ItemHistory()
+//        let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "itemHistory")
+//        fetchrequest.predicate = NSPredicate(format: "title == %@", productID)
+//        do{
+//            let request = try context?.fetch(fetchrequest) as! [ItemHistory]
+//            if(request.count != 0){
+//                entry = request.first as! ItemHistory
+//            }
+//            else{
+//                print("entry not found")
+//            }
+//        }
+//        catch{
+//            print("Error")
+//        }
+//        return entry
+//    }
     
     func retrieveFullHistory() -> [ItemHistory]{
         var entry = [ItemHistory]()
@@ -58,6 +79,20 @@ class HistoryDBHelper {
             print("notes not found")
         }
         return entry
+    }
+    func deleteHistoryData(productID: String){
+        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "itemHistory")
+        fetchRequest.predicate = NSPredicate(format : "productID == %@", productID)
+        do{
+            let historyItem = try context?.fetch(fetchRequest)
+            if historyItem?.first != nil{
+                context?.delete(historyItem?.first as! ItemHistory)
+                try context?.save()
+            }
+        }
+        catch{
+            print("error deleting data")
+        }
     }
     
 //    func updateNote(orig: String, title: String, body: String){
