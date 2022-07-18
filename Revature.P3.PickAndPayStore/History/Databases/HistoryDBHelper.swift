@@ -49,24 +49,7 @@ class HistoryDBHelper {
         }
         return (historyItem, historyExists)
     }
-//    func retrieveHistory(productID: String) -> ItemHistory{
-//        var entry = ItemHistory()
-//        let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "itemHistory")
-//        fetchrequest.predicate = NSPredicate(format: "title == %@", productID)
-//        do{
-//            let request = try context?.fetch(fetchrequest) as! [ItemHistory]
-//            if(request.count != 0){
-//                entry = request.first as! ItemHistory
-//            }
-//            else{
-//                print("entry not found")
-//            }
-//        }
-//        catch{
-//            print("Error")
-//        }
-//        return entry
-//    }
+
     
     func retrieveFullHistory() -> [ItemHistory]{
         var entry = [ItemHistory]()
