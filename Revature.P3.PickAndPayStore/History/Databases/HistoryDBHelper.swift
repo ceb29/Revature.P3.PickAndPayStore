@@ -47,18 +47,56 @@ class HistoryDBHelper {
         return entry
     }
     
-    func retrieveFullHistory() -> [ItemHistory]{
-        var entry = [ItemHistory]()
-        let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "itemHistory")
-        do{
-            let request = try context?.fetch(fetchrequest) as! [ItemHistory]
-            entry = request
+    func getOneHistoryItemData(user: User, productID : String) -> (historyData : ItemHistory, historyFlag : Bool){
+            var historyItem = ItemHistory()
+            var historyExists = true
+            var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ItemHistory")
+            fetchRequest.predicate = NSPredicate(format: "productID == %@ && user == %@", productID, user)
+            fetchRequest.fetchLimit = 1
+            do{
+                let request = try context?.fetch(fetchRequest) as! [ItemHistory]
+                if request.count != 0{
+                    historyItem = request.first as! ItemHistory
+                    historyExists = true
+                }
+                else{
+                    //print("data not found")
+                    historyExists = false
+                }
+            }
+            catch{
+                print("error")
+            }
+            return (historyItem, historyExists)
         }
-        catch{
-            print("notes not found")
+
+        
+        func retrieveFullHistory() -> [ItemHistory]{
+            var entry = [ItemHistory]()
+            let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "itemHistory")
+            do{
+                let request = try context?.fetch(fetchrequest) as! [ItemHistory]
+                entry = request
+            }
+            catch{
+                print("notes not found")
+            }
+            return entry
         }
-        return entry
-    }
+        func deleteHistoryData(productID: String){
+            var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "itemHistory")
+            fetchRequest.predicate = NSPredicate(format : "productID == %@", productID)
+            do{
+                let historyItem = try context?.fetch(fetchRequest)
+                if historyItem?.first != nil{
+                    context?.delete(historyItem?.first as! ItemHistory)
+                    try context?.save()
+                }
+            }
+            catch{
+                print("error deleting data")
+            }
+        }
     
 //    func updateNote(orig: String, title: String, body: String){
 //        var entry = ItemHistory()
