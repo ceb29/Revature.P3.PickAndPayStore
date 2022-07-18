@@ -9,6 +9,11 @@ import Foundation
 
 class HomeProductService{
     static var homeProductServiceInstance = HomeProductService()
+    
+    private init(){
+        
+    }
+    
     func getData() -> [ProductCategoryViewModel]{
         let productModelData = CategoryHelper.categoryHelper.categories
         var productViewModelData : [ProductCategoryViewModel] = []

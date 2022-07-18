@@ -10,6 +10,10 @@ import Foundation
 class OrderDetailsService{
     static var orderDetailsServiceInstance = OrderDetailsService()
     
+    private init(){
+        
+    }
+    
     func getCheckoutData() -> [CartItemViewModel]{
         var checkoutItems : [CartItemViewModel] = []
         let user = CurrentUser.currentUser.name

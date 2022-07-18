@@ -8,6 +8,8 @@
 import UIKit
 
 class WelcomeView: UIView {
+    
+    
     init() {
         super.init(frame: .zero)
         setupCorners()
@@ -27,5 +29,4 @@ class WelcomeView: UIView {
         layer.cornerRadius = 10
         layer.masksToBounds = true
     }
-
 }

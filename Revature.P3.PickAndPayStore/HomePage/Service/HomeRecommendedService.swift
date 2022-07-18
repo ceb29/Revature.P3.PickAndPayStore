@@ -10,6 +10,10 @@ import Foundation
 class HomeRecommendedService{
     static var sharedInstance = HomeRecommendedService()
     
+    private init(){
+        
+    }
+    
     func getData() -> [HomeRecommended]{
         let recommendedModelData = ProductHelper.productHelper.products
         var recommendedViewModelData : [HomeRecommended] = []

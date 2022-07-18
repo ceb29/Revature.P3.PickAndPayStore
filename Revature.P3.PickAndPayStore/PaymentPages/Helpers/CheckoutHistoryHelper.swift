@@ -11,6 +11,10 @@ class CheckoutHistoryHelper{
     static var helper = CheckoutHistoryHelper()
     var checkoutItems : [CartItemViewModel] = OrderDetailsService.orderDetailsServiceInstance.getCheckoutData()
     
+    private init(){
+        
+    }
+    
     func updateCheckoutItems(){
         checkoutItems = OrderDetailsService.orderDetailsServiceInstance.getCheckoutData()
     }

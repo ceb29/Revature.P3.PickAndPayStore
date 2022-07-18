@@ -58,7 +58,7 @@
                                                     <constraint firstAttribute="height" constant="159" id="6Hj-XE-GVW"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N61-mB-8wS">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appleAdvertisement" translatesAutoresizingMaskIntoConstraints="NO" id="N61-mB-8wS">
                                                 <rect key="frame" x="1" y="524" width="412" height="221"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="221" id="AD7-xr-kRa"/>
@@ -341,11 +341,10 @@
                     <navigationItem key="navigationItem" id="G5p-88-BpY"/>
                     <size key="freeformSize" width="414" height="1250"/>
                     <connections>
-                        <outlet property="bottomPromoImage" destination="N61-mB-8wS" id="a2j-Zk-vNx"/>
                         <outlet property="promoPageControl" destination="SpP-73-PHC" id="5v1-T9-fnh"/>
                         <outlet property="recommendedCollectionView" destination="coG-st-tEw" id="l6v-aq-UJ4"/>
                         <outlet property="searchTable" destination="005-sB-FQa" id="khl-HL-0lp"/>
-                        <outlet property="welcomeButton" destination="hMk-FX-FRA" id="rEr-Yl-tpu"/>
+                        <outlet property="welcomeButton" destination="hMk-FX-FRA" id="ZV2-SZ-cxO"/>
                         <outlet property="welcomeText" destination="Yxo-dq-m8a" id="6Oq-Qw-FyJ"/>
                         <outlet property="welcomeView" destination="IwZ-rn-O9l" id="Hb3-ix-hct"/>
                     </connections>
@@ -356,6 +355,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="appleAdvertisement" width="2000" height="1000"/>
         <image name="backgroundTest2" width="1000" height="2000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
