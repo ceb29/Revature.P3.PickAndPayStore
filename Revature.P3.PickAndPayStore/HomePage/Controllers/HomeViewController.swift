@@ -37,19 +37,27 @@ class HomeViewController: UIViewController{
     }
     
     func setWelcomeText(){
-        if CurrentUser.currentUser.name != "Guest"{
-            isUserSignedIn = true
-        }
-        else{
-            isUserSignedIn = false
-        }
+        isUserSignedIn = checkUserSignedIn()
         if isUserSignedIn{
-            welcomeText.text = CurrentUser.currentUser.name
-            welcomeButton.setTitle("Sign Out", for: .normal)
+            setWelcomeTextToSignOut()
         }
         else{
             setWelcomeTextToSignIn()
         }
+    }
+    
+    func checkUserSignedIn() -> Bool{
+        if CurrentUser.currentUser.name != "Guest"{
+            return true
+        }
+        else{
+            return  false
+        }
+    }
+    
+    func setWelcomeTextToSignOut(){
+        welcomeText.text = CurrentUser.currentUser.name
+        welcomeButton.setTitle("Sign Out", for: .normal)
     }
     
     func setWelcomeTextToSignIn(){
