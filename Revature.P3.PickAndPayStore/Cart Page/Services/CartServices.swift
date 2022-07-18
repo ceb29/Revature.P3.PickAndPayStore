@@ -1,14 +1,17 @@
 //
-//  CartViewModel.swift
+//  CartServices.swift
 //  Revature.P3.PickAndPayStore
 //
-//  Created by Conner Donnelly on 7/12/22.
+//  Created by Conner Donnelly on 7/18/22.
 //
 
 import Foundation
 import UIKit
 
-class cartViewModel{
+class CartServices{
+    
+    static var cartServices = CartServices()
+    
     var subTotal:Double = 0.00
     var estimatedTax:Double = 0.00
     var total:Double = 0.00
