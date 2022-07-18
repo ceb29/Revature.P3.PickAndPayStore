@@ -13,7 +13,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var subTotalLabel: UILabel!
     @IBOutlet weak var taxLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
-    let viewModel = cartViewModel()
+    //var viewModel = cartViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -43,8 +43,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             let shippingVC = storyObject.instantiateViewController(withIdentifier: "ShippingVC")
             self.navigationController?.pushViewController(shippingVC, animated: true)
         }else{
-            self.present(viewModel.dialogLogin, animated: true, completion: nil)
-            viewModel.dialogLogin.addAction(viewModel.acknowledge)
+            self.present(CartServices.cartServices.dialogLogin, animated: true, completion: nil)
+            CartServices.cartServices.dialogLogin.addAction(CartServices.cartServices.acknowledge)
         }
     }
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
@@ -55,17 +55,16 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     //need to switch this over to MVVM standard
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        DBHelperCheckoutItem.dbHelper.deleteCartItemData(productID: cartItems[indexPath.row].productID)
         DBHelperUser.dbHelperUser.deleteCartItem(username: CurrentUser.currentUser.name!, productID: cartItems[indexPath.row].productID)
         cartItems = OrderDetailsService.orderDetailsServiceInstance.getCheckoutData()
         tableView.deleteRows(at: [indexPath], with: .fade)
         self.updatePricing()
     }
     func updatePricing(){
-        viewModel.recalc(items:cartItems) //sets the values in viewModel back to zero & passes the list in the cart to calculate the subTotal, Tax and Total
-        subTotalLabel.text = String(format:"Sub Total: $%.2f",viewModel.subTotal)
-        taxLabel.text = String(format:"Estimated Tax: $%.2f",viewModel.estimatedTax)
-        totalLabel.text = String(format:"Total: $%.2f",viewModel.total)
+        CartServices.cartServices.recalc(items:cartItems) //sets the values in cartServices back to zero & passes the list in the cart to calculate the subTotal, Tax and Total
+        subTotalLabel.text = String(format:"Sub Total: $%.2f",CartServices.cartServices.subTotal)
+        taxLabel.text = String(format:"Estimated Tax: $%.2f",CartServices.cartServices.estimatedTax)
+        totalLabel.text = String(format:"Total: $%.2f",CartServices.cartServices.total)
     }
 
 }
