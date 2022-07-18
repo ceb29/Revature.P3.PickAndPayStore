@@ -81,13 +81,12 @@ class ProductsModel{
             guard let varient = item["variants"].array else{
                 return .failure(productError.pMFailedToLoadPrice)
             }
-            var price = ""
+            var price: String? = nil
             for item in varient{
                 if(item["is_current_product"].boolValue){
-                    price = item["price"]["raw"].stringValue
+                    price = item["price"]["raw"].string
                 }
             }
-                
 
                 
             guard let icon = item["main_image"]["link"].url else{

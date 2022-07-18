@@ -70,12 +70,13 @@ extension ProductsViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let id = ProductService.productService.searchedProducts[indexPath.row].id
+        let product = ProductService.productService.searchedProducts[indexPath.row]
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "ProductVC") as? ProductViewController else{
             return
         }
         
-        vc.currentID = id
+        vc.currentID = product.id
+        vc.currentPrice = product.price
         navigationController?.pushViewController(vc, animated: true)
     }
     
