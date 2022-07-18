@@ -57,7 +57,10 @@ class ProductHelper{
         NewProduct(address: "", category: "", icon: "", images: "", name: "", price: "", productDescription: "", productID: "", rating: "", seller: "")
     ]
     
-    //does storing in cored data even make sense for local products and categories
+    private init(){
+        
+    }
+    
     func addProducts(){
         for product in products{
             DBHelperProducts.dbHelper.addProductData(address: product.address, category: product.category, icon: product.icon, images: product.images, name: product.name, price: product.price, productDescription: product.productDescription, productID: product.productID, rating: product.rating, seller: product.seller)

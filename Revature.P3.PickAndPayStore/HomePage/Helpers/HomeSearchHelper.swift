@@ -10,6 +10,10 @@ import Foundation
 class HomeSearchHelper{
     static var helper = HomeSearchHelper()
     
+    private init(){
+        
+    }
+    
     func searchWithPartial(searchText: String) -> [String]{
         let products = HomeRecommendedService.sharedInstance.getData()
         var currentMax = 0

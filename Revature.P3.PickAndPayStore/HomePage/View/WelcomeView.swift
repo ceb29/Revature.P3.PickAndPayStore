@@ -8,6 +8,8 @@
 import UIKit
 
 class WelcomeView: UIView {
+    
+    
     init() {
         super.init(frame: .zero)
         setupCorners()

@@ -15,6 +15,10 @@ class HomeCollectionHelper{
     var recommendedData = HomeRecommendedService.sharedInstance.getRecommendedData()
     var guestRecommendedData = HomeRecommendedService.sharedInstance.getData() //need to use other function this is just for testing
     
+    private init(){
+        
+    }
+    
     func setupHomeProductCollectionCell(_ homeProductCell : HomeProductCollectionViewCell, _ indexPath : IndexPath) -> UICollectionViewCell{
         homeProductCell.configure(homeProduct: productData[indexPath.row])
         return setupRoundedCellCorners(homeProductCell)

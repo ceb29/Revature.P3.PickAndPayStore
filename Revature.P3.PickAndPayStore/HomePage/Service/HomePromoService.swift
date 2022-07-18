@@ -9,6 +9,11 @@ import Foundation
 
 class HomePromoService{
     static var homePromoServiceInstance = HomePromoService()
+    
+    private init(){
+        
+    }
+    
     func getData() -> [PromoViewModel]{
         let promoModelData = PromoHelper.promoHelper.promos
         var promoViewModelData : [PromoViewModel] = []

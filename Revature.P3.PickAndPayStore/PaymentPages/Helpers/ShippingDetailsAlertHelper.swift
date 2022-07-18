@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct ShippingDetailsAlertHelper{
+class ShippingDetailsAlertHelper{
     static var helper = ShippingDetailsAlertHelper()
+    
+    private init(){
+        
+    }
     
     func isValidShipping(shippingDetails: ShippingDetails) -> ShippingDetailsFlags{
         var shippingDetailsFlags = ShippingDetailsFlags()

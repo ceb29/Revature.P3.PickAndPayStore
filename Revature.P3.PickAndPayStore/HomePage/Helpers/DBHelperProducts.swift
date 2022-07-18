@@ -13,6 +13,10 @@ class DBHelperProducts{
     static var dbHelper = DBHelperProducts()
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
+    private init(){
+        
+    }
+    
     func addProductData(address: String, category: String, icon: String, images: String, name: String, price: String, productDescription: String, productID: String, rating: String, seller: String){
         let product = NSEntityDescription.insertNewObject(forEntityName: "Product", into: context!) as! Product
         product.address = address

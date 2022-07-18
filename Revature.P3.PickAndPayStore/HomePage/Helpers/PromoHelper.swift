@@ -21,4 +21,8 @@ class PromoHelper{
         NewPromo(image: "purinaBeneful_v2", promoID: "local-23"),
         NewPromo(image: "xbox1", promoID: "local-09")
     ]
+    
+    private init(){
+        
+    }
 }

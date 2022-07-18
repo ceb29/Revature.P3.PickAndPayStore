@@ -22,4 +22,8 @@ class CategoryHelper{
         newCategory(name : "Groceries", image: "groceries"),
         newCategory(name : "Pets", image: "pets"),
     ]
+    
+    private init(){
+        
+    }
 }

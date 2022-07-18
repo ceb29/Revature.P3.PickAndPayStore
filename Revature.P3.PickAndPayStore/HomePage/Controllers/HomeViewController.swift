@@ -8,7 +8,6 @@
 import UIKit
 
 class HomeViewController: UIViewController{
-    @IBOutlet weak var bottomPromoImage: UIImageView!
     @IBOutlet weak var welcomeView: UIView!
     @IBOutlet weak var promoPageControl: UIPageControl!
     @IBOutlet weak var recommendedCollectionView: UICollectionView!
@@ -20,7 +19,7 @@ class HomeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+        setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,10 +29,9 @@ class HomeViewController: UIViewController{
         recommendedCollectionView.reloadData()
     }
     
-    func setupViews(){
+    func setup(){
         HomeCollectionHelper.helper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
         ProductHelper.productHelper.createGuestUser()
-        bottomPromoImage.image = UIImage(named: "appleAdvertisement")
     }
     
     func setWelcomeText(){

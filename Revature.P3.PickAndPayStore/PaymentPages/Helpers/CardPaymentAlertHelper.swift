@@ -10,6 +10,10 @@ import Foundation
 class CardPaymentAlertHelper{
     static var helper = CardPaymentAlertHelper()
     
+    private init(){
+        
+    }
+    
     func isValidPayment(paymentDetails: PaymentDetails) -> PaymentFlags{
         var paymentFlags = PaymentFlags()
         paymentFlags.placeOrderFlag = true
