@@ -21,7 +21,7 @@ struct OrderDetailsView : View{
         self.totalCost = totalCost
         UITableView.appearance().contentInset.top = -10 //need to figure out a better way of removing top space from list
         UITableView.appearance().backgroundColor = .clear
-        UITableViewCell.appearance().backgroundColor = .clear
+        //UITableViewCell.appearance().backgroundColor = .clear
     }
     
     var body: some View{

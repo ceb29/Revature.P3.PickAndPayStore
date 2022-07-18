@@ -12,7 +12,7 @@ struct WishContentView: View {
    
     init(){
         UITableView.appearance().backgroundColor = .clear
-        UITableViewCell.appearance().backgroundColor = .clear
+        //UITableViewCell.appearance().backgroundColor = .clear
     }
     
     var body: some View {
