@@ -40,20 +40,33 @@ class HomeViewController: UIViewController{
         if CurrentUser.currentUser.name != "Guest"{
             isUserSignedIn = true
         }
+        else{
+            isUserSignedIn = false
+        }
         if isUserSignedIn{
             welcomeText.text = CurrentUser.currentUser.name
-            welcomeButton.setTitle("Change Account", for: .normal)
+            welcomeButton.setTitle("Sign Out", for: .normal)
         }
         else{
-            welcomeText.text = "Sign in or create an account"
-            welcomeButton.setTitle("Sign In/Sign Up", for: .normal)
+            setWelcomeTextToSignIn()
         }
     }
     
+    func setWelcomeTextToSignIn(){
+        welcomeText.text = "Sign in or create an account"
+        welcomeButton.setTitle("Sign In/Sign Up", for: .normal)
+    }
+    
     @IBAction func goToLoginPage(_ sender: Any) {
-        let storyObject = UIStoryboard(name: "LoginStoryboard", bundle: nil)
-        let loginVC = storyObject.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
-        self.navigationController?.pushViewController(loginVC, animated: true)
+        if !isUserSignedIn{
+            let storyObject = UIStoryboard(name: "LoginStoryboard", bundle: nil)
+            let loginVC = storyObject.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
+            self.navigationController?.pushViewController(loginVC, animated: true)
+        }
+        else{
+            CurrentUser.currentUser.name = "Guest"
+            setWelcomeText()
+        }
     }
 }
 
