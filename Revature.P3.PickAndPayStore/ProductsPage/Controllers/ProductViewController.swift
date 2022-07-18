@@ -14,6 +14,7 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel : UILabel!
     @IBOutlet weak var priceLabel : UILabel!
+    @IBOutlet weak var displayError : UILabel!
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -38,6 +39,7 @@ class ProductViewController: UIViewController {
     
     var timer = Timer()
     var currentID = String()
+    var currentPrice = String()
     var updateAvailable = false
     
     override func viewDidLoad() {
@@ -51,7 +53,7 @@ class ProductViewController: UIViewController {
         productCollectionView.register(ProductCollectionViewCell.nib(), forCellWithReuseIdentifier: ProductCollectionViewCell.identifier)
         
         ProductService.productService.setID(currentID)
-        ProductService.productService.createProduct()
+        ProductService.productService.createProduct(currentPrice)
         viewData()
         
         let date = Date.now.addingTimeInterval(0.2)
@@ -84,7 +86,6 @@ class ProductViewController: UIViewController {
         if(currentID.contains("local-")){
             loadingIcon.stopAnimating()
         }
-        print(ProductService.productService.productViewModel.title)
         productCollectionView.reloadData()
         mainImage.image = ProductService.productService.productViewModel.mainImage
         sellerLable.text = ProductService.productService.productViewModel.seller
@@ -104,6 +105,11 @@ class ProductViewController: UIViewController {
         ProductService.productService.updateProduct = {
             () in
             self.updateAvailable = true
+        }
+        ProductService.productService.manageErrors = {
+            () in
+            self.loadingIcon.stopAnimating()
+            self.displayError.isHidden = false
         }
     }
 }

@@ -216,7 +216,7 @@
                                     <constraint firstAttribute="height" constant="100" id="uew-sE-vBV"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOG-Ej-xsi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOG-Ej-xsi">
                                 <rect key="frame" x="251" y="134" width="153" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="43Y-Ud-MCL"/>
@@ -255,6 +255,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error: Unable to Load Product Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4q-k5-S60">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.80726543100000003" green="0.98774826549999994" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="5rh-Ok-pA5">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" red="0.80726543100000003" green="0.98774826549999994" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -265,6 +272,7 @@
                         <constraints>
                             <constraint firstItem="gMu-4y-SPd" firstAttribute="top" secondItem="hOG-Ej-xsi" secondAttribute="bottom" constant="27" id="0Bs-nG-IYu"/>
                             <constraint firstItem="5rh-Ok-pA5" firstAttribute="leading" secondItem="oqt-Ri-0Q5" secondAttribute="leading" id="0OV-tm-w1w"/>
+                            <constraint firstItem="5rh-Ok-pA5" firstAttribute="leading" secondItem="oqt-Ri-0Q5" secondAttribute="leading" id="53B-as-Crd"/>
                             <constraint firstItem="ow4-o7-OHZ" firstAttribute="leading" secondItem="DMV-jC-bh7" secondAttribute="trailing" constant="8" symbolic="YES" id="7KF-sq-SoC"/>
                             <constraint firstItem="5rh-Ok-pA5" firstAttribute="top" secondItem="oqt-Ri-0Q5" secondAttribute="top" id="AxB-yY-L0w"/>
                             <constraint firstItem="oqt-Ri-0Q5" firstAttribute="bottom" secondItem="pxz-0R-MRQ" secondAttribute="bottom" id="BqC-3S-cMo"/>
@@ -274,6 +282,7 @@
                             <constraint firstItem="ow4-o7-OHZ" firstAttribute="top" secondItem="Pg8-nS-ITw" secondAttribute="bottom" constant="7" id="FiA-uD-AqN"/>
                             <constraint firstItem="oqt-Ri-0Q5" firstAttribute="trailing" secondItem="5rh-Ok-pA5" secondAttribute="trailing" id="IWa-0a-wvw"/>
                             <constraint firstItem="oqt-Ri-0Q5" firstAttribute="trailing" secondItem="gMu-4y-SPd" secondAttribute="trailing" constant="20" id="Iou-hQ-zXT"/>
+                            <constraint firstItem="w4q-k5-S60" firstAttribute="leading" secondItem="oqt-Ri-0Q5" secondAttribute="leading" id="PLY-Zr-zhL"/>
                             <constraint firstItem="DMV-jC-bh7" firstAttribute="top" secondItem="oqt-Ri-0Q5" secondAttribute="top" constant="10" id="SEc-ZG-xeP"/>
                             <constraint firstItem="pxz-0R-MRQ" firstAttribute="leading" secondItem="oqt-Ri-0Q5" secondAttribute="leading" constant="20" id="UOA-PJ-Wzc"/>
                             <constraint firstItem="oqt-Ri-0Q5" firstAttribute="trailing" secondItem="pxz-0R-MRQ" secondAttribute="trailing" constant="20" id="UXJ-CF-MyB"/>
@@ -283,6 +292,8 @@
                             <constraint firstItem="pxz-0R-MRQ" firstAttribute="top" secondItem="k39-tG-gjU" secondAttribute="bottom" constant="40" id="XOQ-7i-mkE"/>
                             <constraint firstItem="gMu-4y-SPd" firstAttribute="leading" secondItem="oqt-Ri-0Q5" secondAttribute="leading" constant="20" id="Y9q-ds-HRh"/>
                             <constraint firstItem="Pg8-nS-ITw" firstAttribute="leading" secondItem="DMV-jC-bh7" secondAttribute="trailing" constant="8" symbolic="YES" id="YQy-sE-dY6"/>
+                            <constraint firstItem="5rh-Ok-pA5" firstAttribute="top" secondItem="oqt-Ri-0Q5" secondAttribute="top" id="adc-L5-K38"/>
+                            <constraint firstItem="oqt-Ri-0Q5" firstAttribute="bottom" secondItem="w4q-k5-S60" secondAttribute="bottom" id="beA-T9-8eU"/>
                             <constraint firstItem="oqt-Ri-0Q5" firstAttribute="bottom" secondItem="pxz-0R-MRQ" secondAttribute="bottom" id="dH8-gj-j8z"/>
                             <constraint firstItem="oqt-Ri-0Q5" firstAttribute="trailing" secondItem="hOG-Ej-xsi" secondAttribute="trailing" constant="10" id="lLz-t5-Lqc"/>
                             <constraint firstItem="Pg8-nS-ITw" firstAttribute="top" secondItem="oqt-Ri-0Q5" secondAttribute="top" constant="11" id="nsz-gB-28n"/>
@@ -290,11 +301,15 @@
                             <constraint firstItem="ovk-Dc-k5R" firstAttribute="top" secondItem="VDV-fd-eJn" secondAttribute="top" id="otm-LO-PwA"/>
                             <constraint firstItem="DMV-jC-bh7" firstAttribute="leading" secondItem="oqt-Ri-0Q5" secondAttribute="leading" constant="13" id="pzZ-hL-vjc"/>
                             <constraint firstItem="oqt-Ri-0Q5" firstAttribute="trailing" secondItem="WiT-rN-aBs" secondAttribute="trailing" constant="76" id="r9o-rc-Hyf"/>
+                            <constraint firstItem="oqt-Ri-0Q5" firstAttribute="trailing" secondItem="w4q-k5-S60" secondAttribute="trailing" id="rvA-4a-SMx"/>
+                            <constraint firstItem="w4q-k5-S60" firstAttribute="top" secondItem="oqt-Ri-0Q5" secondAttribute="top" id="sNy-Yj-GTd"/>
+                            <constraint firstItem="5rh-Ok-pA5" firstAttribute="bottom" secondItem="oqt-Ri-0Q5" secondAttribute="bottom" id="t8E-yk-K5X"/>
                             <constraint firstItem="k39-tG-gjU" firstAttribute="leading" secondItem="oqt-Ri-0Q5" secondAttribute="leading" constant="76" id="tbW-av-q0W"/>
                             <constraint firstItem="oqt-Ri-0Q5" firstAttribute="bottom" secondItem="5rh-Ok-pA5" secondAttribute="bottom" id="vSS-BV-e03"/>
                             <constraint firstItem="k39-tG-gjU" firstAttribute="top" secondItem="UqA-yT-l0c" secondAttribute="bottom" constant="50" id="vVs-z2-RXi"/>
                             <constraint firstItem="oqt-Ri-0Q5" firstAttribute="trailing" secondItem="Pg8-nS-ITw" secondAttribute="trailing" constant="10" id="wjX-eN-R9s"/>
                             <constraint firstItem="UqA-yT-l0c" firstAttribute="trailing" secondItem="oqt-Ri-0Q5" secondAttribute="trailing" id="xgI-vz-zBk"/>
+                            <constraint firstItem="5rh-Ok-pA5" firstAttribute="trailing" secondItem="oqt-Ri-0Q5" secondAttribute="trailing" id="y86-xk-wBC"/>
                         </constraints>
                     </view>
                     <connections>
@@ -320,6 +335,9 @@
         <image name="books.vertical.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
