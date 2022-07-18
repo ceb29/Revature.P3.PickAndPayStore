@@ -122,11 +122,11 @@
             </objects>
             <point key="canvasLocation" x="2970" y="441"/>
         </scene>
-        <!--Item-->
+        <!--User-->
         <scene sceneID="0jN-AW-5QV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EZU-T5-rAi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="list.bullet.rectangle.portrait.fill" catalog="system" selectedImage="list.bullet.rectangle.portrait" id="iqe-f1-77d"/>
+                    <tabBarItem key="tabBarItem" title="User" image="person" catalog="system" selectedImage="person.fill" id="iqe-f1-77d"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ifw-AQ-tpf">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -164,8 +164,8 @@
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="list.bullet.rectangle.portrait" catalog="system" width="115" height="128"/>
-        <image name="list.bullet.rectangle.portrait.fill" catalog="system" width="115" height="128"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

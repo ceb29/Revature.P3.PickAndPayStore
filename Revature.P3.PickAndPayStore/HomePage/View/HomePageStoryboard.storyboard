@@ -291,6 +291,7 @@
                                 <rect key="frame" x="10" y="141" width="394" height="254"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchCell" id="JBQ-Qt-eaG" customClass="SearchTableViewCell" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="394" height="43.5"/>
