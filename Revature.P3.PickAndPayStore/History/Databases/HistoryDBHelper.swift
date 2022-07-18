@@ -48,7 +48,7 @@ class HistoryDBHelper {
     }
     
     func retrieveFullHistory() -> [ItemHistory]{
-        var entry = [ItemHistory()]
+        var entry = [ItemHistory]()
         let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "itemHistory")
         do{
             let request = try context?.fetch(fetchrequest) as! [ItemHistory]

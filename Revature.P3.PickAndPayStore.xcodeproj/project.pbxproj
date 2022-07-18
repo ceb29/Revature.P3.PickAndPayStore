@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BC85ABC28856F5D002AD022 /* HistoryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC85ABB28856F5D002AD022 /* HistoryItemViewModel.swift */; };
+		3BC85ABF288571E2002AD022 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC85ABE288571E1002AD022 /* HistoryModel.swift */; };
+		3BC85AC128857F4A002AD022 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC85AC028857F4A002AD022 /* HistoryService.swift */; };
 		4B0986C22881FA3200D61849 /* WishlistItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0986C12881FA3200D61849 /* WishlistItemViewModel.swift */; };
 		4B0986C52881FAEF00D61849 /* WishListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0986C42881FAEF00D61849 /* WishListService.swift */; };
 		5647C767287D8BB90007A9AD /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5647C766287D8BB90007A9AD /* CartViewModel.swift */; };
@@ -141,6 +144,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3BC85ABB28856F5D002AD022 /* HistoryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemViewModel.swift; sourceTree = "<group>"; };
+		3BC85ABE288571E1002AD022 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		3BC85AC028857F4A002AD022 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
 		4B0986C12881FA3200D61849 /* WishlistItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistItemViewModel.swift; sourceTree = "<group>"; };
 		4B0986C42881FAEF00D61849 /* WishListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListService.swift; sourceTree = "<group>"; };
 		5647C766287D8BB90007A9AD /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
@@ -286,6 +292,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BC85AB928856E76002AD022 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3BC85ABB28856F5D002AD022 /* HistoryItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3BC85ABA28856E86002AD022 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3BC85AC028857F4A002AD022 /* HistoryService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3BC85ABD28857160002AD022 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3BC85ABE288571E1002AD022 /* HistoryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4B0986C32881FABD00D61849 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +635,9 @@
 		84BF33702878AD3800E9C29A /* History */ = {
 			isa = PBXGroup;
 			children = (
+				3BC85ABD28857160002AD022 /* Model */,
+				3BC85ABA28856E86002AD022 /* Services */,
+				3BC85AB928856E76002AD022 /* ViewModel */,
 				84BF33712878AD3800E9C29A /* Databases */,
 				84BF33732878AD3800E9C29A /* View */,
 			);
@@ -902,6 +935,7 @@
 				84BF336D2878AD1600E9C29A /* CartViewController.swift in Sources */,
 				84A6C984286A57840032529A /* HomeCollectionHelper.swift in Sources */,
 				84A6C97E286A4F4F0032529A /* HomePromoCollectionViewCell.swift in Sources */,
+				3BC85ABC28856F5D002AD022 /* HistoryItemViewModel.swift in Sources */,
 				843211432881C59600132EBF /* DBHelperPoductApi.swift in Sources */,
 				843211372881C59600132EBF /* ProductsModel.swift in Sources */,
 				8495CDD3287DF7EB00493BAF /* DBHelperCheckoutItem.swift in Sources */,
@@ -929,6 +963,7 @@
 				847255F428779B220012DBE1 /* PastOrderViewModel.swift in Sources */,
 				84660691287760B300237DE6 /* PaymentFlags.swift in Sources */,
 				84705CF9286A2EAF0005B525 /* Revature_P3_PickAndPayStore.xcdatamodeld in Sources */,
+				3BC85AC128857F4A002AD022 /* HistoryService.swift in Sources */,
 				84F291B3288071AE0010D099 /* CheckOrderSwiftUI.swift in Sources */,
 				846606932877622200237DE6 /* ShippingDetailsFlags.swift in Sources */,
 				84705CF3286A2EAF0005B525 /* ViewController.swift in Sources */,
@@ -988,6 +1023,7 @@
 				8456554C2873649800AFF23A /* OrderDetailsView.swift in Sources */,
 				84705CF1286A2EAF0005B525 /* SceneDelegate.swift in Sources */,
 				843211352881C59600132EBF /* SearchProductsViewModel.swift in Sources */,
+				3BC85ABF288571E2002AD022 /* HistoryModel.swift in Sources */,
 				84DC542F287E43460092346E /* NewProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

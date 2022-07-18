@@ -113,9 +113,9 @@ class LoginViewController: UIViewController {
                         CurrentUser.currentUser.name = user.username
 //                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //                        let loginNextScreen = storyboard.instantiateViewController(withIdentifier: "TabBar")
-//                        //show the tab controller as an instantiated vc
+                        //show the tab controller as an instantiated vc
 //                        loginNextScreen.modalPresentationStyle = .fullScreen
-//                        self.present(loginNextScreen, animated: true, completion: nil)
+                        navigationController?.popToRootViewController(animated: true)
                         print("Signed in works")
                         //save password to keychain if remember me is on
                } else {
