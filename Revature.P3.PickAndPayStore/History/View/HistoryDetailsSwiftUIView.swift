@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct HistoryDetailsSwiftUIView: View {
-    @State var historyItems : [historyItem] = [historyItem(image: "basketball", name: "basketball", date : "01-01-2022"), historyItem(image: "games", name: "games", date : "01-01-2022"), historyItem(image: "doritos", name: "Doritos", date : "01-01-2022"), historyItem(image: "ipad4", name: "Ipad 4", date : "01-01-2022"),]
+    
+    @State var historyItems : [HistoryItemViewModel] = HistoryService.historyService.getHist()
     var body: some View {
         Text("Order History")
             .font(.system(size: 30))
@@ -16,13 +17,14 @@ struct HistoryDetailsSwiftUIView: View {
         VStack{
             List{
                 Section(header: Text("Previously Ordered Items").foregroundColor(.black), footer : Spacer(minLength: 0)){
-                    ForEach(historyItems, id: \.id){ item in
+                    ForEach(historyItems, id: \.productID){ item in
                         HStack{
-                            Image(item.image)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
+//                            Image(item.imageData)
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+//                            Data(item.imageData!)
                             Text(item.name)
-                            Text(item.date)
+                            Text(item.date, style : .date)
                             
                         }
                     }
