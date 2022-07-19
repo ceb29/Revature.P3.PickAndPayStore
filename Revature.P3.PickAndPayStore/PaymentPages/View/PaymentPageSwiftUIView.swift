@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-struct ShippingDetailsUIView: View {
+struct PaymentPageSwiftUIView: View {
     @State private var shippingDetails = ShippingDetails()
     @State private var shippingSelection : ShippingOption = .standard
     @State private var shippingDetailsFlags = ShippingDetailsFlags()
@@ -60,13 +60,13 @@ struct ShippingDetailsUIView: View {
     }
 }
 
-struct ShippingDetailsUIView_Previews: PreviewProvider {
+struct PaymentPageSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        ShippingDetailsUIView()
+        PaymentPageSwiftUIView()
     }
 }
 
-extension ShippingDetailsUIView{
+extension PaymentPageSwiftUIView{
     func placeOrder(){
         setAlertText()
         if CheckoutHistoryHelper.helper.areTextFieldsCorrect(paymentFlags: paymentFlags, shippingDetailsFlags: shippingDetailsFlags){
@@ -83,9 +83,9 @@ extension ShippingDetailsUIView{
     }
 }
 
-class ShippingHostingController: UIHostingController<ShippingDetailsUIView>{
+class ShippingHostingController: UIHostingController<PaymentPageSwiftUIView>{
     required init?(coder: NSCoder) {
-        super.init(coder: coder, rootView: ShippingDetailsUIView());
+        super.init(coder: coder, rootView: PaymentPageSwiftUIView());
     }
 
     override func viewDidLoad() {
