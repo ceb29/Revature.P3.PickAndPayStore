@@ -14,7 +14,6 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var welcomeButton: UIButton!
     @IBOutlet weak var searchTable: UITableView!
-    var isUserSignedIn = false
     var searchResults : [String] = []
     
     override func viewDidLoad() {
@@ -24,56 +23,31 @@ class HomeViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setWelcomeText()
-        HomeCollectionHelper.helper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
+        setupWelcomeView()
+        HomeCollectionHelper.helper.updateRecommendedData(isUserSignedIn: SignInHelper.helper.isUserSignedIn)
         recommendedCollectionView.reloadData()
     }
     
     func setup(){
-        HomeCollectionHelper.helper.updateRecommendedData(isUserSignedIn: isUserSignedIn)
+        HomeCollectionHelper.helper.updateRecommendedData(isUserSignedIn: SignInHelper.helper.isUserSignedIn)
         ProductHelper.productHelper.createGuestUser()
     }
     
-    func setWelcomeText(){
-        isUserSignedIn = checkUserSignedIn()
-        if isUserSignedIn{
-            setWelcomeTextToSignOut()
-        }
-        else{
-            setWelcomeTextToSignIn()
-        }
-    }
-    
-    func checkUserSignedIn() -> Bool{
-        if CurrentUser.currentUser.name != "Guest"{
-            return true
-        }
-        else{
-            return  false
-        }
-    }
-    
-    func setWelcomeTextToSignOut(){
-        welcomeText.text = CurrentUser.currentUser.name
-        welcomeButton.setTitle("Sign Out", for: .normal)
-    }
-    
-    func setWelcomeTextToSignIn(){
-        welcomeText.text = "Sign in or create an account"
-        welcomeButton.setTitle("Sign In/Sign Up", for: .normal)
+    func setupWelcomeView(){
+        let currentText = SignInHelper.helper.setWelcomeText()
+        welcomeText.text = currentText.labelText
+        welcomeButton.setTitle(currentText.buttonText, for: .normal)
     }
     
     @IBAction func goToLoginPage(_ sender: Any) {
-        if !isUserSignedIn{
+        if !SignInHelper.helper.isUserSignedIn{
             let storyObject = UIStoryboard(name: "LoginStoryboard", bundle: nil)
             let loginVC = storyObject.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
             self.navigationController?.pushViewController(loginVC, animated: true)
         }
         else{
             CurrentUser.currentUser.name = "Guest"
-            setWelcomeText()
+            setupWelcomeView()
         }
     }
 }
-
-

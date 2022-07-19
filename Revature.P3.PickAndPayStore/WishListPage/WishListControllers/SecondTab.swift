@@ -11,7 +11,6 @@ import SwiftUI
 class SecondTab: UIViewController {
     @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var signInButton: UIButton!
-    var isUserSignedIn = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,32 +23,9 @@ class SecondTab: UIViewController {
     }
     
     func setWelcomeText(){
-        isUserSignedIn = checkUserSignedIn()
-        if isUserSignedIn{
-            setWelcomeTextToSignOut()
-        }
-        else{
-            setWelcomeTextToSignIn()
-        }
-    }
-    
-    func checkUserSignedIn() -> Bool{
-        if CurrentUser.currentUser.name != "Guest"{
-            return true
-        }
-        else{
-            return  false
-        }
-    }
-    
-    func setWelcomeTextToSignOut(){
-        welcomeText.text = CurrentUser.currentUser.name
-        signInButton.setTitle("Sign Out", for: .normal)
-    }
-    
-    func setWelcomeTextToSignIn(){
-        welcomeText.text = "Sign in or create an account"
-        signInButton.setTitle("Sign In/Sign Up", for: .normal)
+        let currentText = SignInHelper.helper.setWelcomeText()
+        welcomeText.text = currentText.labelText
+        signInButton.setTitle(currentText.buttonText, for: .normal)
     }
     
     @IBAction func goToCheckOrderStatus(_ sender: Any) {
@@ -68,7 +44,7 @@ class SecondTab: UIViewController {
     }
     
     @IBAction func SignInUp(_ sender: Any) {
-        if !isUserSignedIn{
+        if !SignInHelper.helper.isUserSignedIn{
             let storyObject = UIStoryboard(name: "LoginStoryboard", bundle: nil)
             let loginVC = storyObject.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
             self.navigationController?.pushViewController(loginVC, animated: true)
