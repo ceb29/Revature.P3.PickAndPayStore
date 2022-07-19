@@ -9,72 +9,74 @@ import UIKit
 import SwiftUI
 
 class SecondTab: UIViewController {
+    @IBOutlet weak var welcomeText: UILabel!
+    @IBOutlet weak var signInButton: UIButton!
+    var isUserSignedIn = false
 
-    var userChoices = [
-        SecondTabChoices(choices: "Check Order", symbols: "checkorder"),
-        SecondTabChoices(choices: "History", symbols: "history"),
-        SecondTabChoices(choices: "Wish List", symbols: "wishlist")
-    ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setWelcomeText()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setWelcomeText()
+    }
+    
+    func setWelcomeText(){
+        isUserSignedIn = checkUserSignedIn()
+        if isUserSignedIn{
+            setWelcomeTextToSignOut()
+        }
+        else{
+            setWelcomeTextToSignIn()
+        }
+    }
+    
+    func checkUserSignedIn() -> Bool{
+        if CurrentUser.currentUser.name != "Guest"{
+            return true
+        }
+        else{
+            return  false
+        }
+    }
+    
+    func setWelcomeTextToSignOut(){
+        welcomeText.text = CurrentUser.currentUser.name
+        signInButton.setTitle("Sign Out", for: .normal)
+    }
+    
+    func setWelcomeTextToSignIn(){
+        welcomeText.text = "Sign in or create an account"
+        signInButton.setTitle("Sign In/Sign Up", for: .normal)
+    }
+    
+    @IBAction func goToCheckOrderStatus(_ sender: Any) {
+        let checkOrderHostingController = UIHostingController(rootView: CheckOrderSwiftUI())
+        self.navigationController?.pushViewController(checkOrderHostingController, animated: true)
+    }
+    
+    @IBAction func goToOrderHistory(_ sender: Any) {
+        let historyHostingController = UIHostingController(rootView: HistoryView())
+        self.navigationController?.pushViewController(historyHostingController, animated: true)
+    }
+    
+    @IBAction func goToWishList(_ sender: Any) {
+        let wishListHostingController = UIHostingController(rootView: WishContentView())
+        self.navigationController?.pushViewController(wishListHostingController, animated: true)
     }
     
     @IBAction func SignInUp(_ sender: Any) {
-        let storyBoard = UIStoryboard(name: "LoginStoryboard", bundle: nil)
-        let signInAndUp = storyBoard.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
-        self.navigationController?.pushViewController(signInAndUp, animated: true)
-    }
-      
-
-}
-extension SecondTab: UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userChoices.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.backgroundColor = UIColor.clear
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.colors = [
-            UIColor.systemGreen.cgColor,
-            UIColor.white.cgColor
-        ]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SecondTabCell
-        cell.selection.text = userChoices[indexPath.row].choices
-        cell.listIcon.image = UIImage(named: userChoices[indexPath.row].symbols)
-        
-        
-        cell.backgroundColor = UIColor.clear
-        cell.listIcon.layer.cornerRadius = 10
-        //cell.layer.cornerRadius = cell.listIcon.frame.height / 2
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//        let wishList = storyBoard.instantiateViewController(withIdentifier: "wishPage") as! WishTableVC
-//        let history = storyBoard.instantiateViewController(withIdentifier: "historyPage") // as! HistoryTableVC
-        
-        let vc0 = UIHostingController(rootView: CheckOrderSwiftUI())
-        let vc1 = UIHostingController(rootView: HistoryView())
-        let vc2 = UIHostingController(rootView: WishContentView())
-        
-        switch(indexPath.row){
-        case 0:
-            self.navigationController?.pushViewController(vc0, animated: true)
-        case 1:
-            self.navigationController?.pushViewController(vc1, animated: true)
-        case 2:
-            self.navigationController?.pushViewController(vc2, animated: true)
-        default:
-            print("Nothing selected")
+        if !isUserSignedIn{
+            let storyObject = UIStoryboard(name: "LoginStoryboard", bundle: nil)
+            let loginVC = storyObject.instantiateViewController(withIdentifier: "SignIn") as! LoginViewController
+            self.navigationController?.pushViewController(loginVC, animated: true)
         }
-        
+        else{
+            CurrentUser.currentUser.name = "Guest"
+            setWelcomeText()
+        }
     }
-
 }
 
