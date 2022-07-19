@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="4844.927536231884" y="481.47321428571428"/>
         </scene>
-        <!--userChoiceVC-->
+        <!--UserPageVC-->
         <scene sceneID="aIA-B8-FH0">
             <objects>
-                <viewControllerPlaceholder storyboardName="WishListStoryboard" referencedIdentifier="userChoiceVC" id="Q4O-BS-vED" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="UserPageStoryboard" referencedIdentifier="UserPageVC" id="Q4O-BS-vED" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="gOH-U5-C9N"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jn-7J-SfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

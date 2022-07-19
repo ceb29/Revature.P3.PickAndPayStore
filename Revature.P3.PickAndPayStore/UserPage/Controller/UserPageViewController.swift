@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class SecondTab: UIViewController {
+class UserPageViewContoller: UIViewController {
     @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var signInButton: UIButton!
 
@@ -39,7 +39,7 @@ class SecondTab: UIViewController {
     }
     
     @IBAction func goToWishList(_ sender: Any) {
-        let wishListHostingController = UIHostingController(rootView: WishContentView())
+        let wishListHostingController = UIHostingController(rootView: WishListSwiftUIView())
         self.navigationController?.pushViewController(wishListHostingController, animated: true)
     }
     

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Second Tab-->
+        <!--User Page View Contoller-->
         <scene sceneID="deT-1d-tBV">
             <objects>
-                <viewController storyboardIdentifier="userChoiceVC" id="Zxy-LQ-h4C" customClass="SecondTab" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserPageVC" id="Zxy-LQ-h4C" customClass="UserPageViewContoller" customModule="Revature_P3_PickAndPayStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w51-OU-4cJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
