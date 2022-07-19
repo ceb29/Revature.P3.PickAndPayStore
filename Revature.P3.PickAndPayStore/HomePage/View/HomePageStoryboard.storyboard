@@ -258,7 +258,7 @@
                                                     <outlet property="delegate" destination="ahj-ne-8MP" id="fux-zY-a8N"/>
                                                 </connections>
                                             </collectionView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appTitle" translatesAutoresizingMaskIntoConstraints="NO" id="drg-9f-FXo">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appTitle2" translatesAutoresizingMaskIntoConstraints="NO" id="drg-9f-FXo">
                                                 <rect key="frame" x="73" y="0.0" width="272" height="39"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="39" id="1jf-sT-Ki2"/>
@@ -385,7 +385,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appTitle" width="400" height="50"/>
+        <image name="appTitle2" width="400" height="50"/>
         <image name="appleAdvertisement" width="2000" height="1000"/>
         <image name="backgroundTest2" width="1000" height="2000"/>
         <systemColor name="systemBackgroundColor">

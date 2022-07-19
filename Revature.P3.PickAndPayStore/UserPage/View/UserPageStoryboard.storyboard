@@ -122,7 +122,7 @@
                                     <outletCollection property="gestureRecognizers" destination="sP7-KN-1iR" appends="YES" id="82V-zo-qtB"/>
                                 </connections>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appTitle" translatesAutoresizingMaskIntoConstraints="NO" id="VXQ-Tr-xOB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appTitle2" translatesAutoresizingMaskIntoConstraints="NO" id="VXQ-Tr-xOB">
                                 <rect key="frame" x="47" y="44" width="320" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="ytx-rL-wVh"/>
@@ -188,7 +188,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appTitle" width="400" height="50"/>
+        <image name="appTitle2" width="400" height="50"/>
         <image name="backgroundTest2" width="1000" height="2000"/>
         <image name="checkorder" width="128" height="128"/>
         <image name="history" width="225" height="225"/>
