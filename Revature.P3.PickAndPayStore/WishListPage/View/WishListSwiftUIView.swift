@@ -2,7 +2,7 @@
 //  WishContentView.swift
 //  WishList
 //
-//  Created by Admin on 7/18/22.
+//  Created by admin on 7/18/22.
 //
 
 import SwiftUI
