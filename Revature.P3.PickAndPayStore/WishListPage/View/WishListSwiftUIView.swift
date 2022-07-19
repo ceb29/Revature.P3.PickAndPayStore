@@ -21,7 +21,7 @@ struct WishListSwiftUIView: View {
                 List{
                     Section(header: Text("List of items")){
                         ForEach(wishObj, id: \.id){items in
-                            WishlistItemUIView(name: items.name, productID: items.prodId, id: items.id, selection: $selection)
+                            WishlistItemUIView(name: items.name, productID: items.prodId, price: items.prodPrice, id: items.id, selection: $selection)
                         }
                         .onDelete(perform: deleteData)
                         .onMove(perform: {fset, nset in
