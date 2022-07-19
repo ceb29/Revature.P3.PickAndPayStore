@@ -9,8 +9,8 @@ import UIKit
 
 class SecondTabCell: UITableViewCell {
 
-    @IBOutlet weak var listIcon: UIImageView!
-    @IBOutlet weak var selection: UILabel!
+    @IBOutlet weak var vcImage: UIImageView!
+    @IBOutlet weak var vcLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +22,10 @@ class SecondTabCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func configure(text: String, image: String){
+        vcLabel.text = text
+        vcImage.image = UIImage(named: image)
+    }
+    
 }
