@@ -2,10 +2,11 @@
 //  WishListService.swift
 //  Revature.P3.PickAndPayStore
 //
-//  Created by Mihir Ghosh on 7/15/22.
+//  Created by admin on 7/19/22.
 //
 
 import Foundation
+
 class WishListService{
     static var wishService = WishListService()
     
@@ -38,7 +39,7 @@ class WishListService{
         else{
             let currentResult = DBHelperProductApi.dBHelperProductApi.getProductApiItem(productID: productId)
             if case .success(let currentProduct) = currentResult{
-                wishListItem = WishlistItemViewModel(name: currentProduct.title ?? "", prodId: currentProduct.productId ?? "", prodPrice: removeDollarSign(price: currentProduct.price))
+                wishListItem = WishlistItemViewModel(name: currentProduct.title ?? "", prodId: currentProduct.productId ?? "", prodPrice: currentProduct.price ?? "")
             }
         }
         return wishListItem
@@ -48,20 +49,6 @@ class WishListService{
         let currentProduct = ProductHelper.productHelper.getProductByID(productID: productID)
         let wishListItem = WishlistItemViewModel(name: currentProduct.name, prodId: currentProduct.productID, prodPrice: currentProduct.price)
         return wishListItem
-    }
-    
-    func removeDollarSign(price: String?) -> String{
-        var newPrice : String
-        if price != nil{
-            newPrice = price!
-            if price!.contains("$"){
-                newPrice.removeFirst()
-            }
-        }
-        else{
-            newPrice = ""
-        }
-        return newPrice
     }
     
     func isLocalCheckoutItem(productID: String) -> Bool{

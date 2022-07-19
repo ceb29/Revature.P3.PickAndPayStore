@@ -2,10 +2,11 @@
 //  WishlistItemViewModel.swift
 //  Revature.P3.PickAndPayStore
 //
-//  Created by Mihir Ghosh on 7/15/22.
+//  Created by admin on 7/19/22.
 //
 
 import Foundation
+
 struct WishlistItemViewModel: Identifiable{
     var id = UUID()
     var name : String

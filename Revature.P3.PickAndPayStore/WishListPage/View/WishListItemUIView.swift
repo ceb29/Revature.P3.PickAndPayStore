@@ -10,17 +10,18 @@ import SwiftUI
 struct WishlistItemUIView: View{
     var name : String
     var productID : String
+    var price : String
     var id : UUID?
     @Binding var selection : UUID?
     
     var body: some View{
         VStack{
             HStack{
-                Image(systemName: "star")
                 Text(name)
                 Spacer()
             }
             HStack{
+                Text(price)
                 Spacer()
                 if selection == id{
                     Image(systemName: "checkmark")
