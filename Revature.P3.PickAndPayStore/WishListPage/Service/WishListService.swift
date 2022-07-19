@@ -11,25 +11,43 @@ class WishListService{
     
     func getData() -> [WishlistItemViewModel]{
         var wishListItems : [WishlistItemViewModel] = []
+        let user = CurrentUser.currentUser.name
         guard CurrentUser.currentUser.name != nil else{
             return wishListItems
         }
-        let wishListItemsModel = DBHelperUser.dbHelperUser.getWishlist(username: CurrentUser.currentUser.name!)
-        for wishListItem in wishListItemsModel{
-            if wishListItem.productID != nil{
-                if isLocalCheckoutItem(productID: wishListItem.productID!){
-                    let currentProduct = ProductHelper.productHelper.getProductByID(productID: wishListItem.productID!)
-                    wishListItems.append(WishlistItemViewModel(name: currentProduct.name, prodId: currentProduct.productID, prodPrice: currentProduct.price))
-                }
-                else{
-                    let currentResult = DBHelperProductApi.dBHelperProductApi.getProductApiItem(productID: wishListItem.productID!)
-                    if case .success(let currentProduct) = currentResult{
-                        wishListItems.append(WishlistItemViewModel(name: currentProduct.title ?? "", prodId: currentProduct.productId ?? "", prodPrice: removeDollarSign(price: currentProduct.price)))
-                    }
-                }
+        let wishListItemsModel = DBHelperUser.dbHelperUser.getWishlist(username: user!)
+        for wishListItemModel in wishListItemsModel{
+            guard wishListItemModel.productID != nil else{
+                continue
             }
+            let wishListItem = addWishListItem(productId: wishListItemModel.productID!)
+            guard wishListItem != nil else{
+                continue
+            }
+            wishListItems.append(wishListItem!)
+            
         }
         return wishListItems
+    }
+    
+    func addWishListItem(productId: String) -> WishlistItemViewModel?{
+        var wishListItem : WishlistItemViewModel?
+        if isLocalCheckoutItem(productID: productId){
+            wishListItem = addLocalItem(productID: productId)
+        }
+        else{
+            let currentResult = DBHelperProductApi.dBHelperProductApi.getProductApiItem(productID: productId)
+            if case .success(let currentProduct) = currentResult{
+                wishListItem = WishlistItemViewModel(name: currentProduct.title ?? "", prodId: currentProduct.productId ?? "", prodPrice: removeDollarSign(price: currentProduct.price))
+            }
+        }
+        return wishListItem
+    }
+    
+    func addLocalItem(productID: String) -> WishlistItemViewModel{
+        let currentProduct = ProductHelper.productHelper.getProductByID(productID: productID)
+        let wishListItem = WishlistItemViewModel(name: currentProduct.name, prodId: currentProduct.productID, prodPrice: currentProduct.price)
+        return wishListItem
     }
     
     func removeDollarSign(price: String?) -> String{
