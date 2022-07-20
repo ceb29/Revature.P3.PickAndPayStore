@@ -16,7 +16,7 @@ class CartServices{
     var estimatedTax:Double = 0.00
     var total:Double = 0.00
     let dialogLogin = UIAlertController(title: "Warning!", message: "You need to be logged in to place an order", preferredStyle: .alert)
-    let acknowledge = UIAlertAction(title: "Acknowledge", style: .cancel) {(action) -> Void in}
+    let acknowledge = UIAlertAction(title: "Acknowledge", style: .default) {(action) -> Void in}
     func subTotal (items: [Double]){
         for item in items{
         subTotal = subTotal + item
