@@ -33,7 +33,7 @@ class ProductViewController: UIViewController {
             DBHelperUser.dbHelperUser.addWishlist(username: CurrentUser.currentUser.name!, productID: currentID)
             storeData()
             
-            self.tabBarController?.selectedIndex = 2
+            //self.tabBarController?.selectedIndex = 2
         }
     }
     
