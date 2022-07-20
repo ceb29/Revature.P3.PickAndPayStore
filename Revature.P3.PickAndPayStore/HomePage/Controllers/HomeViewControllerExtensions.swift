@@ -87,13 +87,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension HomeViewController : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchResults = []
+        //searchResults = []
         if searchText.isEmpty{ //if search is empty, search results table view should be hidden
+            searchResults = []
             searchTable.isHidden = true
         }
         else{ //filter data using search text and store in search results
             searchTable.isHidden = false
-            searchResults = HomeSearchHelper.helper.searchWithPartial(searchText: searchText)
+            searchResults = HomeSearchHelper.helper.search(searchText: searchText)
         }
         searchTable.reloadData()
     }
