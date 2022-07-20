@@ -40,7 +40,7 @@ class ProductViewController: UIViewController {
     var timer = Timer()
     var currentID = String()
     var currentPrice = String()
-    var updateAvailable = false
+    var updateAvailable = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,19 +97,22 @@ class ProductViewController: UIViewController {
     }
     
     @objc func updateImages(){
-        if(updateAvailable){
+        if(updateAvailable == 1){
             viewData()
             loadingIcon.stopAnimating()
+            timer.invalidate()
+        }else if(updateAvailable == 2){
+            self.loadingIcon.stopAnimating()
+            self.displayError.isHidden = false
             timer.invalidate()
         }
         ProductService.productService.updateProduct = {
             () in
-            self.updateAvailable = true
+            self.updateAvailable = 1
         }
         ProductService.productService.manageErrors = {
             () in
-            self.loadingIcon.stopAnimating()
-            self.displayError.isHidden = false
+            self.updateAvailable = 2
         }
     }
 }

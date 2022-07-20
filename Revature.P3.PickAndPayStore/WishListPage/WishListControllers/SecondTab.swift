@@ -55,11 +55,8 @@ extension SecondTab: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//        let wishList = storyBoard.instantiateViewController(withIdentifier: "wishPage") as! WishTableVC
-//        let history = storyBoard.instantiateViewController(withIdentifier: "historyPage") // as! HistoryTableVC
-        
-        let vc0 = UIHostingController(rootView: CheckOrderSwiftUI())
+        let storyBoard = UIStoryboard(name: "Purchased", bundle: nil)
+        let vc0 = storyBoard.instantiateViewController(withIdentifier: "purchasedVC") as! PurchasedViewController
         let vc1 = UIHostingController(rootView: HistoryView())
         let vc2 = UIHostingController(rootView: WishContentView())
         

@@ -9,6 +9,7 @@ import Foundation
 
 enum productError: Error{
     case pMUnreadableUrl
+    case pMFailedToLoadData
     case pMFailedToLoadProduct
     case pMFailedToLoadProductID
     case pMFailedToLoadCategory
