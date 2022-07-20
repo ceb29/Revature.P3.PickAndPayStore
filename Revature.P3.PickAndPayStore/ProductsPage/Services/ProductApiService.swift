@@ -42,10 +42,16 @@ class ProductApiService{
         
         do
         {
-            let (data, _) = try await URLSession.shared.data(from: url)
+            let sessionConfig = URLSessionConfiguration.default
+            sessionConfig.timeoutIntervalForRequest = 20.0
+//            sessionConfig.timeoutIntervalForResource = 20.0
+            let session = URLSession(configuration: sessionConfig)
+            
+            
+            let (data, _) = try await session.data(from: url)
+
             
             let json = try! JSON(data: data)
-            print("worked")
             let item = json["product"]
             
             guard let title = item["title"].string else{
@@ -107,7 +113,7 @@ class ProductApiService{
             return .success(ProductApi(id: id, category: category, rating: String(rating), title: title, price: price, iconUrl: iconData, imagesurl: images, desc: description, seller: seller))
         }
         catch{
-            return .failure(productError.pMUnreadableUrl)
+            return .failure(productError.pMFailedToLoadData)
         }
     }
 }

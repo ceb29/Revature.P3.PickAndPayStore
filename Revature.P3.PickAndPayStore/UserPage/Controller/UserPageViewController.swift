@@ -29,7 +29,9 @@ class UserPageViewContoller: UIViewController {
     }
     
     @IBAction func goToCheckOrderStatus(_ sender: Any) {
-        let checkOrderHostingController = UIHostingController(rootView: CheckOrderSwiftUI())
+        let storyBoard = UIStoryboard(name: "Purchased", bundle: nil)
+        
+        let checkOrderHostingController = storyBoard.instantiateViewController(withIdentifier: "purchasedVC")
         self.navigationController?.pushViewController(checkOrderHostingController, animated: true)
     }
     
