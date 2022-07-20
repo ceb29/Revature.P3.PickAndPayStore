@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ProductViewController: UIViewController {
 
@@ -31,6 +32,8 @@ class ProductViewController: UIViewController {
         if CurrentUser.currentUser.name != nil{
             DBHelperUser.dbHelperUser.addWishlist(username: CurrentUser.currentUser.name!, productID: currentID)
             storeData()
+            
+            self.tabBarController?.selectedIndex = 2
         }
     }
     

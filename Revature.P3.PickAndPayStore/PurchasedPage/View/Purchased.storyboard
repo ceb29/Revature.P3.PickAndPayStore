@@ -35,10 +35,11 @@
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="npJ-LZ-JmE">
                                 <rect key="frame" x="0.0" y="135" width="414" height="422"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="422" id="jXP-yw-rkc"/>
                                 </constraints>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uyd-x8-hvT">
                                 <rect key="frame" x="84" y="807" width="246" height="5"/>
@@ -110,9 +111,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fy0-Qt-gff">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fy0-Qt-gff">
                                 <rect key="frame" x="82" y="676" width="250" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="246" id="0b6-6D-sJQ"/>
+                                    <constraint firstAttribute="height" constant="29" id="HCO-ep-ugK"/>
+                                </constraints>
                             </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -126,8 +130,10 @@
                             <constraint firstItem="npJ-LZ-JmE" firstAttribute="top" secondItem="eoa-NM-sNz" secondAttribute="bottom" constant="26" id="85e-Ls-61z"/>
                             <constraint firstItem="npJ-LZ-JmE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="BnW-tB-AeU"/>
                             <constraint firstItem="OcN-L9-K6l" firstAttribute="top" secondItem="alV-eM-IOH" secondAttribute="bottom" constant="4.5" id="Cgx-aG-qen"/>
+                            <constraint firstItem="fy0-Qt-gff" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Efp-ub-qEC"/>
                             <constraint firstItem="alV-eM-IOH" firstAttribute="top" secondItem="hbW-Eg-SI4" secondAttribute="bottom" constant="26.5" id="F6n-bh-HxO"/>
                             <constraint firstItem="hbW-Eg-SI4" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="GMC-NQ-jSB"/>
+                            <constraint firstItem="hbW-Eg-SI4" firstAttribute="top" secondItem="fy0-Qt-gff" secondAttribute="bottom" constant="49" id="GtN-cB-2st"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="uyd-x8-hvT" secondAttribute="bottom" constant="50" id="L58-u7-8wm"/>
                             <constraint firstItem="eoa-NM-sNz" firstAttribute="centerX" secondItem="npJ-LZ-JmE" secondAttribute="centerX" id="OyO-te-7e4"/>
                             <constraint firstItem="J2q-SV-eZ6" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="QZW-rr-qRT"/>
