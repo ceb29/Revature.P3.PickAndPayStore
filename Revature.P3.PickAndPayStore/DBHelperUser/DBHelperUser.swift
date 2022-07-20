@@ -203,7 +203,7 @@ class DBHelperUser {
     
     func finishShipping(username : String, productID: String){
         let user = getOne(username: username)
-        let historyItem = HistoryDBHelper.histDBHandler.getOneHistoryItemData(user: user, productID: productID)
+        let historyItem = HistoryDBHelper.histDBHandler.getOneShippingItemData(user: user, productID: productID)
         do{
             if context != nil{
                 historyItem.historyData.finishedShipping = true
