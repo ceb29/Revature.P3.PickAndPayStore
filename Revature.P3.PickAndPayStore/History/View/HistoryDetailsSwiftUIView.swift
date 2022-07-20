@@ -30,7 +30,7 @@ struct HistoryDetailsSwiftUIView: View {
                     }
                 }
             }
-        
+            .onAppear { historyItems = HistoryService.historyService.getHist()}
             .padding(.bottom, 5)
             
         }
