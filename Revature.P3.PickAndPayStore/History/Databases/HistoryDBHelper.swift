@@ -69,6 +69,33 @@ class HistoryDBHelper {
             }
             return (historyItem, historyExists)
         }
+    
+    func getOneShippingItemData(user: User, productID : String) -> (historyData : ItemHistory, historyFlag : Bool){
+            var historyItem = ItemHistory()
+            var historyExists = true
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ItemHistory")
+            fetchRequest.predicate = NSPredicate(format: "productID == %@ && user == %@", productID, user)
+            do{
+                let request = try context?.fetch(fetchRequest) as! [ItemHistory]
+                if request.count != 0{
+                    
+                    for item in request{
+                        if(!item.finishedShipping){
+                            historyItem = item
+                        }
+                    }
+                    historyExists = true
+                }
+                else{
+                    //print("data not found")
+                    historyExists = false
+                }
+            }
+            catch{
+                print("error")
+            }
+            return (historyItem, historyExists)
+        }
 
         
         func retrieveFullHistory() -> [ItemHistory]{
