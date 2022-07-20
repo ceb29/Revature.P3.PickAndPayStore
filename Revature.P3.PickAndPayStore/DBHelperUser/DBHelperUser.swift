@@ -142,6 +142,22 @@ class DBHelperUser {
         return itemHistory
     }
     
+    func getShippingHistory(username: String) -> [ItemHistory]{
+        let user = DBHelperUser.dbHelperUser.getOne(username: username)
+        let itemHistory = user.itemHistory?.allObjects as! [ItemHistory]
+        var recentPurchase = [ItemHistory]()
+        
+        for item in itemHistory{
+            if(!item.finishedShipping){
+                recentPurchase.append(item)
+            }
+        }
+        print("item Data: \(recentPurchase)")
+
+        return recentPurchase
+    }
+    
+    
     func deleteCartItem(username: String, productID: String){
         let user = getOne(username: username)
         let cartItem = DBHelperCheckoutItem.dbHelper.getOneCartItemData(user: user, productID: productID)
@@ -170,6 +186,7 @@ class DBHelperUser {
             print("error deleting new cart item")
         }
     }
+    
     func refundItem(username : String, productID: String){
         let user = getOne(username: username)
         let historyItem = HistoryDBHelper.histDBHandler.getOneHistoryItemData(user: user, productID: productID)
@@ -181,6 +198,20 @@ class DBHelperUser {
         }
         catch{
             print("error deleting history item")
+        }
+    }
+    
+    func finishShipping(username : String, productID: String){
+        let user = getOne(username: username)
+        let historyItem = HistoryDBHelper.histDBHandler.getOneHistoryItemData(user: user, productID: productID)
+        do{
+            if context != nil{
+                historyItem.historyData.finishedShipping = true
+                try context?.save()
+            }
+        }
+        catch{
+            print("error finishing shipping")
         }
     }
     

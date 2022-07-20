@@ -314,6 +314,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="pxz-0R-MRQ" id="Eby-CE-d8l"/>
+                        <outlet property="displayError" destination="w4q-k5-S60" id="0Xl-uW-1EG"/>
                         <outlet property="loadingIcon" destination="5rh-Ok-pA5" id="dfS-L7-h0u"/>
                         <outlet property="mainImage" destination="DMV-jC-bh7" id="uP6-zg-arW"/>
                         <outlet property="priceLabel" destination="ow4-o7-OHZ" id="Bdy-cD-rjg"/>
