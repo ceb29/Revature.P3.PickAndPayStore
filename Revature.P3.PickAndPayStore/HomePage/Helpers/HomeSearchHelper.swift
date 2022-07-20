@@ -9,9 +9,52 @@ import Foundation
 
 class HomeSearchHelper{
     static var helper = HomeSearchHelper()
-    
+    var lastResults : [String] = []
     private init(){
         
+    }
+    
+    
+    func search(searchText: String) -> [String]{
+        let products = HomeRecommendedService.sharedInstance.getData()
+        var results : [String] = []
+        for i in 0..<products.count{
+            if products[i].name.lowercased().contains(searchText.lowercased()){
+                results.append(products[i].productID)
+            }
+        }
+        if results.count == 0{
+            return lastResults
+        }
+        lastResults = results
+        return results
+    }
+    
+    func searchWithRegex(searchText: String) -> [String]{
+        let products = HomeRecommendedService.sharedInstance.getData()
+        var results : [String] = []
+        let regex = "\\b" + NSRegularExpression.escapedPattern(for: searchText.lowercased())
+        for i in 0..<products.count{
+            if products[i].name.lowercased().range(of: regex, options: .regularExpression) != nil{
+                results.append(products[i].productID)
+            }
+        }
+        if results.count == 0{
+            return lastResults
+        }
+        lastResults = results
+        return results
+    }
+    
+    func searchWithPrefix(searchText: String) -> [String]{
+        let products = HomeRecommendedService.sharedInstance.getData()
+        var results : [String] = []
+        for i in 0..<products.count{
+            if products[i].name.lowercased().hasPrefix(searchText.lowercased()){
+                results.append(products[i].productID)
+            }
+        }
+        return results
     }
     
     func searchWithPartial(searchText: String) -> [String]{
@@ -44,5 +87,7 @@ class HomeSearchHelper{
         }
         return searchResults
     }
+    
+    
     
 }
