@@ -39,15 +39,26 @@ class WishListService{
         else{
             let currentResult = DBHelperProductApi.dBHelperProductApi.getProductApiItem(productID: productId)
             if case .success(let currentProduct) = currentResult{
-                wishListItem = WishlistItemViewModel(name: currentProduct.title ?? "", prodId: currentProduct.productId ?? "", prodPrice: currentProduct.price ?? "")
+                wishListItem = WishlistItemViewModel(name: currentProduct.title ?? "", prodId: currentProduct.productId ?? "", prodPrice: setupPrice(price: currentProduct.price))
             }
         }
         return wishListItem
     }
     
+    func setupPrice(price: String?) -> String{
+        guard price != nil else{
+            return ""
+        }
+        var newPrice = price!
+        if !newPrice.contains("$"){
+            newPrice = "$" + newPrice
+        }
+        return newPrice
+    }
+    
     func addLocalItem(productID: String) -> WishlistItemViewModel{
         let currentProduct = ProductHelper.productHelper.getProductByID(productID: productID)
-        let wishListItem = WishlistItemViewModel(name: currentProduct.name, prodId: currentProduct.productID, prodPrice: currentProduct.price)
+        let wishListItem = WishlistItemViewModel(name: currentProduct.name, prodId: currentProduct.productID, prodPrice: "$" + currentProduct.price)
         return wishListItem
     }
     
