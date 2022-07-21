@@ -45,7 +45,13 @@ class SearchedProductApiService{
         }
         
         do {
-        let (data, _) = try await URLSession.shared.data(from: url)
+            let sessionConfig = URLSessionConfiguration.default
+            sessionConfig.timeoutIntervalForRequest = 10.0
+            sessionConfig.timeoutIntervalForResource = 15.0
+            let session = URLSession(configuration: sessionConfig)
+            
+            
+        let (data, _) = try await session.data(from: url)
             
             let json = try! JSON(data: data)
             
