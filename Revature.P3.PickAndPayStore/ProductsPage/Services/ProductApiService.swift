@@ -34,7 +34,7 @@ class ProductApiService{
         // any search query....
         //spaces must be replaced by +...
         
-        let url = URL(string: "https://api.rainforestapi.com/request?api_key=EC521707AB464E8BB2077A4B2184F915&type=product&amazon_domain=amazon.com&asin=\(getProductId())")
+        let url = URL(string: "https://api.rainforestapi.com/request?api_key=DD58AF78368C40429C1CD15071831C77&type=product&amazon_domain=amazon.com&asin=\(getProductId())")
         
         guard let url = url else{
             return .failure(productError.pMUnreadableUrl)
