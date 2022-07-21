@@ -43,11 +43,11 @@ class ProductsViewController: UIViewController {
             timer.invalidate()
         }
         
-        ProductService.productService.updateProduct = {
+        ProductService.productService.updateSearchProduct = {
             () in
             self.isUpdateAvailable = true
         }
-        ProductService.productService.manageErrors = {
+        ProductService.productService.manageSearchErrors = {
             () in
             self.isUpdateAvailable = true
         }

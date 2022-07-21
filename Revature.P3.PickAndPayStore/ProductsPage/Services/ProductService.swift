@@ -16,6 +16,8 @@ class ProductService{
     var searchedProducts = [SearchProductsViewModel]()
     var updateProduct : (()->())?
     var manageErrors : (()->())?
+    var updateSearchProduct : (()->())?
+    var manageSearchErrors : (()->())?
     
     private var productID = String()
     
@@ -56,10 +58,10 @@ class ProductService{
                 for i in products{
                     self.searchedProducts.append(SearchProductsViewModel(id: i.id!, title: i.title!, rating: i.rating!, price: i.price!, icon: UIImage(data: i.iconUrl)!))
                 }
-                self.updateProduct?()
+                self.updateSearchProduct?()
                 break
             case .failure(let error):
-                self.manageErrors?()
+                self.manageSearchErrors?()
                 print(error)
             }
         }

@@ -38,7 +38,7 @@ class SearchedProductApiService{
         //spaces must be replaced by +...
         searchProduct = [SearchProductApi]()
         
-        let url = URL(string: "https://api.rainforestapi.com/request?api_key=EC521707AB464E8BB2077A4B2184F915&type=search&amazon_domain=amazon.com&search_term=\(getSearchProduct())")
+        let url = URL(string: "https://api.rainforestapi.com/request?api_key=DD58AF78368C40429C1CD15071831C77&type=search&amazon_domain=amazon.com&search_term=\(getSearchProduct())")
         
         guard let url = url else{
             return .failure(searchProductError.sPMUnreadableUrl)
