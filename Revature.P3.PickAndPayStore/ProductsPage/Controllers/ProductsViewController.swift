@@ -47,6 +47,10 @@ class ProductsViewController: UIViewController {
             () in
             self.isUpdateAvailable = true
         }
+        ProductService.productService.manageErrors = {
+            () in
+            self.isUpdateAvailable = true
+        }
     }
 }
 

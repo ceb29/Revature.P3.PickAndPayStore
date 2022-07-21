@@ -59,6 +59,7 @@ class ProductService{
                 self.updateProduct?()
                 break
             case .failure(let error):
+                self.manageErrors?()
                 print(error)
             }
         }
@@ -66,7 +67,7 @@ class ProductService{
     
     
     func createProduct(_ currentPrice : String = "N/A"){
-        
+        productViewModel = ProductViewModel()
         if(productID.contains("local-")){
             let temPoduct = ProductHelper.productHelper.getProductByID(productID: productID)
             productViewModel.title = temPoduct.name
